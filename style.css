@@ -1,0 +1,151 @@
+/* Sistema "Stern Kia" (Kia Web Style Guide): Preto Noturno + Branco Polar, cantos retos,
+   hierarquia pela opacidade do texto. Azul-petróleo fica só nos dashboards internos. */
+:root {
+  --noite: #05141f;
+  --branco: #ffffff;
+  --ink: #05141f;
+  --ink-80: rgba(5, 20, 31, .8);
+  --ink-60: rgba(5, 20, 31, .6);
+  --keyline: rgba(5, 20, 31, .2);
+  --sutil: rgba(5, 20, 31, .03);
+  --verde: #5d7d2b;
+  --fonte: "Kia Signature", "Helvetica Neue", Arial, sans-serif;
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body { margin: 0; font-family: var(--fonte); color: var(--ink); background: var(--branco); display: flex; }
+button { font-family: inherit; }
+
+/* ---------- menu lateral ---------- */
+.lado {
+  width: 260px; flex: none; position: sticky; top: 0; height: 100vh;
+  background: var(--noite); color: #fff; display: flex; flex-direction: column; padding: 30px 0;
+}
+/* logo vertical preto sobre branco -> branco sobre Preto Noturno */
+.logo-stern { width: 150px; margin: 0 30px 40px; filter: invert(1); mix-blend-mode: screen; }
+.abas { display: flex; flex-direction: column; }
+.aba {
+  background: none; border: 0; border-left: 4px solid transparent; cursor: pointer;
+  color: rgba(255, 255, 255, .6); text-align: left; font-size: 18px; font-weight: 700; padding: 18px 26px;
+}
+.aba:hover { color: #fff; }
+.aba.ativa { color: #fff; border-left-color: #fff; background: rgba(255, 255, 255, .06); }
+.lado-rodape { margin-top: auto; padding: 0 30px; display: flex; flex-direction: column; gap: 10px; font-size: 13px; color: rgba(255, 255, 255, .6); line-height: 1.4; }
+.logo-service { height: 16px; width: auto; align-self: flex-start; margin-bottom: 6px; }
+
+/* ---------- conteúdo ---------- */
+.conteudo { flex: 1; min-width: 0; padding: 40px 58px 60px; max-width: 1380px; }
+
+/* ---------- busca ---------- */
+.busca { position: relative; }
+.busca-rotulo { display: block; font-size: 16px; font-weight: 700; text-transform: uppercase; margin-bottom: 10px; }
+.campo { display: flex; align-items: center; gap: 12px; height: 64px; padding: 0 18px; border: 1px solid var(--keyline); background: #fff; }
+.campo:focus-within { border-color: var(--ink); }
+.lupa { width: 24px; height: 24px; flex: none; color: var(--ink); }
+#campo-busca { flex: 1; border: 0; outline: 0; font: inherit; font-size: 22px; color: var(--ink); background: transparent; min-width: 0; }
+#campo-busca::placeholder { color: var(--ink-60); }
+.campo kbd { font-family: inherit; font-size: 11px; color: var(--ink-60); border: 1px solid var(--keyline); padding: 3px 6px; }
+.sugestoes {
+  position: absolute; z-index: 10; left: 0; right: 0; top: 100%; margin: 0; padding: 0; list-style: none;
+  background: #fff; border: 1px solid var(--ink); border-top: 0; max-height: 440px; overflow-y: auto;
+}
+.sugestoes li { padding: 12px 18px; cursor: pointer; display: flex; justify-content: space-between; gap: 16px; font-size: 17px; border-top: 1px solid var(--keyline); }
+.sugestoes li.marcada, .sugestoes li:hover { background: var(--noite); color: #fff; }
+.sugestoes li.marcada .anos, .sugestoes li:hover .anos { color: rgba(255, 255, 255, .8); }
+.sugestoes .anos { color: var(--ink-60); white-space: nowrap; }
+.sugestoes .vazio { color: var(--ink-60); cursor: default; }
+.sugestoes .vazio:hover { background: #fff; color: var(--ink-60); }
+
+/* ---------- cabeçalho do modelo ---------- */
+.modelo { display: flex; justify-content: space-between; align-items: flex-end; gap: 30px; border-bottom: 1px solid var(--keyline); padding-bottom: 20px; margin: 40px 0 25px; }
+.modelo-nome { font-size: 34px; font-weight: 700; line-height: 1.2; margin: 0; text-transform: uppercase; }
+.modelo-anos { font-size: 18px; color: var(--ink-80); margin-top: 6px; }
+.selo { display: inline-block; margin-top: 12px; border: 1px solid var(--ink); padding: 5px 12px; font-size: 13px; font-weight: 700; text-transform: uppercase; }
+.foto { width: 220px; height: 120px; flex: none; background: var(--sutil); border: 1px solid var(--keyline); display: flex; flex-direction: column; align-items: center; justify-content: center; color: var(--ink-60); font-size: 13px; overflow: hidden; }
+.foto img { width: 100%; height: 100%; object-fit: cover; }
+.foto svg { width: 90px; height: 50px; margin-bottom: 6px; }
+
+/* ---------- revisões: uma por linha; clique abre os itens ---------- */
+.lista { display: flex; flex-direction: column; gap: 10px; }
+.rev { border: 1px solid var(--keyline); background: #fff; }
+.rev:hover, .rev.aberta { border-color: var(--ink); }
+.rev-topo {
+  width: 100%; border: 0; background: none; color: inherit; cursor: pointer; text-align: left;
+  display: grid; grid-template-columns: 190px 1fr 260px 130px; align-items: center; gap: 20px; padding: 20px 22px;
+}
+.rev-topo:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+.rev-num { font-size: 16px; font-weight: 700; text-transform: uppercase; display: block; }
+.rev-km { font-size: 14px; color: var(--ink-60); display: block; margin-top: 3px; }
+.rev-total { font-size: 30px; font-weight: 700; }
+.rev-partes { font-size: 14px; color: var(--ink-80); line-height: 1.5; }
+.rev-abrir { display: flex; justify-content: flex-end; align-items: center; gap: 10px; font-size: 13px; font-weight: 700; text-transform: uppercase; }
+.seta { display: inline-block; transition: transform .15s; }
+.rev.aberta .seta { transform: rotate(180deg); }
+.gratuita { display: inline-block; margin-top: 6px; padding: 2px 9px; border: 1px solid var(--verde); color: var(--verde); border-radius: 12.5px; font-size: 11px; font-weight: 700; text-transform: uppercase; }
+
+.rev-itens { display: none; grid-template-columns: 2fr 1fr; gap: 40px; border-top: 1px solid var(--keyline); background: var(--sutil); padding: 18px 22px 24px; }
+.rev.aberta .rev-itens { display: grid; }
+.grupo { display: flex; justify-content: space-between; font-size: 13px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; margin: 4px 0 8px; }
+.item { display: flex; justify-content: space-between; gap: 14px; font-size: 16px; padding: 8px 0; border-bottom: 1px solid var(--keyline); }
+.item .qtd { display: block; font-size: 13px; color: var(--ink-60); margin-top: 2px; }
+.item .v { white-space: nowrap; font-weight: 700; font-variant-numeric: tabular-nums; }
+/* manutenção especial: mesmo cartão, com fundo sutil e borda escura para diferenciar da revisão regular */
+.especiais { margin-top: 40px; border-top: 1px solid var(--keyline); padding-top: 25px; }
+.especiais-titulo { margin: 0; font-size: 22px; text-transform: uppercase; }
+.especiais-nota { margin: 6px 0 18px; font-size: 14px; color: var(--ink-80); }
+.rev.especial { background: var(--sutil); border-color: var(--ink); }
+.rev.especial .rev-num { font-size: 14px; }
+.rev.especial .rev-km { font-size: 15px; font-weight: 700; color: var(--ink); }
+
+.pagamento { margin-top: 22px; }
+.pagamento-texto { font-size: 15px; line-height: 1.5; padding: 8px 0; border-bottom: 1px solid var(--keyline); }
+.botao {
+  display: flex; align-items: center; justify-content: center; width: 100%; height: 46px; margin-top: 18px;
+  background: var(--noite); color: #fff; border: 0; font-size: 14px; font-weight: 700; text-transform: uppercase; cursor: pointer;
+}
+.botao:hover { opacity: .8; }
+.botao-sec { background: #fff; color: var(--ink); border: 1px solid var(--ink); }
+.botao + .botao { margin-top: 10px; }
+
+/* ---------- janela do pré-orçamento ---------- */
+.janela { position: fixed; inset: 0; z-index: 50; background: rgba(5, 20, 31, .8); display: flex; align-items: center; justify-content: center; padding: 20px; }
+.janela[hidden] { display: none; }
+.janela-caixa { background: #fff; width: 100%; max-width: 720px; max-height: 92vh; display: flex; flex-direction: column; padding: 26px 30px; }
+.janela-cab { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
+.janela-cab h2 { margin: 0; font-size: 20px; }
+.fechar { width: 41px; height: 41px; border-radius: 50%; border: 1px solid var(--keyline); background: #fff; font-size: 24px; line-height: 1; cursor: pointer; color: var(--ink); }
+.fechar:hover { border-color: var(--ink); }
+#texto-orcamento { flex: 1; min-height: 420px; width: 100%; resize: vertical; border: 1px solid var(--keyline); padding: 14px 16px; font: inherit; font-size: 15px; line-height: 1.5; color: var(--ink); background: var(--sutil); }
+.janela-acoes { display: flex; gap: 10px; align-items: center; justify-content: flex-end; margin-top: 16px; }
+.janela-acoes .botao { width: auto; margin: 0; padding: 0 30px; }
+.copiado { margin-right: auto; font-size: 14px; color: var(--verde); font-weight: 700; }
+.botao[disabled] { opacity: .4; cursor: not-allowed; }
+
+/* ---------- mensagens ---------- */
+.mensagem { margin-top: 40px; border: 1px solid var(--keyline); padding: 26px; }
+.mensagem h2 { margin: 0 0 8px; font-size: 20px; text-transform: uppercase; }
+.mensagem .opcoes { display: flex; gap: 10px; flex-wrap: wrap; margin: 12px 0; }
+.mensagem button { border: 1px solid var(--ink); background: #fff; color: var(--ink); border-radius: 15px; height: 30px; padding: 0 15px; cursor: pointer; font-size: 14px; font-weight: 700; }
+.mensagem button:hover { background: var(--noite); color: #fff; }
+.contato { color: var(--ink-60); font-size: 14px; }
+.inicio { color: var(--ink-80); margin-top: 30px; font-size: 16px; }
+.aviso-construcao { border: 1px dashed var(--keyline); padding: 30px; max-width: 760px; }
+.aviso-construcao h2 { margin-top: 0; }
+
+/* uso raro no celular: menu vira barra no topo */
+@media (max-width: 900px) {
+  body { flex-direction: column; }
+  .lado { position: static; width: 100%; height: auto; flex-direction: row; align-items: center; padding: 10px 16px; }
+  .logo-stern { width: 80px; margin: 0 16px 0 0; }
+  .abas { flex-direction: row; }
+  .aba { border-left: 0; border-bottom: 4px solid transparent; padding: 10px 14px; font-size: 16px; }
+  .aba.ativa { border-bottom-color: #fff; background: none; }
+  .lado-rodape { display: none; }
+  .conteudo { padding: 20px 16px; }
+  .rev-topo { grid-template-columns: 1fr auto; }
+  .rev-partes { grid-column: 1 / -1; }
+  .rev-itens { grid-template-columns: 1fr; gap: 10px; }
+  .modelo { flex-direction: column-reverse; align-items: flex-start; }
+  .foto { width: 100%; }
+}

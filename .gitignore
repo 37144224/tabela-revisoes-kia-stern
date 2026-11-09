@@ -1,0 +1,17 @@
+# Originais (planilhas, PDFs e e-mails) nunca vão para o Git: o repositório será público
+fonte/
+*.xlsx
+*.xls
+*.pdf
+email-*.txt
+
+# Python
+__pycache__/
+*.pyc
+
+# Sistema
+Thumbs.db
+desktop.ini
+
+# Arquivos preparados para enviar por e-mail (cópias de planilha, zips)
+envios/

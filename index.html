@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- não aparecer no Google (PRD 3.1) -->
+  <meta name="robots" content="noindex, nofollow">
+  <title>Revisões e Garantia · Kia Stern</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Menu lateral (Proposta B, escolhida pelo Leonardo em 09/11/2026) -->
+  <aside class="lado">
+    <img class="logo-stern" src="assets/logos/kia-stern-vertical-preto.png" alt="Kia Stern">
+    <nav class="abas" role="tablist">
+      <button class="aba ativa" role="tab" data-aba="revisoes" aria-selected="true">Revisões</button>
+      <button class="aba" role="tab" data-aba="garantia" aria-selected="false">Garantia</button>
+    </nav>
+    <div class="lado-rodape">
+      <img class="logo-service" src="assets/logos/kia-service-branco.png" alt="Kia Service">
+      <span id="data-tabela"></span>
+      <span>Dúvidas: Cleidiane<br>garantia@sternkia.com.br</span>
+    </div>
+  </aside>
+
+  <main class="conteudo">
+    <!-- ABA REVISÕES -->
+    <section id="painel-revisoes" class="painel">
+      <div class="busca">
+        <label for="campo-busca" class="busca-rotulo">Modelo do veículo</label>
+        <div class="campo">
+          <svg class="lupa" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+            <circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L21 21"/></svg>
+          <input id="campo-busca" type="search" autocomplete="off" spellcheck="false"
+                 placeholder="Digite o modelo, ex.: sportage 2023, cerato flex, bongo"
+                 aria-autocomplete="list" aria-controls="sugestoes">
+          <kbd>CTRL + K</kbd>
+        </div>
+        <ul id="sugestoes" class="sugestoes" role="listbox" hidden></ul>
+      </div>
+      <div id="resultado"></div>
+    </section>
+
+    <!-- ABA GARANTIA (Fases G1/G2) -->
+    <section id="painel-garantia" class="painel" hidden>
+      <div class="aviso-construcao">
+        <h2>REGRAS DA GARANTIA</h2>
+        <p>Em construção. Aqui o consultor vai digitar o modelo e o problema (ex.: <em>"Sportage 2023 amortecedor"</em>)
+           e ver a regra oficial do livreto Kia, com a página.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Janela do pré-orçamento: texto pronto para copiar e mandar ao cliente -->
+  <div id="janela" class="janela" hidden role="dialog" aria-modal="true" aria-labelledby="janela-titulo">
+    <div class="janela-caixa">
+      <div class="janela-cab">
+        <h2 id="janela-titulo">PRÉ-ORÇAMENTO</h2>
+        <button type="button" class="fechar" aria-label="Fechar" data-fechar>&times;</button>
+      </div>
+      <textarea id="texto-orcamento" readonly></textarea>
+      <div class="janela-acoes">
+        <span id="copiado" class="copiado" hidden>Texto copiado. Cole no WhatsApp ou no e-mail.</span>
+        <button type="button" class="botao botao-sec" data-fechar>Fechar</button>
+        <button type="button" class="botao" id="copiar">Copiar texto</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="data/revisoes.js"></script>
+  <script src="data/extras.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

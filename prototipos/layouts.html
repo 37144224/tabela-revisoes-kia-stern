@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<title>Propostas de layout · Stern Kia</title>
+<!-- Protótipo para escolher o visual (não é a página final). Cores e regras do sistema "Stern Kia" (Kia Web Style Guide). -->
+<style>
+:root{
+  --noite:#05141f; --branco:#fff;
+  --ink:#05141f; --ink-80:rgba(5,20,31,.8); --ink-60:rgba(5,20,31,.6); --ink-40:rgba(5,20,31,.4);
+  --keyline:rgba(5,20,31,.2); --sutil:rgba(5,20,31,.03); --verde:#5d7d2b; --amarelo:#f3c300; --vermelho:#ea0029;
+  --fonte:"Kia Signature","Helvetica Neue",Arial,sans-serif;
+}
+*{box-sizing:border-box} body{margin:0;font-family:var(--fonte);color:var(--ink);background:#fff}
+button{font-family:inherit}
+/* seletor das propostas (só do protótipo) */
+.seletor{position:fixed;right:16px;bottom:16px;z-index:99;display:flex;gap:0;box-shadow:0 4px 16px rgba(0,0,0,.25)}
+.seletor button{border:0;background:#fff;color:var(--ink);padding:12px 18px;font-weight:700;font-size:14px;cursor:pointer;border-right:1px solid var(--keyline)}
+.seletor button.on{background:var(--noite);color:#fff}
+.proposta{display:none;min-height:100vh}
+.proposta.on{display:flex;flex-direction:column}
+.etiqueta{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-60)}
+
+/* ---------- componentes comuns ---------- */
+.campo{display:flex;align-items:center;border:1px solid var(--keyline);background:#fff;height:60px;padding:0 18px;gap:12px}
+.campo:focus-within{border-color:var(--ink)}
+.campo input{flex:1;border:0;outline:0;font:inherit;font-size:20px;color:var(--ink);background:transparent}
+.campo input::placeholder{color:var(--ink-60)}
+.campo kbd{font-family:inherit;font-size:11px;color:var(--ink-60);border:1px solid var(--keyline);padding:3px 6px}
+.lupa{width:22px;height:22px;flex:none}
+.modelo-nome{font-size:30px;font-weight:700;line-height:1.2;margin:0;text-transform:uppercase}
+.modelo-anos{font-size:16px;color:var(--ink-80);margin-top:4px}
+.foto{background:var(--sutil);border:1px solid var(--keyline);display:flex;align-items:center;justify-content:center;flex-direction:column;color:var(--ink-60);font-size:13px}
+.foto svg{width:90px;height:50px;margin-bottom:6px}
+
+/* cartão de revisão: fechado mostra só o essencial; clique abre os itens */
+.rev{border:1px solid var(--keyline);background:#fff;cursor:pointer;text-align:left;width:100%;padding:0;display:block;color:inherit}
+.rev:hover{border-color:var(--ink)}
+.rev:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.rev-topo{padding:18px 20px 16px}
+.rev-cab{display:flex;justify-content:space-between;align-items:baseline}
+.rev-num{font-size:14px;font-weight:700;text-transform:uppercase}
+.rev-km{font-size:13px;color:var(--ink-60)}
+.rev-total{font-size:30px;font-weight:700;margin:8px 0 4px;letter-spacing:0}
+.rev-partes{font-size:13px;color:var(--ink-80)}
+.rev-abrir{display:flex;justify-content:space-between;align-items:center;margin-top:12px;font-size:12px;font-weight:700;text-transform:uppercase;color:var(--ink)}
+.rev-abrir .seta{transition:transform .15s}
+.rev.aberta .seta{transform:rotate(180deg)}
+.gratis{display:inline-block;margin-left:8px;padding:2px 8px;border:1px solid var(--verde);color:var(--verde);font-size:11px;font-weight:700;text-transform:uppercase;border-radius:12.5px}
+.rev-itens{display:none;border-top:1px solid var(--keyline);padding:14px 20px 18px;background:var(--sutil)}
+.rev.aberta .rev-itens{display:block}
+.grupo{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin:6px 0 8px;display:flex;justify-content:space-between}
+.grupo + .item{margin-top:0}
+.item{display:flex;justify-content:space-between;gap:12px;font-size:15px;padding:6px 0;border-bottom:1px solid var(--keyline)}
+.item .qtd{display:block;font-size:12px;color:var(--ink-60);margin-top:2px}
+.item .v{white-space:nowrap;font-weight:700}
+.mo{margin-top:16px}
+.botao{display:inline-flex;align-items:center;justify-content:center;height:46px;padding:0 30px;background:var(--noite);color:#fff;border:0;font-size:14px;font-weight:700;text-transform:uppercase;cursor:pointer;margin-top:16px;width:100%}
+.botao:hover{opacity:.8}
+.botao-sec{background:#fff;color:var(--ink);border:1px solid var(--ink)}
+
+/* ================= PROPOSTA A — barra preta clássica ================= */
+#A .nav{background:var(--noite);color:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 58px;height:80px}
+#A .nav-esq{display:flex;align-items:center;gap:48px;height:100%}
+#A .logo-stern{height:34px}
+#A .logo-service{height:20px}
+#A .abas{display:flex;height:100%}
+#A .aba{background:none;border:0;color:rgba(255,255,255,.6);font-size:17px;font-weight:700;padding:0 22px;cursor:pointer;border-bottom:4px solid transparent;height:100%}
+#A .aba.on{color:#fff;border-bottom-color:#fff}
+#A main{max-width:1324px;width:100%;margin:0 auto;padding:40px 58px}
+#A .modelo{display:flex;gap:30px;align-items:center;margin:40px 0 30px}
+#A .foto{width:260px;height:150px}
+#A .grade{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;align-items:start}
+#A footer{background:var(--noite);color:rgba(255,255,255,.6);font-size:13px;padding:20px 58px;display:flex;justify-content:space-between;margin-top:auto}
+
+/* ================= PROPOSTA B — menu lateral ================= */
+#B{flex-direction:row!important}
+#B .lado{width:260px;flex:none;background:var(--noite);color:#fff;display:flex;flex-direction:column;padding:30px 0}
+#B .lado img.v{width:150px;margin:0 30px 40px;filter:invert(1);mix-blend-mode:screen}
+#B .lado .aba{background:none;border:0;color:rgba(255,255,255,.6);text-align:left;font-size:17px;font-weight:700;padding:18px 30px;cursor:pointer;border-left:4px solid transparent}
+#B .lado .aba.on{color:#fff;border-left-color:#fff;background:rgba(255,255,255,.06)}
+#B .lado .rodape-lado{margin-top:auto;padding:0 30px;font-size:12px;color:rgba(255,255,255,.6)}
+#B .lado .rodape-lado img{height:14px;display:block;margin-bottom:14px}
+#B .conteudo{flex:1;padding:40px 58px;min-width:0}
+#B .modelo{display:flex;justify-content:space-between;align-items:flex-end;border-bottom:1px solid var(--keyline);padding-bottom:20px;margin:40px 0 25px}
+#B .lista{display:flex;flex-direction:column;gap:10px}
+#B .rev-topo{display:grid;grid-template-columns:170px 1fr 220px 160px;align-items:center;gap:20px}
+#B .rev-total{margin:0;font-size:26px}
+#B .rev-abrir{margin:0;justify-content:flex-end;gap:10px}
+#B .rev-itens{display:none}
+#B .rev.aberta .rev-itens{display:grid;grid-template-columns:2fr 1fr;gap:40px}
+
+/* ================= PROPOSTA C — faixa do modelo em destaque ================= */
+#C .topo{display:flex;align-items:center;justify-content:space-between;padding:0 58px;height:76px;border-bottom:1px solid var(--keyline)}
+#C .topo .logo-stern{height:30px}
+#C .topo .logo-service{height:18px}
+#C .topo .abas{display:flex;gap:40px}
+#C .topo .aba{background:none;border:0;font-size:17px;font-weight:700;color:var(--ink-60);padding:26px 0 22px;border-bottom:4px solid transparent;cursor:pointer}
+#C .topo .aba.on{color:var(--ink);border-bottom-color:var(--ink)}
+#C .faixa{background:var(--noite);color:#fff;padding:40px 58px 55px}
+#C .faixa .etiqueta{color:rgba(255,255,255,.6)}
+#C .faixa .campo{max-width:760px;margin-top:10px;border-color:transparent}
+#C .faixa .modelo{display:flex;gap:30px;align-items:center;margin-top:40px}
+#C .faixa .foto{width:240px;height:140px;background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.2);color:rgba(255,255,255,.6)}
+#C .faixa .modelo-anos{color:rgba(255,255,255,.8)}
+#C main{padding:40px 58px;max-width:1324px;width:100%;margin:0 auto}
+#C .grade{display:grid;grid-template-columns:repeat(5,1fr);gap:15px;align-items:start}
+#C .rev.aberta{grid-column:span 2;border-color:var(--ink)}
+#C .rev.aberta .rev-topo{background:var(--noite);color:#fff}
+#C .rev.aberta .rev-km,#C .rev.aberta .rev-partes{color:rgba(255,255,255,.8)}
+#C .rev.aberta .rev-abrir{color:#fff}
+#C footer{border-top:1px solid var(--keyline);font-size:13px;color:var(--ink-60);padding:20px 58px;display:flex;justify-content:space-between;margin-top:auto}
+</style>
+</head>
+<body>
+
+<!-- ===== A ===== -->
+<div class="proposta on" id="A">
+  <header class="nav">
+    <div class="nav-esq">
+      <img class="logo-stern" src="../assets/logos/kia-stern-horizontal-branco.png" alt="Kia Stern">
+      <nav class="abas"><button class="aba on">Revisões</button><button class="aba">Garantia</button></nav>
+    </div>
+    <img class="logo-service" src="../assets/logos/kia-service-branco.png" alt="Kia Service">
+  </header>
+  <main>
+    <div class="etiqueta">Modelo do veículo</div>
+    <div class="campo" style="margin-top:8px;max-width:760px">LUPA<input value="SPORTAGE 1.6 G MHEV NQ5e"><kbd>CTRL + K</kbd></div>
+    <section class="modelo"><div class="foto">CARRO<span>Foto pendente</span></div>
+      <div><h1 class="modelo-nome">SPORTAGE 1.6 G MHEV NQ5e</h1><div class="modelo-anos">2023–atual · 10 revisões</div></div></section>
+    <div class="grade" data-cartoes></div>
+  </main>
+  <footer><span>Tabela atualizada em 21/09/2026</span><span>Dúvidas: Cleidiane · garantia@sternkia.com.br</span></footer>
+</div>
+
+<!-- ===== B ===== -->
+<div class="proposta" id="B">
+  <aside class="lado">
+    <img class="v" src="../assets/logos/kia-stern-vertical-preto.png" alt="Kia Stern">
+    <button class="aba on">Revisões</button><button class="aba">Garantia</button>
+    <div class="rodape-lado"><img src="../assets/logos/kia-service-branco.png" alt="Kia Service">Tabela atualizada em 21/09/2026<br>Dúvidas: Cleidiane</div>
+  </aside>
+  <div class="conteudo">
+    <div class="etiqueta">Modelo do veículo</div>
+    <div class="campo" style="margin-top:8px">LUPA<input value="SPORTAGE 1.6 G MHEV NQ5e"><kbd>CTRL + K</kbd></div>
+    <section class="modelo"><div><h1 class="modelo-nome">SPORTAGE 1.6 G MHEV NQ5e</h1><div class="modelo-anos">2023–atual · 10 revisões</div></div>
+      <div class="foto" style="width:200px;height:110px">CARRO<span>Foto pendente</span></div></section>
+    <div class="lista" data-cartoes></div>
+  </div>
+</div>
+
+<!-- ===== C ===== -->
+<div class="proposta" id="C">
+  <header class="topo">
+    <img class="logo-service" src="../assets/logos/kia-service-preto.png" alt="Kia Service">
+    <nav class="abas"><button class="aba on">Revisões</button><button class="aba">Garantia</button></nav>
+    <img class="logo-stern" src="../assets/logos/kia-stern-horizontal-preto.png" alt="Kia Stern">
+  </header>
+  <section class="faixa">
+    <div class="etiqueta">Modelo do veículo</div>
+    <div class="campo">LUPA<input value="SPORTAGE 1.6 G MHEV NQ5e"><kbd>CTRL + K</kbd></div>
+    <div class="modelo"><div class="foto">CARRO<span>Foto pendente</span></div>
+      <div><h1 class="modelo-nome">SPORTAGE 1.6 G MHEV NQ5e</h1><div class="modelo-anos">2023–atual · 10 revisões</div></div></div>
+  </section>
+  <main><div class="grade" data-cartoes></div></main>
+  <footer><span>Tabela atualizada em 21/09/2026</span><span>Dúvidas: Cleidiane · garantia@sternkia.com.br</span></footer>
+</div>
+
+<div class="seletor">
+  <button class="on" data-p="A">PROPOSTA A</button><button data-p="B">PROPOSTA B</button><button data-p="C">PROPOSTA C</button>
+</div>
+
+<script src="../data/revisoes.js"></script>
+<script>
+const LUPA='<svg class="lupa" viewBox="0 0 24 24" fill="none" stroke="#05141f" stroke-width="1.6"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L21 21"/></svg>';
+const CARRO='<svg viewBox="0 0 72 40" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 28h60M10 28l4-10c1-3 3-4 6-4h28c3 0 5 1 7 4l7 10M14 18h44"/><circle cx="20" cy="30" r="5" fill="#fff"/><circle cx="52" cy="30" r="5" fill="#fff"/></svg>';
+document.querySelectorAll('.campo').forEach(c=>c.innerHTML=c.innerHTML.replace('LUPA',LUPA));
+document.querySelectorAll('.foto').forEach(c=>c.innerHTML=c.innerHTML.replace('CARRO',CARRO));
+const R=new Intl.NumberFormat('pt-BR',{style:'currency',currency:'BRL'}), N=new Intl.NumberFormat('pt-BR');
+const m=window.DADOS_REVISOES.modelos.find(x=>x.aba.startsWith('SPORTAGE MHEV'));
+const un=it=>{const u=it.unidade.toLowerCase();return u==='litro'?(it.qtd>1?'litros':'litro'):u==='500ml'?(it.qtd>1?'frascos 500 ml':'frasco 500 ml'):u};
+function cartao(r){
+  const itens=r.itens.map(it=>`<div class="item"><span>${it.descricao}<span class="qtd">${N.format(it.qtd)} ${un(it)} · cód. ${it.codigo||'-'}</span></span><span class="v">${R.format(it.valor)}</span></div>`).join('');
+  return `<button class="rev" type="button" aria-expanded="false">
+    <div class="rev-topo">
+      <div class="rev-cab"><span class="rev-num">${r.numero}ª revisão${r.gratuita?'<span class="gratis">Gratuita</span>':''}</span><span class="rev-km">${N.format(r.km)} km</span></div>
+      <div class="rev-total">${R.format(r.total)}</div>
+      <div class="rev-partes">Peças ${R.format(r.pecas)} + Mão de obra ${R.format(r.mao_de_obra)}</div>
+      <div class="rev-abrir"><span>Ver itens</span><span class="seta">&#9662;</span></div>
+    </div>
+    <div class="rev-itens">
+      <div><div class="grupo"><span>Peças</span><span>${R.format(r.pecas)}</span></div>${itens}</div>
+      <div><div class="grupo mo"><span>Mão de obra</span><span>${R.format(r.mao_de_obra)}</span></div>
+        <div class="item"><span>Serviço da revisão<span class="qtd">${N.format(r.tempo_h)} h × ${R.format(m.valor_hora)}/h</span></span><span class="v">${R.format(r.mao_de_obra)}</span></div>
+        <span class="botao">Montar orçamento</span></div>
+    </div></button>`;
+}
+document.querySelectorAll('[data-cartoes]').forEach(g=>{g.innerHTML=m.revisoes.map(cartao).join('');});
+document.addEventListener('click',e=>{
+  const b=e.target.closest('.rev'); if(b){b.classList.toggle('aberta');b.setAttribute('aria-expanded',b.classList.contains('aberta'));}
+  const s=e.target.closest('.seletor button'); if(s){document.querySelectorAll('.seletor button').forEach(x=>x.classList.toggle('on',x===s));
+    document.querySelectorAll('.proposta').forEach(p=>p.classList.toggle('on',p.id===s.dataset.p)); window.scrollTo(0,0);}
+});
+// abre a 2ª revisão em cada proposta, para mostrar o cartão aberto
+document.querySelectorAll('[data-cartoes]').forEach(g=>{const c=g.children[1]; c.classList.add('aberta');});
+</script>
+</body>
+</html>
