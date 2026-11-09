@@ -48,6 +48,6 @@ Um link no **navegador do PC de trabalho** do agendamento e dos consultores (o c
 - [x] Serviços (alinhamento, balanceamento, limpezas) contam como **mão de obra** no limite de desconto; produtos contam como **peça**.
 - [x] Retífica de discos: R$ 270 por par (1 eixo); quantidade 1 ou 2 (4 discos = R$ 540).
 - [ ] **Fotos dos modelos:** o Claude procura na internet uma foto de cada modelo/geração exatos (de preferência em fontes oficiais, como o site e a imprensa da Kia), e o **Leonardo aprova** uma por uma. Controle em `fotos/controle.csv`.
-- [ ] Iniciar o repositório Git.
+- [x] Repositório Git iniciado; 1º commit em 09/11/2026 (fases 0–2). `fonte/`, planilhas e `envios/` ficam fora do Git.
 - [ ] **Leonardo enviar:** regra de km/tempo por modelo (arquivo da Kia) e e-mail do agendamento. A Cleidiane não terá ramal na tela.
 - [ ] Definir como compartilhar a pasta do projeto com a Cleidiane, que não terá GitHub (Fase 4).
