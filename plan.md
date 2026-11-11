@@ -12,7 +12,7 @@
 | 3 | Orçamento, texto, revisão indicada, comparar, agendamento ✅ (11/11, aguardando conferência) | **Alta** | Sonnet | — |
 | G1 | Garantia: ler livretos → `garantia.json` ✅ (10/11) | **Alta** | Opus | — |
 | G2 | Garantia: aba, busca, vigência, copiar ✅ (10/11) | Média | Sonnet | — |
-| 4 | PIN + publicação + acesso da Cleidiane | Média | Sonnet | conta GitHub do Leonardo |
+| 4 | PIN + publicação ✅ (11/11) | Média | Sonnet | — |
 | 5 | Testes | Média | Opus | Fases 1–4 |
 | 6 | Rotina de atualização (com a Cleidiane) | Baixa | Sonnet | Fase 4 |
 
