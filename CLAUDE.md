@@ -11,7 +11,8 @@ Requisitos aprovados: [PRD.md](PRD.md). Fases: [plan.md](plan.md). Situação at
 5. **Avisar conflito com o PRD:** se um pedido contrariar o PRD, apontar o conflito e perguntar antes de seguir. Mudança aprovada → atualizar o PRD.
 
 ## Quem usa este projeto
-- **Leonardo** (dono) e **Cleidiane** (garantia@sternkia.com.br, responsável pelas atualizações). Ela não usa GitHub e não é técnica: explicar em linguagem simples, passo a passo, e confirmar cada etapa.
+- **Leonardo** (dono) e **Cleidiane** (garantia@sternkia.com.br). Ela não usa GitHub e não é técnica: explicar em linguagem simples, passo a passo, e confirmar cada etapa.
+- **Atualização (decisão de 11/11/2026):** a Cleidiane manda a planilha ou o livreto ao Leonardo; o projeto fica só no PC dele; ele traz o arquivo, o Claude atualiza, ele confere e publica. Não há pasta compartilhada.
 - Respostas em português brasileiro, diretas.
 
 ## Estrutura
@@ -37,6 +38,7 @@ fonte/manuais/                       ← livretos de garantia em PDF (manual do 
 - **Stinger:** único modelo com **alinhamento/balanceamento obrigatório dentro da revisão** (R$ 300). No pré-orçamento dele NÃO aparece a linha "(Opcional)" — o cliente acharia que é erro.
 - **Descarbonizante Flex** (Sportage 2.0 Flex SL, R$ 185) = mesmo produto do Aditivo Via Tanque; para o cliente aparece como "Aditivo via tanque".
 - **Limpa TBI** é agregado, nunca item de revisão.
+- **Filtro do ar-condicionado no orçamento:** todo "Montar orçamento" oferece o filtro do A/C do próprio modelo (código e preço tirados das revisões que o trocam), **só a peça**, sem mão de obra. Na revisão que já traz o filtro, aparece travado "Já incluso". Carnival KA4: dianteiro e traseiro separados. Bongo sem filtro na planilha: não aparece (decisão do Leonardo, 10/11/2026).
 - **Abas antigas** levam o selo "Referência antiga: confirmar valor com a oficina".
 - **Extras:** produto = peça; serviço (alinhamento, balanceamento, limpezas, retífica) = mão de obra. Retífica de discos: R$ 270 por par, quantidade 1 ou 2.
 - **Desconto:** separado em peças e mão de obra. Aviso (sem bloqueio) acima de **5% na mão de obra** e **10% nas peças**.
@@ -47,6 +49,8 @@ fonte/manuais/                       ← livretos de garantia em PDF (manual do 
 ## Regras da garantia (não mudar sem aprovação)
 - **Só o que está escrito no livreto oficial.** Nunca completar com conhecimento geral ou suposição. Sem regra → "Não encontrado no manual: consultar a garantia (Cleidiane)".
 - Toda regra em `garantia.json` guarda o **trecho oficial** (cópia fiel, curta) e **livreto + página**. Livretos divergentes: vale o mais recente.
+- **Modelo sem livreto disponível** (decisão do Leonardo, 10/11/2026): a garantia geral vem da página kia.com.br/garantia (vendas a partir de 01/2025) ou da **conferência da Cleidiane** (vendas anteriores), sempre com a fonte na tela; os itens (bateria, amortecedor, vidros etc.) usam o texto igual em todos os livretos, com o selo "confirmar com a garantia".
+- Depois de editar `data/garantia.json`, refazer `data/garantia.js` (o `excel_para_json.py` faz isso ao rodar).
 - Regras por **motorização** (combustão, diesel, híbrido, elétrico) + **exceções por modelo**.
 - Regra nova ou alterada só vai ao ar depois da **conferência do Leonardo**.
 - A tela sempre diz "Sujeito à análise técnica da Kia" e pergunta se as revisões estão em dia na rede Kia.

@@ -1,5 +1,5 @@
 # PRD — Tabela de Revisões e Tira-dúvidas de Garantia Kia (Stern)
-**Versão:** 1.1 · v1.0 aprovada em 06/11/2026; **v1.1 (garantia + nomes do NBS) aprovada em 09/11/2026** · **Dono:** Leonardo
+**Versão:** 1.2 (11/11/2026: atualização pelo Leonardo, sem pasta compartilhada) · 1.1 · v1.0 aprovada em 06/11/2026; **v1.1 (garantia + nomes do NBS) aprovada em 09/11/2026** · **Dono:** Leonardo
 
 ## 1. Visão
 Um link aberto o dia todo no navegador do PC de trabalho do **agendamento** e dos **consultores** (o celular é uso raro). Durante a ligação, o funcionário digita o modelo e vê na hora o **valor da revisão pela Tabela Stern**, com a lista de itens e a foto do modelo. Ele monta o orçamento com extras e desconto e copia um texto pronto para o cliente.
@@ -98,11 +98,12 @@ Texto completo, pronto para WhatsApp ou para ler ao telefone:
 - **Sem regra para o item/modelo:** *"Não encontrado no manual: consultar a garantia (Cleidiane, garantia@sternkia.com.br)"*. Nunca inventar.
 
 ## 4. Atualização da tabela
+**Decisão do Leonardo (11/11/2026):** o projeto fica só no PC do Leonardo; não há pasta compartilhada.
 1. A Kia manda a tabela nova por e-mail e a equipe avisa a **Cleidiane**.
-2. Ela coloca a planilha no projeto e, **com ajuda do Claude**, gera a Tabela Stern (óleo arredondado, mão de obra pelo valor-hora de cada modelo), confere e publica.
-3. O catálogo de extras também fica com ela e cresce aos poucos.
-3a. **Livretos de garantia:** ela salva cada PDF novo em `fonte/manuais/` e pede ao Claude para atualizar `data/garantia.json`; o Leonardo confere as regras novas antes de publicar.
-4. **Acesso dela ao projeto:** a Cleidiane **não terá conta no GitHub**. A pasta do projeto fica compartilhada com ela (pasta de rede, OneDrive ou Google Drive, a definir na Fase 4) e ela usa o Claude Code no PC dela para gerar os dados. A **publicação** é feita pela conta do GitHub de quem administra o site (Leonardo), seja num PC já configurado, seja com um passo automático definido na Fase 4.
+2. A Cleidiane **manda a planilha (ou o livreto) ao Leonardo**, que coloca no projeto; o **Claude** gera a Tabela Stern (óleo arredondado, mão de obra pelo valor-hora de cada modelo) e lista o que mudou.
+3. O Leonardo confere e publica pela conta dele no GitHub. A Cleidiane confere os valores no link publicado.
+3a. **Livretos de garantia:** mesmo caminho: Cleidiane → Leonardo → Claude atualiza `data/garantia.json` → Leonardo confere → publica.
+4. A Cleidiane **não tem conta no GitHub** nem acesso à pasta do projeto. O catálogo de extras continua com ela (manda a planilha de agregados atualizada).
 
 ## 5. Erros e casos especiais
 | Situação | Comportamento |

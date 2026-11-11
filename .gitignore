@@ -15,3 +15,9 @@ desktop.ini
 
 # Arquivos preparados para enviar por e-mail (cópias de planilha, zips)
 envios/
+
+# Livretos e manuais da Kia (PDFs, fotos e transcrições integrais): material da Kia, fica só no PC
+manual garantia/
+ferramentas/garantia-fontes/
+*.jpeg
+*.jpg

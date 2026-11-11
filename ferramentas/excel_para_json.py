@@ -505,6 +505,11 @@ def main():
         extras, ensure_ascii=False) + ";\n", encoding="utf-8")
     (RAIZ / "data/extras.json").write_text(json.dumps(
         {"origem": agregados.name, "extras": extras}, ensure_ascii=False, indent=1), encoding="utf-8")
+    # garantia.json é montado pelo Claude a partir dos livretos; aqui só se refaz a cópia .js (abrir sem servidor)
+    garantia = RAIZ / "data/garantia.json"
+    if garantia.exists():
+        (RAIZ / "data/garantia.js").write_text("window.DADOS_GARANTIA = " + json.dumps(
+            json.loads(garantia.read_text(encoding="utf-8")), ensure_ascii=False) + ";\n", encoding="utf-8")
     escreve_relatorio(relatorio, modelos, RAIZ / "ferramentas/divergencias.md")
     com_dif = sum(1 for _, _, d, _ in relatorio if d)
     nao_lidas = [a for a, av, _, _ in relatorio if av and av[0].startswith("**ABA")]

@@ -9,9 +9,9 @@
 | 1 | Dados (revisões + extras em JSON) ✅ | **Alta** | Sonnet | — |
 | 2 | Tela com abas + busca de revisões + resultado | Média | Sonnet | Fase 1; nomes.csv aprovado |
 | 2b | Fotos dos modelos | Média | Sonnet | aprovação das fotos pelo Leonardo |
-| 3 | Orçamento, texto, revisão indicada, comparar, agendamento | **Alta** | Sonnet | regra km/tempo; e-mail do agendamento |
-| G1 | Garantia: ler livretos → `garantia.json` | **Alta** | Opus | livretos da Cleidiane |
-| G2 | Garantia: aba, busca, vigência, copiar | Média | Sonnet | G1 + Fase 2 |
+| 3 | Orçamento, texto, revisão indicada, comparar, agendamento ✅ (11/11, aguardando conferência) | **Alta** | Sonnet | — |
+| G1 | Garantia: ler livretos → `garantia.json` ✅ (10/11) | **Alta** | Opus | — |
+| G2 | Garantia: aba, busca, vigência, copiar ✅ (10/11) | Média | Sonnet | — |
 | 4 | PIN + publicação + acesso da Cleidiane | Média | Sonnet | conta GitHub do Leonardo |
 | 5 | Testes | Média | Opus | Fases 1–4 |
 | 6 | Rotina de atualização (com a Cleidiane) | Baixa | Sonnet | Fase 4 |
@@ -79,7 +79,7 @@
 - **O que faz:**
   - Tela de PIN (lembrado no navegador).
   - Repositório no GitHub (conta do Leonardo) e GitHub Pages ativo.
-  - Pasta compartilhada com a Cleidiane (forma a definir: rede, OneDrive ou Google Drive) e o jeito de publicar sem ela ter GitHub.
+  - Sem pasta compartilhada (decisão do Leonardo, 11/11): a Cleidiane manda a planilha, o Leonardo atualiza e publica.
 - **Como verificar:** abrir o link no PC de um funcionário, digitar o PIN, salvar como favorito; a página não aparece numa busca pelo nome no Google.
 
 ## Fase 5 — Testes
@@ -99,7 +99,7 @@
 |---|---|---|
 | Regra de km/tempo por modelo (arquivo da Kia) | Leonardo | Fase 3, item 1 |
 | E-mail do agendamento | Leonardo | Fase 3, item 5 |
-| Forma de compartilhar a pasta com a Cleidiane | Leonardo | Fase 4 |
+| ~~Forma de compartilhar a pasta com a Cleidiane~~ (não precisa, 11/11) | — | — |
 | PIN da equipe | Leonardo | Fase 4 |
 | Livretos de garantia em PDF (pelo menos 1 por motorização) | Cleidiane | Fase G1 |
 | Aprovar `data/nomes.csv` | Leonardo | Fase 2 |
