@@ -64,7 +64,11 @@ button { font-family: inherit; }
 .modelo-anos { font-size: 18px; color: var(--ink-80); margin-top: 6px; }
 .selo { display: inline-block; margin-top: 12px; border: 1px solid var(--ink); padding: 5px 12px; font-size: 13px; font-weight: 700; text-transform: uppercase; }
 .foto { width: 220px; height: 120px; flex: none; background: var(--sutil); border: 1px solid var(--keyline); display: flex; flex-direction: column; align-items: center; justify-content: center; color: var(--ink-60); font-size: 13px; overflow: hidden; }
-.foto img { width: 100%; height: 100%; object-fit: cover; }
+.foto img { width: 100%; height: 100%; object-fit: contain; }
+/* Foto aprovada: maior, fundo branco, sem cortar o carro */
+.foto-modelo { margin: 0; flex: none; }
+.foto.foto-com-imagem { width: 320px; height: 170px; background: #fff; padding: 6px; }
+.foto-credito { font-size: 11px; color: var(--ink-60); margin-top: 4px; max-width: 320px; }
 .foto svg { width: 90px; height: 50px; margin-bottom: 6px; }
 
 /* ---------- revisões: uma por linha; clique abre os itens ---------- */
@@ -282,7 +286,7 @@ button { font-family: inherit; }
   .rev-partes { grid-column: 1 / -1; }
   .rev-itens { grid-template-columns: 1fr; gap: 10px; }
   .modelo { flex-direction: column-reverse; align-items: flex-start; }
-  .foto { width: 100%; }
+  .foto, .foto.foto-com-imagem, .foto-modelo { width: 100%; }
   .orc-caixa { height: auto; }
   .orc-corpo { grid-template-columns: 1fr; overflow-y: auto; }
   .avulso { grid-template-columns: 1fr 1fr; }

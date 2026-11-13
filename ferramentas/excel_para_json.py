@@ -402,8 +402,33 @@ def le_nomes(caminho):
         return {lin["aba"]: lin for lin in csv.DictReader(f, delimiter=";")}
 
 
+def le_fotos(caminho):
+    """fotos/controle.csv: origem e crédito de cada foto aprovada (Wikimedia exige crédito na tela)."""
+    if not caminho.exists():
+        return {}
+    with open(caminho, encoding="utf-8") as f:
+        return {lin["arquivo"]: lin for lin in csv.DictReader(f, delimiter=";")}
+
+
+def foto_do_modelo(nm, fotos, avisos):
+    """Arquivo da foto (coluna 'foto' do nomes.csv) + crédito; sem arquivo aprovado → None (página mostra 'Foto pendente')."""
+    base = (nm.get("foto") or "").strip() if nm else ""
+    if not base:
+        return None, None
+    arq = f"{base}.webp"
+    if not (RAIZ / "fotos" / arq).exists():
+        avisos.append(f"foto '{arq}' indicada no nomes.csv não existe em fotos/")
+        return None, None
+    c = fotos.get(arq, {})
+    credito = None
+    if c.get("origem", "").startswith("Wikimedia"):
+        credito = f"Foto: {c['autor']} · {c['licenca']} · Wikimedia Commons"
+    return f"fotos/{arq}", credito
+
+
 def converte_planilha(caminho):
     nomes = le_nomes(RAIZ / "data/nomes.csv")
+    fotos = le_fotos(RAIZ / "fotos/controle.csv")
     wb_f = openpyxl.load_workbook(caminho, data_only=False)
     wb_v = openpyxl.load_workbook(caminho, data_only=True)
     modelos, relatorio = [], []
@@ -427,6 +452,7 @@ def converte_planilha(caminho):
         elif nm["mostrar"].strip().lower() != "sim":
             continue  # aba escondida do site
         anos = lambda k, padrao: int(nm[k]) if nm and nm[k].strip() else padrao
+        foto, credito = foto_do_modelo(nm, fotos, aba.avisos)
         modelos.append({
             "id": id_de(ws.title),
             "nome": nm["titulo"].strip() if nm else nome_amigavel(ws.title),
@@ -434,6 +460,8 @@ def converte_planilha(caminho):
             "ano_inicial": anos("ano_inicial", ano_ini),
             "ano_final": anos("ano_final", ano_fim),
             "motorizacao": nm["motorizacao"] if nm else None,
+            "foto": foto,
+            "foto_credito": credito,
             "valor_hora": hora,
             "referencia_antiga": normaliza(ws.title) in ABAS_ANTIGAS,
             "especial": aba.especial(hora),

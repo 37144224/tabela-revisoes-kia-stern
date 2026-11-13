@@ -1,54 +1,54 @@
-aba;titulo;ano_inicial;ano_final;motorizacao;mostrar;observacao
-CARNIVAL1.6 G HEV KA4 INICIO 26;CARNIVAL 1.6 G HEV KA4;2026;;hibrido;sim;
-SORENTO 2.2 D MQ4;SORENTO 2.2D MQ4;2027;;diesel;sim;
-TASMAN 2.2 D TK;TASMAN 2.2D TK;2027;;diesel;sim;aba criada por nós (menu Kia + CS 021/26)
-EV9;EV9 4WD MV;2025;;eletrico;sim;
-EV5;EV5 2WD Ovc;2025;;eletrico;sim;
-NIRO;NIRO 1.6 G HEV SG2;2023;;hibrido;sim;
-STONIC;STONIC 1.0 G MHEV YBC;2022;;hibrido;sim;
-SPORTAGE MHEV NQ5e INICIO 2023;SPORTAGE 1.6 G MHEV NQ5e;2023;;hibrido;sim;
-NEW_SPORTAGE_FLEX_4X2_QL;SPORTAGE 2.0 FLEX 4x2 QL;2017;2022;combustao;sim;
-Sportage_2_0_FLEX_SL_;SPORTAGE 2.0 FLEX SL;2012;2016;combustao;sim;
-Sportage 2.0 g 4x2 SL 2011-2012;SPORTAGE 2.0 G 4X2 SL;2011;2012;combustao;sim;
-Sportage_2_0_G 4X4 SL ;SPORTAGE 2.0 G 4X4 SL;2011;2012;combustao;sim;
-CARNIVAL_3.5G_(NOVA 2022);CARNIVAL 3.5 G KA4;2022;;combustao;sim;
-GRAN_CARNIVAL_3_3_2016_;GRAN CARNIVAL 3.3 G YP;2016;2021;combustao;sim;
-CARNIVAL 3.5 G 11-15;CARNIVAL 3.5 G SD6;2011;2015;combustao;sim;
-CARNIVAL_3_8_06_11;CARNIVAL 3.8 G SD6;2006;2011;combustao;sim;
-Cerato 2.0 BDM 2020;CERATO 2.0 FLEX BDm;2020;;combustao;sim;
-_Cerato_YD_1_6_flex_;CERATO 1.6 FLEX YD;2013;2019;combustao;sim;
-CERATO_1_6_GAS;CERATO 1.6 G TD;2010;2013;combustao;sim;
-SORENTO_2_4_UM_;SORENTO FL 2.4 G UM;2018;;combustao;sim;
-_SORENTO_3_5G_UM;SORENTO FL 3.5 G UM;2018;;combustao;sim;
-SORENTO 3.3 G UM 2015 - 2018;SORENTO 3.3 G UM;2015;2018;combustao;sim;
-NEW_SORENTO_3_5 2013-2015__;NEW SORENTO FL 3.5 G XM;2013;2015;combustao;sim;
-NEW_SORENTO_2_4_G_XM_2013-2015;SORENTO FL 2.4 G XM;2013;2015;combustao;sim;
-SORENTO_3_5_XM_;SORENTO 3.5G XM;2011;2012;combustao;sim;
-_SORENTO_2_4G;SORENTO 2.4G XM;2011;2012;combustao;sim;
-RIO  1.6. FLEX SC;RIO 1.6 FLEX SC;2020;;combustao;sim;
-STINGER_GT_3_3_G;STINGER GT 3.3 G CK;2019;;combustao;sim;
-BONGO K2500 4X4 C_AC PU  (2);BONGO K2500 MY26 4X4 PU;2026;;diesel;sim;Bongo 2026 (confirmado pelo Leonardo em 06/11)
-BONGO K2500 4X4 C_AC PU ;BONGO K2500 4X4 C_AC PU;2024;2025;diesel;sim;com ar condicionado
-BONGO K2500 4X4 S-AC PU ;BONGO K2500 4X4 S_ AC PU;2024;2025;diesel;sim;sem ar condicionado
-New_Bongo_ com AC;NEW BONGO K2500 L6 PU;2013;2023;diesel;sim;com ar condicionado
-New_Bongo_Ineo;NEW BONGO K2500 S_AC PU;2013;2023;diesel;sim;sem ar condicionado
-SOUL 1.6 FLEX PS 2015 -2019 ;SOUL 1.6 FLEX PS;2015;2019;combustao;sim;
-Soul_1_6_FLEX_AM;SOUL FLEX 1.6 AM;2011;2014;combustao;sim;
-SOUL_1_6_GAS_;SOUL 1.6 GAS AM;2010;2011;combustao;sim;
-NEW_PICANTO_GT_FLEX_;NEW PICANTO GT 1.0 FLEX JA;2018;2019;combustao;sim;
- PICANTO 1.0 FLEX TA1;PICANTO 1.0 FLEX TA1;2012;2014;combustao;sim;
-PICANTO 1.0 FLEX TA2;PICANTO 1.0 FLEX TA2;2015;2017;combustao;sim;
-QUORIS_3_8_G;QUORIS 3.8G KH;2013;2016;combustao;sim;
-CADENZA_3_5_G_VG;CADENZA 3.5G VG;2011;2016;combustao;sim;
-CARENS;CARENS 2.0 G;2009;2013;combustao;sim;
-OPTIMA_2_0_TF;OPTIMA 2.0 G TF;2015;2016;combustao;sim;
-Optima_2_4_;OPTIMA 2.4 G TF;2013;2014;combustao;sim;
-MOHAVE_V8_G;MOHAVE V8 G HMA;2010;2011;combustao;sim;
-MOHAVE_V6_;MOHAVE V6 G HMA;2009;2013;combustao;sim;
-MOHAVE_V6_DIESEL;MOHAVE V6 DIESEL HMB;2008;2016;diesel;sim;
-CERATO_KOUP_10_15_;CERATO KOUP;2010;2015;combustao;sim;referência antiga — anos pelo nome da guia
-NEW_BONGO_2500;NEW BONGO 2500;;;diesel;sim;referência antiga — anos não constam na aba
-_SPORTAGE_2_0_2WD_05_14;NEW SPORTAGE 2.0 2 WD;2005;2014;combustao;sim;referência antiga — anos pelo nome da guia
-BONGOK2700_4x4;BONGO - K2700 4x4 (M/T e A/T);;;diesel;sim;referência antiga — anos não constam na aba
-BONGOK2700;BONGO - K2700 (M/T e A/T);;;diesel;sim;referência antiga — anos não constam na aba
-BONGOK2500_05_14;BONGO - K2500;2005;2014;diesel;sim;referência antiga — anos pelo nome da guia
+aba;titulo;ano_inicial;ano_final;motorizacao;mostrar;observacao;foto
+CARNIVAL1.6 G HEV KA4 INICIO 26;CARNIVAL 1.6 G HEV KA4;2026;;hibrido;sim;;carnival-ka4-hev-2026
+SORENTO 2.2 D MQ4;SORENTO 2.2D MQ4;2027;;diesel;sim;;sorento-mq4-2027
+TASMAN 2.2 D TK;TASMAN 2.2D TK;2027;;diesel;sim;aba criada por nós (menu Kia + CS 021/26);tasman-2027
+EV9;EV9 4WD MV;2025;;eletrico;sim;;ev9
+EV5;EV5 2WD Ovc;2025;;eletrico;sim;;ev5
+NIRO;NIRO 1.6 G HEV SG2;2023;;hibrido;sim;;niro-sg2
+STONIC;STONIC 1.0 G MHEV YBC;2022;;hibrido;sim;;stonic-ybc
+SPORTAGE MHEV NQ5e INICIO 2023;SPORTAGE 1.6 G MHEV NQ5e;2023;;hibrido;sim;;sportage-nq5e
+NEW_SPORTAGE_FLEX_4X2_QL;SPORTAGE 2.0 FLEX 4x2 QL;2017;2022;combustao;sim;;sportage-ql-2017-2022
+Sportage_2_0_FLEX_SL_;SPORTAGE 2.0 FLEX SL;2012;2016;combustao;sim;;sportage-sl-2011-2016
+Sportage 2.0 g 4x2 SL 2011-2012;SPORTAGE 2.0 G 4X2 SL;2011;2012;combustao;sim;;sportage-sl-2011-2016
+Sportage_2_0_G 4X4 SL ;SPORTAGE 2.0 G 4X4 SL;2011;2012;combustao;sim;;sportage-sl-2011-2016
+CARNIVAL_3.5G_(NOVA 2022);CARNIVAL 3.5 G KA4;2022;;combustao;sim;;carnival-ka4-2022-2025
+GRAN_CARNIVAL_3_3_2016_;GRAN CARNIVAL 3.3 G YP;2016;2021;combustao;sim;;gran-carnival-yp-2016-2021
+CARNIVAL 3.5 G 11-15;CARNIVAL 3.5 G SD6;2011;2015;combustao;sim;;carnival-vq-2011-2015
+CARNIVAL_3_8_06_11;CARNIVAL 3.8 G SD6;2006;2011;combustao;sim;;carnival-vq-2006-2011
+Cerato 2.0 BDM 2020;CERATO 2.0 FLEX BDm;2020;;combustao;sim;;cerato-bd-2020
+_Cerato_YD_1_6_flex_;CERATO 1.6 FLEX YD;2013;2019;combustao;sim;;cerato-yd-2013-2019
+CERATO_1_6_GAS;CERATO 1.6 G TD;2010;2013;combustao;sim;;cerato-td-2010-2013
+SORENTO_2_4_UM_;SORENTO FL 2.4 G UM;2018;;combustao;sim;;sorento-um-fl-2018
+_SORENTO_3_5G_UM;SORENTO FL 3.5 G UM;2018;;combustao;sim;;sorento-um-fl-2018
+SORENTO 3.3 G UM 2015 - 2018;SORENTO 3.3 G UM;2015;2018;combustao;sim;;sorento-um-2015-2017
+NEW_SORENTO_3_5 2013-2015__;NEW SORENTO FL 3.5 G XM;2013;2015;combustao;sim;;sorento-xm-fl-2013-2015
+NEW_SORENTO_2_4_G_XM_2013-2015;SORENTO FL 2.4 G XM;2013;2015;combustao;sim;;sorento-xm-fl-2013-2015
+SORENTO_3_5_XM_;SORENTO 3.5G XM;2011;2012;combustao;sim;;sorento-xm-2011-2012
+_SORENTO_2_4G;SORENTO 2.4G XM;2011;2012;combustao;sim;;sorento-xm-2011-2012
+RIO  1.6. FLEX SC;RIO 1.6 FLEX SC;2020;;combustao;sim;;rio-sc-2020
+STINGER_GT_3_3_G;STINGER GT 3.3 G CK;2019;;combustao;sim;;stinger-ck
+BONGO K2500 4X4 C_AC PU  (2);BONGO K2500 MY26 4X4 PU;2026;;diesel;sim;Bongo 2026 (confirmado pelo Leonardo em 06/11);bongo-k2500
+BONGO K2500 4X4 C_AC PU ;BONGO K2500 4X4 C_AC PU;2024;2025;diesel;sim;com ar condicionado;bongo-k2500
+BONGO K2500 4X4 S-AC PU ;BONGO K2500 4X4 S_ AC PU;2024;2025;diesel;sim;sem ar condicionado;bongo-k2500
+New_Bongo_ com AC;NEW BONGO K2500 L6 PU;2013;2023;diesel;sim;com ar condicionado;bongo-k2500
+New_Bongo_Ineo;NEW BONGO K2500 S_AC PU;2013;2023;diesel;sim;sem ar condicionado;bongo-k2500
+SOUL 1.6 FLEX PS 2015 -2019 ;SOUL 1.6 FLEX PS;2015;2019;combustao;sim;;soul-ps-2015-2019
+Soul_1_6_FLEX_AM;SOUL FLEX 1.6 AM;2011;2014;combustao;sim;;soul-am-2010-2014
+SOUL_1_6_GAS_;SOUL 1.6 GAS AM;2010;2011;combustao;sim;;soul-am-2010-2014
+NEW_PICANTO_GT_FLEX_;NEW PICANTO GT 1.0 FLEX JA;2018;2019;combustao;sim;;picanto-ja-gt-2018-2019
+ PICANTO 1.0 FLEX TA1;PICANTO 1.0 FLEX TA1;2012;2014;combustao;sim;;picanto-ta-2012-2017
+PICANTO 1.0 FLEX TA2;PICANTO 1.0 FLEX TA2;2015;2017;combustao;sim;;picanto-ta-2012-2017
+QUORIS_3_8_G;QUORIS 3.8G KH;2013;2016;combustao;sim;;quoris-kh
+CADENZA_3_5_G_VG;CADENZA 3.5G VG;2011;2016;combustao;sim;;cadenza-vg
+CARENS;CARENS 2.0 G;2009;2013;combustao;sim;;carens-un
+OPTIMA_2_0_TF;OPTIMA 2.0 G TF;2015;2016;combustao;sim;;optima-tf
+Optima_2_4_;OPTIMA 2.4 G TF;2013;2014;combustao;sim;;optima-tf
+MOHAVE_V8_G;MOHAVE V8 G HMA;2010;2011;combustao;sim;;mohave-hm
+MOHAVE_V6_;MOHAVE V6 G HMA;2009;2013;combustao;sim;;mohave-hm
+MOHAVE_V6_DIESEL;MOHAVE V6 DIESEL HMB;2008;2016;diesel;sim;;mohave-hm
+CERATO_KOUP_10_15_;CERATO KOUP;2010;2015;combustao;sim;referência antiga — anos pelo nome da guia;cerato-koup
+NEW_BONGO_2500;NEW BONGO 2500;;;diesel;sim;referência antiga — anos não constam na aba;bongo-k2500
+_SPORTAGE_2_0_2WD_05_14;NEW SPORTAGE 2.0 2 WD;2005;2014;combustao;sim;referência antiga — anos pelo nome da guia;sportage-km-2005-2010
+BONGOK2700_4x4;BONGO - K2700 4x4 (M/T e A/T);;;diesel;sim;referência antiga — anos não constam na aba;bongo-k2500
+BONGOK2700;BONGO - K2700 (M/T e A/T);;;diesel;sim;referência antiga — anos não constam na aba;bongo-k2500
+BONGOK2500_05_14;BONGO - K2500;2005;2014;diesel;sim;referência antiga — anos pelo nome da guia;bongo-k2500

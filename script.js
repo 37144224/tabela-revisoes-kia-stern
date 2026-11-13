@@ -174,6 +174,17 @@ document.addEventListener("keydown", e => {
 const SILHUETA = `<svg viewBox="0 0 72 40" fill="none" stroke="currentColor" stroke-width="2">
   <path d="M6 28h60M10 28l4-10c1-3 3-4 6-4h28c3 0 5 1 7 4l7 10M14 18h44"/>
   <circle cx="20" cy="30" r="5" fill="#fff"/><circle cx="52" cy="30" r="5" fill="#fff"/></svg>`;
+const FOTO_PENDENTE = `<div class="foto">${SILHUETA}<span>Foto pendente</span></div>`;
+
+// Foto aprovada do modelo (fotos/*.webp). Se o arquivo não carregar, volta para "Foto pendente".
+// Fotos do Wikimedia levam o crédito do autor, exigido pela licença.
+function blocoFoto(m) {
+  if (!m.foto) return FOTO_PENDENTE;
+  const credito = m.foto_credito ? `<figcaption class="foto-credito">${escapa(m.foto_credito)}</figcaption>` : "";
+  return `<figure class="foto-modelo">
+      <div class="foto foto-com-imagem"><img src="${escapa(m.foto)}" alt="${escapa(m.nome)}"
+        onerror="this.closest('.foto-modelo').outerHTML = FOTO_PENDENTE"></div>${credito}</figure>`;
+}
 
 function mostraInicio() {
   const recentes = ultimas();
@@ -227,7 +238,7 @@ function mostraModelo(m) {
         ${m.referencia_antiga ? '<span class="selo">Referência antiga: confirmar valor com a oficina</span>' : ""}
         <div><button type="button" class="link-comparar" id="abrir-comparar">Comparar com outro modelo</button></div>
       </div>
-      <div class="foto">${SILHUETA}<span>Foto pendente</span></div>
+      ${blocoFoto(m)}
     </section>
     <div id="comparacao"></div>
     <!-- Revisão indicada (PRD 3.4): km atual + data da venda → a revisão que vence primeiro -->

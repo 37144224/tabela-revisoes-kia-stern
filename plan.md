@@ -1,6 +1,6 @@
 # plan.md — Tabela de Revisões e Tira-dúvidas de Garantia Kia (Stern)
 **Base:** [PRD.md](PRD.md) v1.4 · regras em [CLAUDE.md](CLAUDE.md) · **situação atual e rotina de atualização: [ESTADO-DO-PROJETO.md](ESTADO-DO-PROJETO.md)**
-**13/11/2026: projeto publicado e em uso.** Falta só a Fase 2b (fotos).
+**13/11/2026: projeto publicado e em uso.** Fase 2b (fotos) concluída em 13/11/2026.
 **Regra geral:** uma fase por vez. Cada fase só começa depois que o Leonardo confere o "como verificar" da anterior.
 
 ## Resumo
@@ -9,7 +9,7 @@
 | 0 | Documentos + Git ✅ | Baixa | Opus | — |
 | 1 | Dados (revisões + extras em JSON) ✅ | **Alta** | Sonnet | — |
 | 2 | Tela com abas + busca de revisões + resultado ✅ | Média | Sonnet | — |
-| 2b | Fotos dos modelos ⏳ pendente | Média | Sonnet | aprovação das fotos pelo Leonardo |
+| 2b | Fotos dos modelos ✅ | Média | Sonnet | aprovação das fotos pelo Leonardo |
 | 3 | Orçamento, texto, revisão indicada, comparar, agendamento ✅ | **Alta** | Sonnet | — |
 | G1 | Garantia: ler livretos → `garantia.json` ✅ (10/11) | **Alta** | Opus | — |
 | G2 | Garantia: aba, busca, vigência, copiar ✅ (10/11) | Média | Sonnet | — |

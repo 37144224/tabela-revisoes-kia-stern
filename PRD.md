@@ -28,7 +28,7 @@ Na mesma página, a aba **Garantia** tira as dúvidas de garantia: o funcionári
 - **Modelo não encontrado:** mensagem *"Modelo não encontrado. Confira o nome ou consulte a oficina"* + **sugestões parecidas** ("Você quis dizer Sorento?") + contato **Cleidiane, garantia@sternkia.com.br**.
 
 ### 3.3 Resultado do modelo
-- Cartão com o **nome exatamente como o título de dentro da aba** (mesma nomenclatura e códigos do NBS, ex.: "CERATO 1.6 FLEX YD"), os **anos de início e fim** (ex.: "2013–2019") e a **foto** (ou "foto pendente"). Nada de nomes reescritos (decisão do Leonardo, 09/11/2026). Fonte: `data/nomes.csv`.
+- Cartão com o **nome exatamente como o título de dentro da aba** (mesma nomenclatura e códigos do NBS, ex.: "CERATO 1.6 FLEX YD"), os **anos de início e fim** (ex.: "2013–2019") e a **foto** do modelo/geração (aprovada pelo Leonardo; site Kia para os atuais, Wikimedia Commons com crédito do autor para os antigos; abas do mesmo carro dividem a foto). Nada de nomes reescritos (decisão do Leonardo, 09/11/2026). Fonte: `data/nomes.csv`.
 - **Todas as revisões de uma vez**, cada uma com **valor total e lista de itens sempre abertos** (peças, óleo, mão de obra).
 - Valor base = **Tabela Stern**, calculado a partir do detalhe das peças (regras em [ESTADO-DO-PROJETO.md](ESTADO-DO-PROJETO.md)).
 - **Forma de pagamento** no cartão aberto, acima de "Montar orçamento": "Pix ou cartão de crédito · parcelado em até Nx de R$ X sem juros" (ou "somente à vista"). Regra: parcela mínima R$ 500, até 3x sem juros; Pix sem desconto. Calculada pelo total, não pela linha PARCELAMENTO da planilha (que está desatualizada em 38 modelos).
@@ -120,7 +120,7 @@ Texto completo, pronto para WhatsApp ou para ler ao telefone:
 |---|---|
 | Modelo não encontrado | Mensagem + sugestões + contato da Cleidiane |
 | Campo de busca vazio | Nada acontece. Mostra as últimas buscas |
-| Foto ausente | Ícone genérico + "foto pendente" |
+| Foto ausente ou que não carrega | Ícone genérico + "foto pendente" |
 | Aba antiga | Selo "Referência antiga: confirmar valor com a oficina" |
 | Regra de tempo do modelo ausente | Destaca a revisão só pelo km e avisa "regra de tempo não cadastrada" |
 | Desconto acima do limite | Aviso, sem bloqueio |

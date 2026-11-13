@@ -18,7 +18,7 @@ Página web de consulta para o agendamento e os consultores da Stern Kia, com tr
 | 0 — PRD, CLAUDE.md, plan.md | ✅ |
 | 1 — Planilha → JSON (53 modelos, 27 agregados) | ✅ |
 | 2 — Tela, busca, cartões, pré-orçamento | ✅ (conferida pela Cleidiane) |
-| 2b — Fotos dos modelos | ⏳ **pendente** (tratada em outra conversa; hoje aparece "Foto pendente") |
+| 2b — Fotos dos modelos | ✅ concluída em 13/11/2026: 35 fotos cobrem as 53 abas (aprovação do Leonardo); falta publicar |
 | 3 — Orçamento, revisão indicada, comparar, agendamento | ✅ |
 | G1/G2 — Garantia (base + tela) | ✅ (conferida pela Cleidiane) |
 | Luzes de advertência (PRD 3.13) | ✅ publicada em 13/11 |
@@ -27,7 +27,7 @@ Página web de consulta para o agendamento e os consultores da Stern Kia, com tr
 | 6 — Rotina de atualização | ✅ ver seção 4 |
 
 ## 3. Pendências (nenhuma bloqueia o uso)
-- [ ] **Fotos dos modelos** (Fase 2b): o Claude procura a foto de cada modelo/geração em fonte oficial e o Leonardo aprova uma a uma; arquivos em `fotos/` + `fotos/controle.csv`.
+- [x] **Fotos dos modelos** (Fase 2b, 13/11/2026): modelos atuais com fotos do site Kia Brasil (selos do canto removidos); antigos com fotos do Wikimedia Commons (crédito do autor na tela, exigido pela licença). Bongos antigos, K2700 e New Bongo 2500 usam a foto do Bongo atual (decisão do Leonardo). Mapa aba → foto na coluna `foto` de `data/nomes.csv`; origem e licença em `fotos/controle.csv`. **Foto nova:** salvar em `fotos/<nome>.webp` (800px), registrar no `controle.csv`, apontar no `nomes.csv` e rodar o script.
 - [ ] **Luzes:** conferir as luzes comuns do elétrico com a seção geral do EV5; conferir o híbrido com os manuais do Sportage MHEV e do Stonic; EV9 usa o EV5 (a confirmar); Picanto sem manual (usa o grupo flex/gasolina); luzes de equipamento do Stinger (prevenção de colisão, iluminação dinâmica, LED) ainda não incluídas; cores sem indicação no manual seguem a convenção do painel.
 - [ ] **Garantia:** modelos antigos sem livreto usam a conferência da Cleidiane (selo "confirmar com a garantia").
 - [ ] **Bongo K2700 e New Bongo 2500:** anos de início/fim não constam na planilha.
