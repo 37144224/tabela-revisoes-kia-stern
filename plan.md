@@ -1,20 +1,22 @@
 # plan.md — Tabela de Revisões e Tira-dúvidas de Garantia Kia (Stern)
-**Base:** [PRD.md](PRD.md) v1.1 (v1.0 aprovada em 06/11/2026; garantia incluída na v1.1) · regras em [CLAUDE.md](CLAUDE.md)
+**Base:** [PRD.md](PRD.md) v1.4 · regras em [CLAUDE.md](CLAUDE.md) · **situação atual e rotina de atualização: [ESTADO-DO-PROJETO.md](ESTADO-DO-PROJETO.md)**
+**13/11/2026: projeto publicado e em uso.** Falta só a Fase 2b (fotos).
 **Regra geral:** uma fase por vez. Cada fase só começa depois que o Leonardo confere o "como verificar" da anterior.
 
 ## Resumo
 | Fase | Entrega | Complexidade | Modelo | Bloqueio |
 |---|---|---|---|---|
-| 0 | Documentos + Git | Baixa | Opus | — |
+| 0 | Documentos + Git ✅ | Baixa | Opus | — |
 | 1 | Dados (revisões + extras em JSON) ✅ | **Alta** | Sonnet | — |
-| 2 | Tela com abas + busca de revisões + resultado | Média | Sonnet | Fase 1; nomes.csv aprovado |
-| 2b | Fotos dos modelos | Média | Sonnet | aprovação das fotos pelo Leonardo |
-| 3 | Orçamento, texto, revisão indicada, comparar, agendamento ✅ (11/11, aguardando conferência) | **Alta** | Sonnet | — |
+| 2 | Tela com abas + busca de revisões + resultado ✅ | Média | Sonnet | — |
+| 2b | Fotos dos modelos ⏳ pendente | Média | Sonnet | aprovação das fotos pelo Leonardo |
+| 3 | Orçamento, texto, revisão indicada, comparar, agendamento ✅ | **Alta** | Sonnet | — |
 | G1 | Garantia: ler livretos → `garantia.json` ✅ (10/11) | **Alta** | Opus | — |
 | G2 | Garantia: aba, busca, vigência, copiar ✅ (10/11) | Média | Sonnet | — |
 | 4 | PIN + publicação ✅ (11/11) | Média | Sonnet | — |
-| 5 | Testes | Média | Opus | Fases 1–4 |
-| 6 | Rotina de atualização (com a Cleidiane) | Baixa | Sonnet | Fase 4 |
+| L | Luzes de advertência (PRD 3.13) ✅ (12–13/11) | **Alta** | Opus | — |
+| 5 | Testes (parcial: testes no navegador a cada mudança) | Média | Opus | — |
+| 6 | Rotina de atualização ✅ (no ESTADO-DO-PROJETO, seção 4) | Baixa | Sonnet | — |
 
 ---
 

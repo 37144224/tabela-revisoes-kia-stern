@@ -21,3 +21,9 @@ manual garantia/
 ferramentas/garantia-fontes/
 *.jpeg
 *.jpg
+
+# Recortes dos manuais usados para conferir os símbolos (material da Kia, fica só no PC)
+ferramentas/simbolos-recortes/
+
+# Candidatas de fotos (antes da aprovação): ficam só no PC
+prototipos/fotos-candidatas/

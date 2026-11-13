@@ -1,62 +1,62 @@
-# Estado do projeto — Tabela de Revisões e Garantia Kia (Stern)
-**Atualizado:** 06/11/2026
+# Estado do projeto — Revisões, Garantia e Luzes de Advertência Kia (Stern)
+**Atualizado:** 13/11/2026 · **Situação:** publicado e em uso pela equipe (lançado em 13/11/2026).
 
-## Objetivo (resumo)
-Um link no **navegador do PC de trabalho** do agendamento e dos consultores (o celular é uso raro). O funcionário digita o modelo e vê o **valor base da revisão (Tabela Stern)**, a foto do modelo e um texto pronto para passar ao cliente. Também pode **marcar agregados e serviços extras**, que vão somando a um orçamento. Publicação: GitHub Pages + PIN da equipe. Plano completo: [plano-inicial.md](plano-inicial.md).
+> Para uma conversa nova: leia este arquivo primeiro, depois o [CLAUDE.md](CLAUDE.md) (regras) e, se precisar do porquê de alguma decisão, o [PRD.md](PRD.md).
 
-## Onde estamos
-| Fase | Status |
+## 1. O que é
+Página web de consulta para o agendamento e os consultores da Stern Kia, com três abas:
+- **Revisões:** valor de cada revisão (Tabela Stern), itens, forma de pagamento, revisão indicada (km + data), comparar modelos, pré-orçamento e "Montar orçamento" (agregados, filtro do A/C, item avulso, desconto, texto ao cliente e e-mail ao agendamento).
+- **Garantia:** regras dos livretos Kia por modelo e item, vigência pela data da venda e km, aviso das revisões em dia, texto ao cliente e o aviso em destaque do boletim CS 020/25 (peças de reposição).
+- **Luzes de advertência:** 64 luzes por categoria de motorização (elétrico, híbrido, flex/gasolina, diesel), cada uma com o símbolo do próprio manual, significado, orientação e texto ao cliente.
+
+**Link:** https://37144224.github.io/tabela-revisoes-kia-stern/ · **PIN:** 4 dígitos, fica com o Leonardo (no código só existe o hash; não escrever o número em arquivo do repositório, que é público).
+**Repositório:** `37144224/tabela-revisoes-kia-stern` (público, branch `main`, GitHub Pages). Publicar = commit + `git push` (o Claude faz quando o Leonardo pede); o site atualiza em 1–2 min; nos PCs, Ctrl+F5.
+
+## 2. Onde estamos
+| Fase | Situação |
 |---|---|
-| Plano inicial (método do curso: SMART, GOAL, PRD → CLAUDE.md → plan.md) | ✅ aprovado |
-| Conferência das planilhas e dos menus Kia | ✅ concluída (detalhes em [analise-dados.md](analise-dados.md)) |
-| Fase 0: PRD.md → CLAUDE.md → plan.md | ✅ concluída (3 documentos aprovados, Git iniciado em 06/11; nenhum commit ainda) |
-| Fase 1: script Excel → JSON | ✅ concluída em 06/11: 53 modelos + 25 extras; 10 valores conferidos pelo Leonardo; modelos atuais 100% iguais à planilha ([divergencias.md](ferramentas/divergencias.md)) |
-| Garantia (novo, 06/11) | ✅ PRD v1.1 aprovado em 09/11 (opção A: base de regras dos livretos; aba Garantia). Fase G1 em andamento (09/11): 4 livretos recebidos em `manual garantia/` (Bongo até 2025, Bongo a partir de 2026, Niro 2024, Sportage/Stonic 2024), transcritos em `ferramentas/garantia-fontes/` (texto literal + página). Livreto 2026 = só Bongo 2026 (Leonardo). 09/11: +16 manuais do proprietário extraídos em `ferramentas/garantia-fontes/manuais-proprietario/` (nenhum traz plano de revisão nem prazos; só regras que anulam garantia e capacidades). Página kia.com.br/garantia resumida em `kia-site-garantia.md`. Pendentes: Sorento (PDF corrompido), EV5 (760 págs. em imagem), proposta da base aguardando aprovação. Tasman tem regra própria (manual a providenciar); Leonardo vai baixar de novo o Sorento e buscar o Carnival HEV |
-| **Fase 2: tela com abas + busca de revisões** | ⏳ **09/11: pronta para teste** (`index.html`, `style.css`, `script.js`; dados em `data/revisoes.js` para abrir com dois cliques). Testada por nós: busca com/sem acento, com ano, nome errado com sugestão, EV5 gratuitas, selo de aba antiga, valores conferidos (Carens, Sorento 2.2D, Tasman). Falta o teste do Leonardo no Chrome e no Edge. **09/11:** Leonardo pediu ajustes visuais: usar o sistema "Stern Kia" (artefato de design, Kia Web Style Guide: Preto Noturno/Branco, cantos retos; azul-petróleo só em dashboards), logos Kia Stern + Kia Service (`assets/logos/`), cartões fechados que abrem os itens ao clicar. 3 propostas em `prototipos/layouts.html`; **escolhida a B** (menu lateral), aplicada na página com letra maior e modelo em negrito. Arruela do bujão a R$ 0 em 7 abas: fica como está na planilha (decisão do Leonardo, 09/11). **09/11:** página enviada à Cleidiane em .zip (`envios/Tabela-Revisoes-Kia-Stern-TESTE.zip`) para conferir modelos e valores com o NBS; **Cleidiane conferiu: tudo certo (Leonardo, 09/11)**. **09/11:** incluída a forma de pagamento no cartão aberto (regra: parcela mínima R$ 500, até 3x sem juros; Pix sem desconto). Também o botão **PRÉ-ORÇAMENTO** (texto aprovado) com janela e "Copiar texto". E-mail do agendamento: agendamento2@sternkia.com.br. Correções na cópia: Sorento 3.3 UM 3ª rev. (Limpa TBI → aditivo, R$ 1.361,73) e Sportage 2.0 Flex SL 4ª rev. (aditivo digitado 166 → descarbonizante 185, R$ 2.715,89). Arruela removida do Sorento 2.2D/Tasman. **Manutenção especial** (Sorento 2.2D e Tasman) em cartões após a 10ª revisão. Todas as correções em `ferramentas/correcoes-na-planilha.md`; enviadas à Cleidiane em 09/11 com a planilha corrigida. O zip que a Cleidiane recebeu ainda não tem isso |
-| **Garantia G1 + G2** | **10/11: prontas, aguardando conferência do Leonardo.** Cleidiane devolveu a conferência (`manual garantia/Garantia por modelo - conferencia.xlsx`); novos livretos lidos: PTGEN G5 261 (Carnival HEV) e PTGES G5 261 - MQ4 (Sorento 2.2D e Tasman, confirmado pelo Leonardo). Base `data/garantia.json` (+ `.js`): 53 modelos, 15 itens com sinônimos, trecho e página. Modelos sem livreto: garantia geral pelo site Kia (vendas desde 01/2025) ou pela conferência da Cleidiane, com selo "confirmar com a garantia". Aba Garantia: busca "modelo + problema", itens, data da venda + km → dentro/fora, revisões em dia (aviso), copiar para o cliente, "não encontrado no manual". Testada no navegador; falta Chrome/Edge do Leonardo. **10/11 — verificação ampla (Leonardo sem tempo):** trechos conferidos palavra por palavra com as transcrições dos livretos (só os do site Kia são resumo, marcados assim na tela); 53 modelos × todos os itens × 4 cenários de data/km (2.992 combinações) sem erro; 20 buscas de balcão; datas-limite (29/02, fim de mês, venda futura) e km sem data corrigidos |
-| Fase 3: interações | **pronta, aguardando conferência do Leonardo** (09/11): montar orçamento (agregados, retífica até 2 pares, item avulso, desconto peças/MO em R$ ou % com aviso 10%/5%), texto para o cliente, e-mail ao agendamento, comparar dois modelos, últimas buscas. 10/11: filtro do A/C em todo orçamento (só peça) e aviso de desconto corrigido no limite exato. **11/11: revisão indicada pronta** (km atual + data da venda; regra km/meses/tolerância do livreto de cada modelo; sem livreto, só pelo km com aviso; indica a próxima a fazer, a de número mais alto entre km e tempo; destaca e abre o cartão). Testada em todos os modelos. **Fase 3 completa, aguardando conferência do Leonardo** |
-| **Luzes de advertência (PRD 3.13, 11 e 12/11)** | **Em andamento, aguardando conferência do Leonardo.** Aba nova, com luzes por **categoria de motorização** (a categoria vem do campo `motorizacao` da tabela): elétrico (EV5, EV9), híbrido, flex/gasolina e diesel. As luzes comuns valem para todas; as de motor valem para combustão e diesel. Dados em `data/luzes.json`: 52 luzes. Fontes lidas: Niro HEV (híbrido), Sorento UM (flex/gasolina e diesel), Rio (flex/gasolina, confirmou o grupo), Stinger (conferido; tem mais luzes de equipamento a incluir), Bongo (diesel, manual de 2012). **Pendentes:** EV5 (manual em imagem, sem texto; lido página a página como imagem; grupo elétrico vazio até lá); Sportage MHEV e Stonic (texto disponível, a conferir o híbrido); luzes de motor do híbrido (óleo e combustível ainda não conferidos); Picanto (sem manual). Sorento 2.2D é diesel, como na tabela. **12/11 — ícones:** os primeiros desenhos foram retirados da página (não batiam com o painel; tinham sido feitos pelo nome, sem olhar o manual). Agora a luz aparece só com o nome até ter símbolo aprovado. Símbolos reais recortados das páginas dos manuais (Sorento 40, Rio 35, Stinger 30). Folha de conferência em `envios/conferencia-luzes/conferencia-simbolos.html` (lote 1, 37 luzes): opção A = redesenho próprio (parecido), opção B = símbolo do manual pintado na cor (idêntico). **12/11: Leonardo escolheu a opção B.** 40 símbolos em `assets/luzes/` ligados às luzes (campo `icone`); grupos reorganizados: 28 comuns, 6 de motor (flex/gasolina, diesel e híbrido), 4 de diesel, 11 do híbrido; 49 luzes no total. Testado: Sorento flex 34 luzes, Sorento diesel 38, Niro 45, EV5 28 (só comuns). **Falta:** o Leonardo conferir as cores; símbolos das mensagens do visor do Niro e do 4WD do Bongo (sem símbolo no manual lido); conferir o híbrido com Sportage MHEV e Stonic. **12/11 — elétrico:** lidas as págs. 56 a 66 do EV5 (PDF só em imagem, lido página a página): 7 luzes próprias (READY, serviço, potência limitada, carregamento, bateria baixa, freio e freio regenerativo) e 11 mensagens do visor; 18 itens na categoria elétrico, que vale para EV5 e EV9 (EV9 a confirmar). Símbolos exclusivos do EV5 (tartaruga, cabo, bateria) vêm do próprio manual, em baixa resolução; cor do carregamento não informada no manual (aparece em tom neutro). No elétrico sai a luz do alternador. **Falta:** conferir as luzes comuns com a seção geral do EV5. **12/11 — toda luz com símbolo (pedido do Leonardo: o cliente descreve pela imagem):** símbolos das mensagens tirados das telas do visor do EV5 e do Niro (as do Niro em cores, que confirmaram vermelho, verde e âmbar); saíram as 2 mensagens do EV5 sem símbolo na tela (frio e conexão do cabo) e o 4WD do Bongo (duplicava o AWD do Sorento, que tem símbolo). A luz do motor (MIL) passou a se chamar "Luz da injeção eletrônica". **Total: 64 luzes, todas com símbolo** (EV5/EV9 43, Niro 45, Sorento diesel 37, flex/gasolina 34). Nada publicado. |
-| Fase 4: PIN + GitHub Pages | **11/11: publicada.** Tela de PIN (4 dígitos, só o hash no código, lembrado no navegador; o número fica com o Leonardo). Repositório público `37144224/tabela-revisoes-kia-stern` (branch main), GitHub Pages: https://37144224.github.io/tabela-revisoes-kia-stern/ . Livretos e transcrições ficam fora do Git (`.gitignore`). Sem pasta compartilhada: a Cleidiane manda as planilhas ao Leonardo (PRD 1.2). **Para publicar uma mudança:** commit + `git push` (o Claude faz quando o Leonardo pedir) |
-| Fase 5: testes (Opus) | pendente |
-| Fase 6: rotina de atualização | pendente |
+| 0 — PRD, CLAUDE.md, plan.md | ✅ |
+| 1 — Planilha → JSON (53 modelos, 27 agregados) | ✅ |
+| 2 — Tela, busca, cartões, pré-orçamento | ✅ (conferida pela Cleidiane) |
+| 2b — Fotos dos modelos | ⏳ **pendente** (tratada em outra conversa; hoje aparece "Foto pendente") |
+| 3 — Orçamento, revisão indicada, comparar, agendamento | ✅ |
+| G1/G2 — Garantia (base + tela) | ✅ (conferida pela Cleidiane) |
+| Luzes de advertência (PRD 3.13) | ✅ publicada em 13/11 |
+| 4 — PIN + GitHub Pages | ✅ |
+| 5 — Testes formais | parcial: testes automáticos no navegador a cada mudança; falta o roteiro do plan.md (Chrome e Edge em outro PC) |
+| 6 — Rotina de atualização | ✅ ver seção 4 |
 
-## Arquivos que valem
-- **Planilha base (desde 06/11 15h40):** `fonte/cleidiane-2026-11-06-1513/Menu revisão atualizado (STERN) 2026-11-06 - com TASMAN.xlsx`. É uma cópia da planilha que a Cleidiane mandou em 06/11 às 15h13, com a aba Tasman copiada da base anterior e as 2 correções do Sorento 2.2D reaplicadas (ela ainda não tinha feito). Montada e recalculada no Excel. O original dela não foi alterado.
-  - O que mudou na planilha dela: EV5 (preços do fluido de arrefecimento azul e do fluido de freio), Sorento 2.4 UM (fluido de freio 132,94) e a fórmula do total do Carens, que ainda está errada (`=SUM(D10:D25)` soma também peças, tempo e mão de obra).
-  - Correções nossas na cópia (06/11, pedido do Leonardo): **Carens** (peças = soma das linhas 10–21; total = peças + mão de obra) e **Sportage MHEV** 10ª revisão (mão de obra = 1,5 h × 450 = 675, no lugar dos 525 digitados). **Fluido de freio:** 52 células digitadas (R$ 91,57 etc.) em 28 abas passaram a puxar o detalhe, e o total do detalhe do Carnival 3.5 11-15 (M68) também. Mohave V6/V6 Diesel: aditivo fica fora (como na planilha).
-  - Também corrigidos: EV5 F16 (arrefecimento azul puxa o detalhe, 1.509,24) e Sportage SL 4x2/4x4 (óleo 4 L no detalhe).
-  - **Resultado:** os 47 modelos atuais batem 100% com a planilha. Só 2 abas antigas diferem (New Bongo 2500 e Bongo K2500 05-14, só referência).
-- Base anterior (referência): `fonte/kia-email-2026-11-06/Menu revisão atualizado (STERN) SETEMBRO 2026 - com TASMAN.xlsx`.
-- **Menus Kia (21/09/2026):** `fonte/kia-email-2026-11-06/` Anexo 1 (11 modelos atuais) e Anexo 2 (34 modelos antigos).
-- **Tasman:** valores corrigidos pelo CS 021/26 (Anexo 1 na raiz do projeto).
+## 3. Pendências (nenhuma bloqueia o uso)
+- [ ] **Fotos dos modelos** (Fase 2b): o Claude procura a foto de cada modelo/geração em fonte oficial e o Leonardo aprova uma a uma; arquivos em `fotos/` + `fotos/controle.csv`.
+- [ ] **Luzes:** conferir as luzes comuns do elétrico com a seção geral do EV5; conferir o híbrido com os manuais do Sportage MHEV e do Stonic; EV9 usa o EV5 (a confirmar); Picanto sem manual (usa o grupo flex/gasolina); luzes de equipamento do Stinger (prevenção de colisão, iluminação dinâmica, LED) ainda não incluídas; cores sem indicação no manual seguem a convenção do painel.
+- [ ] **Garantia:** modelos antigos sem livreto usam a conferência da Cleidiane (selo "confirmar com a garantia").
+- [ ] **Bongo K2700 e New Bongo 2500:** anos de início/fim não constam na planilha.
 
-## Regras de negócio decididas
-1. **Existe uma só tabela base: a "Tabela Stern"** (menu de revisão da Stern). Ela tem os mesmos itens do menu Kia, mas com os valores da Stern: óleo arredondado, peças e mão de obra a R$ 450/h. Na planilha, é a linha "VALOR TABELA KIA". **Não há mais alternador Kia/Stern.**
-2. **Agregados e serviços extras são opcionais.** Ficam numa tabela separada (catálogo) e o consultor marca o que quiser incluir; o sistema soma ao valor base:
-   - **Produtos agregados:** Air Cleaner 360, Higienizador A/C, Kit Revisão, Evaporator Cleaner, Nano Cleaner, Cleaner Brake, Limpa TBI, Descontaminação Interna do Motor etc. **O Leonardo vai mandar uma planilha nova** com a lista completa.
-   - **Serviços:** alinhamento, balanceamento, retífica de disco e outros. **O Leonardo vai fornecer os valores.**
-   - A tela mostra **Revisão base + extras marcados = Total do orçamento**, pronto para copiar ao cliente.
-   - O catálogo cresce aos poucos, conforme a equipe chega ao melhor orçamento.
-   - O bloco "AGREGADOS / C/ AGREGADOS" das abas atuais **não é usado** como valor fixo.
-3. **Aditivo Fuel Cleaner = Via Tanque** (010164 Flex / 010163 Diesel). É o mesmo item e já está dentro do valor Kia; não somar duas vezes.
-4. **Óleo:** arredondar sempre para cima; fração ,1 arredonda para baixo (4,1 → 4). O Bongo K2500 fica fixo em 8 L.
-5. **Fluido de freio:** a Stern usa frasco de 500 ml (o dobro da quantidade, metade do preço) e a Kia usa litro. O total é o mesmo.
-6. **Cálculo:** sempre a partir do **detalhe das peças**, nunca de valores digitados nas linhas de cima (já houve 2 erros assim no Sorento). Listar as abas em que o detalhe não bate com a linha.
-7. **Abas antigas** (Cerato Koup, New Bongo 2500, Sportage 2WD 05-14, Bongo K2500 05-14, Bongo K2700 x2): entram na consulta com o selo "Referência antiga: confirmar valor com a oficina".
+## 4. Como atualizar (rotina)
+| Chegou… | O que fazer |
+|---|---|
+| **Planilha nova de revisões** (Kia/Cleidiane) | Salvar em `fonte/<origem>-<AAAA-MM-DD>/` sem alterar; conferir [correcoes-na-planilha.md](ferramentas/correcoes-na-planilha.md) (reaplicar o que faltar numa cópia); apontar o caminho em `ferramentas/excel_para_json.py` (ou passar como argumento) e rodar `python ferramentas/excel_para_json.py`; ler `ferramentas/divergencias.md`; conferir alguns valores; atualizar a data da tabela; publicar. |
+| **Planilha nova de agregados** | Salvar em `fonte/agregados-<origem>-<data>/`; transcrever para `AGREGADOS-transcrito.csv` (código; descrição; valor; peca ou mao_de_obra; observação), mantendo a retífica (RETDISCO, informada pelo Leonardo); apontar `CSV_PADRAO` no script; rodar o script; publicar. |
+| **Livreto de garantia ou boletim Kia** | Salvar em `fonte/` (boletins em `fonte/kia-boletins/`); transcrever em `ferramentas/garantia-fontes/`; atualizar `data/garantia.json` (trecho fiel + livreto/página) e refazer `data/garantia.js` (o script de planilha refaz); Leonardo confere; publicar. Avisos em destaque ficam em `garantia.json` → `avisos`. |
+| **Manual do proprietário / luz nova** | `python ferramentas/simbolos_luzes.py` (recortar → folha de conferência ao Leonardo → pintar); editar `data/luzes.json` (texto próprio, página, categoria) e `python ferramentas/simbolos_luzes.py js`; publicar. |
 
-## Pendências
-- [ ] Contar à Cleidiane as 2 correções do Sorento 2.2D (óleo 6 L e fluido de freio da 4ª/8ª) para ela ajustar a planilha dela.
-- [x] Planilha de agregados recebida da Cleidiane (06/11, 24 itens): transcrita em `fonte/agregados-cleidiane-2026-11-06/AGREGADOS-transcrito.csv`.
-- [x] Serviços (alinhamento, balanceamento, limpezas) contam como **mão de obra** no limite de desconto; produtos contam como **peça**.
-- [x] Retífica de discos: R$ 270 por par (1 eixo); quantidade 1 ou 2 (4 discos = R$ 540).
-- [ ] **Fotos dos modelos:** o Claude procura na internet uma foto de cada modelo/geração exatos (de preferência em fontes oficiais, como o site e a imprensa da Kia), e o **Leonardo aprova** uma por uma. Controle em `fotos/controle.csv`.
-- [x] Repositório Git iniciado; 1º commit em 09/11/2026 (fases 0–2). `fonte/`, planilhas e `envios/` ficam fora do Git.
-- [ ] **Leonardo enviar:** regra de km/tempo por modelo (arquivo da Kia) e e-mail do agendamento. A Cleidiane não terá ramal na tela.
-- [ ] Definir como compartilhar a pasta do projeto com a Cleidiane, que não terá GitHub (Fase 4).
+## 5. Onde fica cada coisa
+- **Página:** `index.html`, `style.css`, `script.js`; logos em `assets/logos/`; símbolos das luzes em `assets/luzes/`.
+- **Dados (no Git):** `data/revisoes.json/.js` (gerado), `data/extras.json/.js` (gerado), `data/garantia.json/.js` (fonte = JSON, montado pelo Claude), `data/luzes.json/.js` (fonte = JSON), `data/nomes.csv`.
+- **Ferramentas (no Git):** `ferramentas/excel_para_json.py`, `ferramentas/simbolos_luzes.py`, `ferramentas/correcoes-na-planilha.md`, `ferramentas/divergencias.md` (gerado).
+- **Fora do Git (só no PC):** `fonte/` (originais: planilhas, menus Kia, boletins; `fonte/antigos-raiz/` = arquivos que estavam soltos na raiz), `manual garantia/` (livretos e manuais em PDF, pasta do Leonardo), `ferramentas/garantia-fontes/` (transcrições), `ferramentas/simbolos-recortes/`, `envios/` (planilhas e e-mails enviados, folha de conferência das luzes).
+- **Planilha base atual:** `fonte/cleidiane-2026-11-06-1513/Menu revisão atualizado (STERN) 2026-11-06 - com TASMAN.xlsx` (cópia corrigida; original dela intacto). Agregados: `fonte/agregados-leonardo-2026-11-12/`.
+- **Histórico de planejamento:** `docs/historico/plano-inicial.md` e `docs/historico/analise-dados.md`.
 
-## 13/11/2026
-- **Agregados:** planilha nova do Leonardo (12/11) em `fonte/agregados-leonardo-2026-11-12/`; +2 itens: Polimento e higienização KIT (R$ 900) e KIT02 (R$ 1.200), como mão de obra. Catálogo com 27 itens. Revisões sem mudança.
-- **Garantia:** aviso em destaque no topo da aba com o **Boletim Kia Service CS 020/25 (22/08/2025)**: peça de reposição vendida a partir de 09/2025 tem 12 meses se aplicada na concessionária e 90 dias se vendida no balcão; menção obrigatória na NF. PDF original em `fonte/kia-boletins/`, transcrição em `ferramentas/garantia-fontes/`. O item "peça de reposição" passou a usar o boletim em todos os modelos.
-- Campo de busca da Garantia no mesmo padrão das outras abas; menção da NF virou botão "Clique aqui para ver".
-- **Publicado em 13/11/2026** (commit 466d485): luzes de advertência, aviso do boletim e agregados novos. Conferido no link: página, luzes e símbolos no ar.
-- **13/11 — contato:** textos ao cliente (pré-orçamento, orçamento, garantia e luzes) terminam com o WhatsApp do Agendamento de Serviços, (11) 99021-6377, com link wa.me (número do site sternkia.com.br). O e-mail agendamento2@ ficou só no botão interno "Enviar para o agendamento". Publicado.
+## 6. Contatos usados na página
+- Garantia: Cleidiane, garantia@sternkia.com.br (aparece no rodapé e nos avisos "consultar a garantia").
+- Texto ao cliente: WhatsApp do Agendamento de Serviços, (11) 99021-6377, link wa.me (site sternkia.com.br, 13/11/2026).
+- Botão interno "Enviar para o agendamento": agendamento2@sternkia.com.br.
+
+## 7. Histórico resumido
+- **05–06/11:** plano inicial, conferência das planilhas e dos menus Kia, PRD/CLAUDE.md/plan.md; script Excel → JSON (53 modelos); correções na cópia da planilha (registradas em `correcoes-na-planilha.md`, enviadas à Cleidiane em 09/11).
+- **09/11:** tela com layout B (sistema visual "Stern Kia"), pré-orçamento, forma de pagamento, manutenção especial; Cleidiane conferiu modelos e valores; 1º commit.
+- **10/11:** garantia (livretos transcritos, conferência da Cleidiane, base de 53 modelos, verificação ampla de 2.992 combinações); filtro do A/C no orçamento.
+- **11/11:** revisão indicada; PIN; publicação no GitHub Pages; PRD 1.2 (sem pasta compartilhada: a Cleidiane manda as planilhas ao Leonardo).
+- **12/11:** aba Luzes de advertência por categoria (PRD 1.3/1.4); símbolos do manual (opção B aprovada); EV5 lido página a página; luz MIL = "luz da injeção eletrônica".
+- **13/11:** agregados de polimento (KIT, KIT02); boletim CS 020/25 como aviso na Garantia; contato por WhatsApp nos textos ao cliente; e-mail de apresentação enviado à equipe (gerenteposvenda@, assistencia4@, assistencia1@, garantia@, marketing@, agendamento2@, agendamento1@, acessorios@); organização final do projeto.

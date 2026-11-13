@@ -1,7 +1,8 @@
 # CLAUDE.md — Tabela de Revisões e Tira-dúvidas de Garantia Kia (Stern)
 
-Página web com duas abas, usada pelo agendamento e pelos consultores da Stern: **Revisões** (consulta e orçamento) e **Garantia** (regras oficiais da Kia tiradas dos livretos).
-Requisitos aprovados: [PRD.md](PRD.md). Fases: [plan.md](plan.md). Situação atual: [ESTADO-DO-PROJETO.md](ESTADO-DO-PROJETO.md).
+Página web com três abas, usada pelo agendamento e pelos consultores da Stern: **Revisões** (consulta e orçamento), **Garantia** (regras oficiais da Kia tiradas dos livretos e boletins) e **Luzes de advertência** (símbolo, significado e orientação).
+**Publicada e em uso desde 13/11/2026:** https://37144224.github.io/tabela-revisoes-kia-stern/ (repositório público `37144224/tabela-revisoes-kia-stern`, GitHub Pages; publicar = commit + push, só quando o Leonardo pedir).
+**Comece por:** [ESTADO-DO-PROJETO.md](ESTADO-DO-PROJETO.md) (situação, pendências e rotina de atualização). Requisitos: [PRD.md](PRD.md). Fases: [plan.md](plan.md).
 
 ## 5 regras de trabalho
 1. **Propor antes de executar:** mostrar o plano da mudança e esperar o "ok" antes de criar ou alterar código.
@@ -18,15 +19,25 @@ Requisitos aprovados: [PRD.md](PRD.md). Fases: [plan.md](plan.md). Situação at
 ## Estrutura
 ```
 index.html / style.css / script.js   ← a página (desktop primeiro, 1280px+)
-data/revisoes.json                   ← gerado pelo script, nunca editar à mão
-data/extras.json                     ← catálogo de agregados e serviços
-data/nomes.csv                       ← nome amigável, versão, anos e motorização de cada aba
-data/garantia.json                   ← regras de garantia (por motorização + exceções), montadas pelo Claude a partir dos livretos
-fotos/                               ← <modelo>-<anoini>-<anofim>.webp, 800px, ~100 KB; controle.csv
-ferramentas/excel_para_json.py       ← planilha Stern → revisoes.json
-fonte/                               ← planilhas e PDFs originais (NUNCA alterar; fora do Git)
-fonte/manuais/                       ← livretos de garantia em PDF (manual do proprietário)
+assets/logos/  assets/luzes/         ← logos Kia Stern/Kia Service; símbolos das luzes (<id>.png, recorte do manual na cor da luz)
+data/revisoes.json (+.js)            ← gerado pelo script, nunca editar à mão
+data/extras.json (+.js)              ← catálogo de agregados e serviços (gerado do CSV transcrito)
+data/nomes.csv                       ← título NBS, anos e motorização de cada aba
+data/garantia.json (+.js)            ← regras de garantia e avisos (boletins); fonte = JSON, montado pelo Claude
+data/luzes.json (+.js)               ← luzes de advertência por categoria; fonte = JSON
+fotos/                               ← (pendente) <modelo>-<anoini>-<anofim>.webp, 800px; controle.csv
+ferramentas/excel_para_json.py       ← planilha Stern + agregados → JSON/.js (refaz também garantia.js)
+ferramentas/simbolos_luzes.py        ← recorta símbolos do manual, pinta na cor e refaz luzes.js
+ferramentas/correcoes-na-planilha.md ← correções e decisões a reaplicar em planilha nova
+docs/historico/                      ← plano inicial e análise dos dados (só consulta)
+--- fora do Git (só no PC) ---
+fonte/                               ← originais (planilhas, menus Kia, boletins em fonte/kia-boletins/); NUNCA alterar
+manual garantia/                     ← livretos e manuais em PDF (pasta do Leonardo; não mover)
+ferramentas/garantia-fontes/         ← transcrições dos livretos e boletins (base do garantia.json)
+ferramentas/simbolos-recortes/       ← recortes dos manuais para conferência
+envios/                              ← cópias enviadas por e-mail, folhas de conferência
 ```
+**O PIN não aparece em nenhum arquivo do repositório** (só o hash no script.js); não escrevê-lo em documento versionado.
 
 ## Regras de negócio (não mudar sem aprovação)
 - **Uma só tabela base: Tabela Stern** (linha "VALOR TABELA KIA" da planilha). Não existe alternador Kia/Stern.
