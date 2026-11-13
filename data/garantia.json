@@ -1,5 +1,5 @@
 {
- "data_regras": "2026-11-10",
+ "data_regras": "2026-11-13",
  "observacao": "Montado pelo Claude a partir dos livretos (ferramentas/garantia-fontes) e da conferência da Cleidiane. Só o que está escrito na fonte.",
  "livretos": {
   "PTGER-G3-231": "Manual de Garantia e Manutenção PTGER G3 231 (Bongo K2500 até ano-modelo 2025)",
@@ -9,7 +9,8 @@
   "PTGEN-G5-261": "Manual de Garantia e Manutenção PTGEN G5 261 (híbridos HEV, edição 2026)",
   "PTGES-G5-261-MQ4": "Manual de Garantia e Manutenção PTGES G5 261 - MQ4 (Sorento 2.2D e Tasman 2.2D)",
   "SITE-KIA": "Página oficial kia.com.br/garantia (consultada em 09/11/2026)",
-  "CONF-STERN": "Conferência da garantia Stern (Cleidiane, 10/11/2026), sem livreto disponível"
+  "CONF-STERN": "Conferência da garantia Stern (Cleidiane, 10/11/2026), sem livreto disponível",
+  "BOLETIM-CS-020-25": "Boletim Kia Service CS 020/25 (22/08/2025): nova política de garantia de peças de reposição"
  },
  "pag4_substituto": {
   "PTGEN-G5-261": "PTGEN-G5-241"
@@ -290,35 +291,24 @@
    "nome": "Peça comprada e trocada depois (peça de reposição)",
    "tipo": "pecas",
    "sinonimos": [
-    "peca de reposicao",
-    "peca comprada",
-    "peca trocada",
-    "peca do balcao",
+    "12 meses",
+    "90 dias",
+    "balcao",
     "garantia da peca",
-    "nota da peca"
+    "nota da peca",
+    "nota fiscal da peca",
+    "peca aplicada",
+    "peca comprada",
+    "peca de reposicao",
+    "peca do balcao",
+    "peca trocada"
    ],
-   "condicoes": "Conta da data da nota fiscal. Guardar as notas de peças e serviços. Montagem inadequada não é coberta.",
-   "trecho": "Fora do período de Cobertura Básica, a garantia de peças de reposição originais Kia quanto a defeitos de fabricação é de noventa (90) dias e tem início na data de emissão da nota fiscal de venda.",
-   "pag": "3",
-   "meses": 3,
-   "por_livreto": {
-    "PTGER-G4-252": {
-     "trecho": "A garantia de peças de reposição originais Kia, quanto a defeitos de fabricação, é de doze (12) meses quando instalada em uma Concessionária Kia e noventa (90) dias caso instalada em outro local. Esta garantia tem início na data de emissão da nota fiscal de venda.",
-     "meses": 12,
-     "condicoes": "12 meses se instalada em concessionária Kia; 90 dias se instalada em outro lugar. Conta da nota fiscal. Guardar as notas."
-    },
-    "PTGES-G5-261-MQ4": {
-     "trecho": "A garantia de peças de reposição originais Kia, quanto a defeitos de fabricação, é de doze (12) meses quando instalada em uma Concessionária Kia e noventa (90) dias caso instalada em outro local. Esta garantia tem início na data de emissão da nota fiscal de venda.",
-     "meses": 12,
-     "condicoes": "12 meses se instalada em concessionária Kia; 90 dias se instalada em outro lugar. Conta da nota fiscal. Guardar as notas."
-    },
-    "PTGEN-G5-261": {
-     "trecho": "A garantia de peças de reposição originais Kia, quanto a defeitos de fabricação, é de doze (12) meses quando instalada em uma Concessionária Kia e noventa (90) dias caso instalada em outro local. Esta garantia tem início na data de emissão da nota fiscal de venda.",
-     "meses": 12,
-     "condicoes": "12 meses se instalada em concessionária Kia; 90 dias se instalada em outro lugar. Conta da nota fiscal. Guardar as notas."
-    }
-   },
-   "nota": "Em caso de instalação de uma peça de reposição dentro do período de Cobertura Básica, a peça instalada terá a mesma cobertura do período restante da Cobertura Básica do veículo."
+   "condicoes": "12 meses se aplicada na oficina da concessionária Kia; 90 dias se vendida no balcão para instalar em outro lugar. Conta da nota fiscal da peça. A nota precisa trazer, no campo de observações, a menção do boletim conforme o tipo de venda. Peça vendida antes de setembro de 2025: vale o livreto da época (90 dias).",
+   "trecho": "Peças vendidas no balcão de peças, para aplicação pelo próprio Cliente ou por outras oficinas: prazo de garantia de 90 dias, a partir da data da emissão da nota fiscal da venda. Peças aplicadas na oficina da Concessionária Kia: prazo de garantia de 12 meses, a partir da data da emissão da nota fiscal da venda.",
+   "pag": "",
+   "meses": 12,
+   "nota": "Em caso de instalação de uma peça de reposição dentro do período de Cobertura Básica, a peça instalada terá a mesma cobertura do período restante da Cobertura Básica do veículo.",
+   "fonte_fixa": "Boletim Kia Service CS 020/25, de 22/08/2025 (vale para peças vendidas a partir de setembro de 2025, em qualquer modelo)"
   },
   {
    "id": "servicos",
@@ -1475,5 +1465,21 @@
    },
    "livreto": null
   }
- }
+ },
+ "avisos": [
+  {
+   "id": "cs-020-25",
+   "titulo": "Nova política de garantia de peças de reposição",
+   "fonte": "Boletim Kia Service CS 020/25, de 22/08/2025",
+   "vigencia": "Peças vendidas a partir de setembro de 2025",
+   "itens": [
+    "Peça vendida no balcão, para o próprio cliente ou outra oficina instalar: 90 dias, a partir da nota fiscal da venda.",
+    "Peça aplicada na oficina da concessionária Kia: 12 meses, a partir da nota fiscal da venda."
+   ],
+   "nf": [
+    "Peças originais adquiridas na Rede \"Kia\" e instaladas fora da Rede, possuem exclusivamente a garantia legal de 90 dias, contados a partir da data da emissão da nota fiscal de venda da peça ao primeiro comprador.",
+    "Peças originais adquiridas e instaladas na Rede \"Kia\" possuem 12 meses de garantia, inclusa a garantia legal de 90 dias, a contar da data de emissão da NF do serviço de instalação, desde que apresentem defeito de fabricação ou montagem."
+   ]
+  }
+ ]
 }

@@ -1,5 +1,5 @@
 # PRD — Tabela de Revisões e Tira-dúvidas de Garantia Kia (Stern)
-**Versão:** 1.2 (11/11/2026: atualização pelo Leonardo, sem pasta compartilhada) · 1.1 · v1.0 aprovada em 06/11/2026; **v1.1 (garantia + nomes do NBS) aprovada em 09/11/2026** · **Dono:** Leonardo
+**Versão:** 1.4 (12/11/2026: aba renomeada para Luzes de advertência; luzes por categoria de motorização, seção 3.13) · 1.3 (11/11/2026: aba Luzes do painel, seção 3.13; terceira aba em 3.10) · 1.2 (11/11/2026: atualização pelo Leonardo, sem pasta compartilhada) · 1.1 · v1.0 aprovada em 06/11/2026; **v1.1 (garantia + nomes do NBS) aprovada em 09/11/2026** · **Dono:** Leonardo
 
 ## 1. Visão
 Um link aberto o dia todo no navegador do PC de trabalho do **agendamento** e dos **consultores** (o celular é uso raro). Durante a ligação, o funcionário digita o modelo e vê na hora o **valor da revisão pela Tabela Stern**, com a lista de itens e a foto do modelo. Ele monta o orçamento com extras e desconto e copia um texto pronto para o cliente.
@@ -80,7 +80,7 @@ Texto completo, pronto para WhatsApp ou para ler ao telefone:
 - "Tabela atualizada em DD/MM/AAAA" e "Regras de garantia atualizadas em DD/MM/AAAA".
 
 ### 3.10 Abas no topo
-- Duas abas: **Revisões** e **Garantia**, cada uma com seu campo de busca. Só uma aparece por vez.
+- Três abas: **Revisões**, **Garantia** e **Luzes de advertência** (decisão do Leonardo, 11/11/2026; antes eram duas), cada uma com seu campo de busca. Só uma aparece por vez.
 
 ### 3.11 Garantia — base de regras (decisão do Leonardo, 06/11/2026: opção A)
 - **Fonte oficial:** os **livretos em PDF** (manual do proprietário com a parte de garantia), juntados pela Cleidiane em `fonte/manuais/`. Quando dois livretos divergirem, vale o **mais recente**.
@@ -96,6 +96,16 @@ Texto completo, pronto para WhatsApp ou para ler ao telefone:
 - **Revisões em dia na rede Kia? Sim / Não / Não sei.** Com "Não" ou "Não sei": aviso *"Garantia pode ser negada: verificar histórico de revisões"* + trecho do livreto sobre isso.
 - **Copiar para o cliente:** saudação Stern, regra oficial, situação (se calculada), *"conforme o Manual do Proprietário Kia, página X"* e assinatura.
 - **Sem regra para o item/modelo:** *"Não encontrado no manual: consultar a garantia (Cleidiane, garantia@sternkia.com.br)"*. Nunca inventar.
+
+### 3.13 Luzes de advertência (aprovado pelo Leonardo em 11/11/2026; categorias em 12/11/2026)
+- Aba **Luzes de advertência**: o consultor escolhe o modelo e vê as luzes daquele veículo, em grade de ícones coloridos (vermelho, amarelo, azul ou verde, conforme o manual).
+- **Luzes por categoria, não por modelo:** as luzes de advertência são quase padrão. A categoria vem da motorização do modelo (campo `motorizacao` da tabela): **elétrico** (EV5, EV9), **híbrido** (Niro, Carnival HEV, Stonic, Sportage MHEV), **flex/gasolina** e **diesel** (Bongo, Tasman, Sorento 2.2D, Mohave V6 diesel). Acessório que muda alguma luz fica para depois.
+- Cada categoria tem o manual de referência com página, e cada luz tem a fonte.
+- Busca por nome ou sintoma ("água", "freio", "bateria"). Clique no ícone abre o **significado** e a **orientação** para o cliente, em linguagem simples, com nível: *parar agora*, *procurar a oficina* ou *informativa*.
+- Texto para o cliente: só o significado e a orientação (sem passo a passo do manual). Botão "Copiar para o cliente", como na garantia.
+- **Fonte:** os manuais do proprietário Kia, com página de origem em cada luz. Texto próprio e curto (não se copia o manual). **Símbolos:** o próprio símbolo do manual, recortado e pintado na cor da luz (decisão do Leonardo, 12/11/2026, depois de conferir que o redesenho não ficava igual ao painel). Luz sem símbolo conferido aparece só com o nome.
+- **Começa só com os manuais disponíveis.** Modelos sem manual em texto ficam de fora até o manual chegar. **EV9:** segue o EV5, marcado como "a confirmar com o manual do EV9".
+- Luz que o manual não descreve: *"Não encontrado no manual: consultar a oficina"*. Nunca inventar.
 
 ## 4. Atualização da tabela
 **Decisão do Leonardo (11/11/2026):** o projeto fica só no PC do Leonardo; não há pasta compartilhada.

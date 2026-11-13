@@ -1,0 +1,1280 @@
+{
+ "data_luzes": "2026-11-12",
+ "observacao": "Textos próprios, baseados nos manuais do proprietário Kia (página em cada luz). Símbolos: recorte do próprio manual, pintado na cor da luz (opção aprovada pelo Leonardo em 12/11/2026). Luzes por categoria: comuns (todas), motor (flex/gasolina, diesel e híbrido) e específicas. Cor: a do texto do manual quando ele diz; senão, convenção do painel.",
+ "comuns": [
+  "sor-airbag",
+  "sor-cinto",
+  "sor-freio-fluido",
+  "sor-abs",
+  "sor-ebd",
+  "sor-direcao",
+  "sor-carga",
+  "sor-pneu",
+  "sor-esc",
+  "sor-esc-off",
+  "sor-epb",
+  "sor-autohold",
+  "sor-faixa",
+  "sor-awd",
+  "sor-awd-lock",
+  "sor-afls",
+  "bongo-porta",
+  "sor-lavador",
+  "sor-imobilizador",
+  "sor-seta",
+  "sor-farol-baixo",
+  "sor-farol-alto",
+  "sor-neblina",
+  "sor-lanterna-neblina",
+  "sor-farol-auxiliar",
+  "sor-cruzeiro",
+  "sor-gelo",
+  "sor-velocidade"
+ ],
+ "motor": [
+  "sor-mil",
+  "sor-oleo",
+  "sor-nivel-oleo",
+  "rio-temperatura",
+  "sor-combustivel",
+  "sor-isg"
+ ],
+ "categorias": {
+  "eletrico": {
+   "titulo": "Elétrico (EV5, EV9)",
+   "motorizacao": "eletrico",
+   "luzes": [
+    "ev-ready",
+    "ev-servico",
+    "ev-potencia",
+    "ev-carregamento",
+    "ev-bateria-baixa",
+    "ev-freio",
+    "ev-freio-regen",
+    "ev-msg-sistema",
+    "ev-msg-superaquecida",
+    "ev-msg-12v",
+    "ev-msg-desconecte",
+    "ev-msg-porta-carga",
+    "ev-msg-carregador",
+    "ev-msg-vess",
+    "ev-msg-flap",
+    "ev-msg-arrefecimento"
+   ],
+   "refs": [
+    "EV5, Guia do veículo elétrico, págs. 56 a 66 (luzes e mensagens do elétrico; símbolos das telas do visor)",
+    "Luzes comuns: Sorento e Rio; falta conferir com a seção geral do EV5",
+    "EV9: mesmas luzes do EV5, a confirmar"
+   ],
+   "exclui": [
+    "sor-carga"
+   ]
+  },
+  "hibrido": {
+   "titulo": "Híbrido (Niro HEV, Carnival HEV, Stonic e Sportage MHEV)",
+   "motorizacao": "hibrido",
+   "luzes": [
+    "niro-ready",
+    "niro-servico",
+    "niro-freio",
+    "niro-freio-regen",
+    "niro-visor-freio-regen",
+    "niro-visor-pare-freios",
+    "niro-visor-sistema-hibrido",
+    "niro-visor-pare-seguranca",
+    "niro-visor-soc-baixo",
+    "niro-visor-fonte",
+    "niro-visor-som-motor"
+   ],
+   "refs": [
+    "Niro HEV, pp. 1-5 a 1-7 (PDF 11 a 13)",
+    "Sportage MHEV e Stonic: a conferir (texto disponível)"
+   ]
+  },
+  "combustao": {
+   "titulo": "Flex e gasolina",
+   "motorizacao": "combustao",
+   "luzes": [],
+   "refs": [
+    "Sorento UM, pp. 4-87 a 4-102 (PDF 191 a 206)",
+    "Rio, pp. 4-76 a 4-82 (PDF 156 a 162) e controle de estabilidade (PDF 290 a 293)",
+    "Stinger: conferido; tem mais luzes de equipamento (prevenção de colisão, iluminação dinâmica, LED), a incluir"
+   ]
+  },
+  "diesel": {
+   "titulo": "Diesel",
+   "motorizacao": "diesel",
+   "luzes": [
+    "sor-filtro-diesel",
+    "sor-dpf",
+    "bongo-velas-glow"
+   ],
+   "refs": [
+    "Bongo (manual de 2012), pp. 4-25 a 4-29 (PDF 133 a 137)",
+    "Sorento diesel, pp. 4-94 e 4-96 (PDF 198 e 200)"
+   ]
+  }
+ },
+ "luzes": [
+  {
+   "id": "niro-ready",
+   "nome": "Indicador READY (pronto para dirigir)",
+   "cor": "verde",
+   "cor_fonte": "tela da ilustração do manual (Niro)",
+   "nivel": "info",
+   "significado": "Mostra se o carro híbrido está pronto para rodar.",
+   "orientacao": "Aceso fixo: pode dirigir normalmente. Piscando: o carro está em condução de emergência; leve à concessionária Kia. Apagado ou piscando sem motivo: há um problema no sistema; leve à concessionária Kia.",
+   "pagina": "1-5 (PDF 11)",
+   "palavras": [
+    "ready",
+    "pronto",
+    "pisca",
+    "nao liga",
+    "carro nao anda",
+    "modo emergencia"
+   ],
+   "fonte": "Niro HEV",
+   "icone": "assets/luzes/niro-ready.png"
+  },
+  {
+   "id": "niro-servico",
+   "nome": "Luz de aviso de serviço (chave)",
+   "cor": "amarelo",
+   "cor_fonte": "padrão (manual em preto e branco)",
+   "nivel": "oficina",
+   "significado": "Acende ao ligar o carro, por cerca de 3 segundos, e apaga sozinha. Se ficar acesa depois disso ou durante a condução, há um problema no sistema híbrido ou em outro equipamento.",
+   "orientacao": "Se ficar acesa depois da partida ou enquanto dirige, leve o carro a uma concessionária Kia para verificação.",
+   "pagina": "1-5 (PDF 11)",
+   "palavras": [
+    "chave",
+    "servico",
+    "luz de servico",
+    "sistema hibrido"
+   ],
+   "fonte": "Niro HEV",
+   "icone": "assets/luzes/niro-servico.png"
+  },
+  {
+   "id": "niro-freio",
+   "nome": "Luz do freio (vermelha)",
+   "cor": "vermelho",
+   "cor_fonte": "texto do manual",
+   "nivel": "parar",
+   "significado": "Indica falha no sistema de freio. Quando acende junto com a luz amarela do freio regenerativo, o freio do carro não está funcionando bem.",
+   "orientacao": "Dirija com segurança até um local seguro e pare o carro. O pedal pode ficar mais difícil de usar e a distância de frenagem pode aumentar. Se a luz amarela do freio regenerativo acender junto, leve o carro à concessionária Kia para inspeção.",
+   "pagina": "1-6 (PDF 12)",
+   "palavras": [
+    "freio",
+    "pedal",
+    "frenagem",
+    "vermelha",
+    "vermelho"
+   ],
+   "fonte": "Niro HEV",
+   "icone": "assets/luzes/niro-freio.png"
+  },
+  {
+   "id": "niro-freio-regen",
+   "nome": "Freio regenerativo (luz amarela)",
+   "cor": "amarelo",
+   "cor_fonte": "texto do manual",
+   "nivel": "oficina",
+   "significado": "O freio regenerativo (que recarrega a bateria ao frear) não está funcionando como deveria.",
+   "orientacao": "Leve o carro à concessionária Kia para inspeção. Se a luz vermelha do freio acender junto, veja a luz do freio.",
+   "pagina": "1-6 (PDF 12)",
+   "palavras": [
+    "freio regenerativo",
+    "amarela",
+    "amarelo",
+    "frenagem"
+   ],
+   "fonte": "Niro HEV",
+   "icone": "assets/luzes/niro-freio-regen.png"
+  },
+  {
+   "id": "niro-visor-freio-regen",
+   "nome": "Mensagem no visor: verifique os freios regenerativos",
+   "cor": "vermelho",
+   "cor_fonte": "tela da ilustração do manual (Niro)",
+   "nivel": "oficina",
+   "significado": "Há uma falha no freio regenerativo. A frenagem pode demorar mais.",
+   "orientacao": "Procure a concessionária Kia para inspeção. Pode levar mais tempo para o pedal do freio responder e a distância de frenagem pode aumentar; dirija com cuidado.",
+   "pagina": "1-6 (PDF 12)",
+   "palavras": [
+    "verifique os freios regenerativos",
+    "freio regenerativo",
+    "mensagem visor",
+    "frenagem"
+   ],
+   "fonte": "Niro HEV",
+   "icone": "assets/luzes/niro-visor-freio-regen.png"
+  },
+  {
+   "id": "niro-visor-pare-freios",
+   "nome": "Mensagem no visor: pare o veículo e verifique os freios",
+   "cor": "vermelho",
+   "cor_fonte": "tela da ilustração do manual (Niro)",
+   "nivel": "parar",
+   "significado": "Há uma falha no sistema de freio.",
+   "orientacao": "Estacione em local seguro. O manual recomenda rebocar o carro até a concessionária Kia mais próxima e mandar inspecionar.",
+   "pagina": "1-7 (PDF 13)",
+   "palavras": [
+    "pare",
+    "freios",
+    "freio",
+    "reboque",
+    "mensagem visor"
+   ],
+   "fonte": "Niro HEV",
+   "icone": "assets/luzes/niro-visor-pare-freios.png"
+  },
+  {
+   "id": "niro-visor-sistema-hibrido",
+   "nome": "Mensagem no visor: verifique o sistema híbrido",
+   "cor": "vermelho",
+   "cor_fonte": "tela da ilustração do manual (Niro)",
+   "nivel": "oficina",
+   "significado": "Há um problema no sistema de controle híbrido.",
+   "orientacao": "Evite dirigir enquanto a mensagem estiver no visor. Leve o carro à concessionária Kia para inspeção.",
+   "pagina": "1-7 (PDF 13)",
+   "palavras": [
+    "sistema hibrido",
+    "verifique",
+    "mensagem visor",
+    "hibrido"
+   ],
+   "fonte": "Niro HEV",
+   "icone": "assets/luzes/niro-visor-sistema-hibrido.png"
+  },
+  {
+   "id": "niro-visor-pare-seguranca",
+   "nome": "Mensagem no visor: pare com segurança e verifique o sistema híbrido",
+   "cor": "vermelho",
+   "cor_fonte": "tela da ilustração do manual (Niro)",
+   "nivel": "parar",
+   "significado": "Há um problema no sistema de controle híbrido. O indicador READY pisca e um alarme sonoro toca até o problema ser resolvido.",
+   "orientacao": "Pare o carro com segurança e não dirija. Leve à concessionária Kia.",
+   "pagina": "1-7 (PDF 13)",
+   "palavras": [
+    "pare com seguranca",
+    "alarme",
+    "pisca",
+    "sistema hibrido"
+   ],
+   "fonte": "Niro HEV",
+   "icone": "assets/luzes/niro-visor-pare-seguranca.png"
+  },
+  {
+   "id": "niro-visor-soc-baixo",
+   "nome": "Mensagem no visor: verifique o sistema híbrido, não dá partida",
+   "cor": "neutro",
+   "cor_fonte": "tela da ilustração do manual (Niro): botão de partida com sinal de proibido",
+   "nivel": "oficina",
+   "significado": "A carga da bateria híbrida está baixa, e o motor não dá partida. Um alarme sonoro toca até o problema ser resolvido.",
+   "orientacao": "Evite dirigir. Leve à concessionária Kia para verificação.",
+   "pagina": "1-7 (PDF 13)",
+   "palavras": [
+    "nao da partida",
+    "partida",
+    "bateria baixa",
+    "bateria hibrida",
+    "soc"
+   ],
+   "fonte": "Niro HEV",
+   "icone": "assets/luzes/niro-visor-soc-baixo.png"
+  },
+  {
+   "id": "niro-visor-fonte",
+   "nome": "Mensagem no visor: pare o veículo e verifique a fonte de alimentação",
+   "cor": "vermelho",
+   "cor_fonte": "tela da ilustração do manual (Niro)",
+   "nivel": "parar",
+   "significado": "Há uma falha no sistema de alimentação de energia do carro.",
+   "orientacao": "Estacione em local seguro. O manual recomenda rebocar o carro até a concessionária Kia mais próxima e mandar inspecionar.",
+   "pagina": "1-7 (PDF 13)",
+   "palavras": [
+    "fonte de alimentacao",
+    "energia",
+    "alimentacao",
+    "reboque"
+   ],
+   "fonte": "Niro HEV",
+   "icone": "assets/luzes/niro-visor-fonte.png"
+  },
+  {
+   "id": "niro-visor-som-motor",
+   "nome": "Mensagem no visor: verifique o sistema de som do motor virtual",
+   "cor": "amarelo",
+   "cor_fonte": "tela da ilustração do manual (Niro)",
+   "nivel": "oficina",
+   "significado": "Há um problema no som do motor virtual, o som que o carro emite em baixa velocidade.",
+   "orientacao": "Leve o carro à concessionária Kia para inspeção.",
+   "pagina": "1-7 (PDF 13)",
+   "palavras": [
+    "som",
+    "motor virtual",
+    "vess",
+    "barulho"
+   ],
+   "fonte": "Niro HEV",
+   "icone": "assets/luzes/niro-visor-som-motor.png"
+  },
+  {
+   "id": "bongo-porta",
+   "nome": "Porta entreaberta",
+   "cor": "vermelho",
+   "cor_fonte": "padrão (manual em preto e branco)",
+   "nivel": "info",
+   "significado": "Uma porta não está fechada corretamente.",
+   "orientacao": "Feche a porta indicada.",
+   "pagina": "4-27 (PDF 135)",
+   "palavras": [
+    "porta",
+    "aberta",
+    "entreaberta"
+   ],
+   "fonte": "Bongo (2012)",
+   "icone": "assets/luzes/bongo-porta.png"
+  },
+  {
+   "id": "bongo-velas-glow",
+   "nome": "Velas de aquecimento (diesel)",
+   "cor": "amarelo",
+   "cor_fonte": "padrão (manual em preto e branco)",
+   "nivel": "info",
+   "significado": "Acende durante o pré-aquecimento do motor diesel e apaga sozinha.",
+   "orientacao": "Espere apagar para dar partida. Se continuar acesa depois que o motor aquecer ou durante a condução, procure a concessionária Kia.",
+   "pagina": "4-29 (PDF 137)",
+   "palavras": [
+    "glow",
+    "pre-aquecimento",
+    "vela",
+    "diesel",
+    "partida"
+   ],
+   "fonte": "Bongo (2012)",
+   "icone": "assets/luzes/bongo-velas-glow.png"
+  },
+  {
+   "id": "sor-airbag",
+   "nome": "Airbag (SRS)",
+   "cor": "vermelho",
+   "cor_fonte": "padrão (manual em preto e branco)",
+   "nivel": "oficina",
+   "significado": "Acende ao ligar o carro, por cerca de 6 segundos, e apaga. Se ficar acesa depois disso, há falha no sistema de airbags.",
+   "orientacao": "Leve o carro a uma concessionária Kia para inspeção.",
+   "pagina": "4-87 (PDF 191)",
+   "palavras": [
+    "airbag",
+    "srs",
+    "bolsa de ar"
+   ],
+   "fonte": "Sorento UM",
+   "icone": "assets/luzes/sor-airbag.png"
+  },
+  {
+   "id": "sor-cinto",
+   "nome": "Cinto de segurança",
+   "cor": "vermelho",
+   "cor_fonte": "padrão (manual em preto e branco)",
+   "nivel": "info",
+   "significado": "Lembra que o cinto de segurança não está afivelado.",
+   "orientacao": "Afivele o cinto antes de dirigir.",
+   "pagina": "4-87 (PDF 191)",
+   "palavras": [
+    "cinto",
+    "seguranca",
+    "afivelar"
+   ],
+   "fonte": "Sorento UM",
+   "icone": "assets/luzes/sor-cinto.png"
+  },
+  {
+   "id": "sor-freio-fluido",
+   "nome": "Freio de estacionamento e fluido de freio",
+   "cor": "vermelho",
+   "cor_fonte": "padrão (manual em preto e branco)",
+   "nivel": "parar",
+   "significado": "Acende ao aplicar o freio de estacionamento. Se acender com o freio solto, o nível do fluido de freio está baixo.",
+   "orientacao": "Com o freio solto e a luz acesa: dirija com cuidado até o local mais seguro e pare. Com o motor desligado, confira o nível do fluido e complete. Verifique se há vazamento: se houver, ou se os freios não funcionarem bem, não dirija; leve o carro rebocado à concessionária Kia.",
+   "pagina": "4-88 e 4-89 (PDF 192 e 193)",
+   "palavras": [
+    "freio de estacionamento",
+    "fluido de freio",
+    "freio",
+    "vazamento"
+   ],
+   "fonte": "Sorento UM",
+   "icone": "assets/luzes/sor-freio-fluido.png"
+  },
+  {
+   "id": "sor-abs",
+   "nome": "ABS (antiblocante dos freios)",
+   "cor": "amarelo",
+   "cor_fonte": "padrão (manual em preto e branco)",
+   "nivel": "oficina",
+   "significado": "Acende ao ligar o carro por cerca de 3 segundos. Se ficar acesa ou acender em movimento, há falha no ABS; o freio normal continua funcionando, mas sem a ajuda do antiblocante.",
+   "orientacao": "Procure a concessionária Kia para inspeção.",
+   "pagina": "4-89 (PDF 193)",
+   "palavras": [
+    "abs",
+    "antiblocante",
+    "freio",
+    "travar"
+   ],
+   "fonte": "Sorento UM",
+   "icone": "assets/luzes/sor-abs.png"
+  },
+  {
+   "id": "sor-ebd",
+   "nome": "Distribuição de força do freio (EBD), junto com o ABS",
+   "cor": "vermelho",
+   "cor_fonte": "padrão (manual em preto e branco)",
+   "nivel": "oficina",
+   "significado": "Quando o ABS e esta luz acendem juntos com o carro andando, o sistema de freio pode não funcionar normalmente numa frenagem forte.",
+   "orientacao": "Evite velocidades altas e frenagens bruscas. Leve o carro à concessionária Kia o mais rápido possível.",
+   "pagina": "4-89 e 4-90 (PDF 193 e 194)",
+   "palavras": [
+    "ebd",
+    "freio",
+    "abs",
+    "frenagem"
+   ],
+   "fonte": "Sorento UM",
+   "icone": "assets/luzes/sor-ebd.png"
+  },
+  {
+   "id": "sor-direcao",
+   "nome": "Direção assistida elétrica (EPS)",
+   "cor": "amarelo",
+   "cor_fonte": "padrão (manual em preto e branco)",
+   "nivel": "oficina",
+   "significado": "Acende ao ligar e apaga em cerca de 3 segundos. Se ficar acesa, há falha na direção assistida; o esforço no volante pode mudar.",
+   "orientacao": "Leve o carro à concessionária Kia para inspeção.",
+   "pagina": "4-90 (PDF 194)",
+   "palavras": [
+    "direcao",
+    "volante",
+    "eps",
+    "direcao dura"
+   ],
+   "fonte": "Sorento UM",
+   "icone": "assets/luzes/sor-direcao.png"
+  },
+  {
+   "id": "sor-mil",
+   "nome": "Luz da injeção eletrônica (indicador de falha do motor, MIL)",
+   "cor": "amarelo",
+   "cor_fonte": "padrão (manual em preto e branco)",
+   "nivel": "oficina",
+   "significado": "É a luz conhecida como luz da injeção eletrônica (símbolo do motor). Acende ao ligar e fica acesa até dar partida. Se continuar acesa ou acender com o carro andando, há falha no sistema de controle do motor e das emissões.",
+   "orientacao": "Rodar com a luz acesa pode danificar o sistema de emissões e prejudicar a dirigibilidade. No motor a gasolina, pode danificar o catalisador e causar perda de potência. No diesel, se a luz piscar, há erro na quantidade de injeção: leve à concessionária Kia o mais rápido possível.",
+   "pagina": "4-91 (PDF 195)",
+   "palavras": [
+    "catalisador",
+    "check engine",
+    "emissoes",
+    "falha",
+    "injecao",
+    "injecao eletronica",
+    "luz da injecao",
+    "luz do motor",
+    "mil",
+    "motor",
+    "piscando"
+   ],
+   "fonte": "Sorento UM",
+   "icone": "assets/luzes/sor-mil.png"
+  },
+  {
+   "id": "sor-carga",
+   "nome": "Sistema de carga (bateria e alternador)",
+   "cor": "vermelho",
+   "cor_fonte": "padrão (manual em preto e branco)",
+   "nivel": "parar",
+   "significado": "Acende ao ligar e apaga após a partida. Se acender com o carro andando, há falha no alternador ou no sistema elétrico de carga.",
+   "orientacao": "Pare com cuidado em local seguro e desligue o motor. Confira se a correia do alternador está folgada ou rompida. Se a correia estiver boa, leve o carro à concessionária Kia o mais rápido possível.",
+   "pagina": "4-91 (PDF 195)",
+   "palavras": [
+    "bateria",
+    "alternador",
+    "carga",
+    "correia",
+    "eletrico"
+   ],
+   "fonte": "Sorento UM",
+   "icone": "assets/luzes/sor-carga.png"
+  },
+  {
+   "id": "sor-oleo",
+   "nome": "Pressão do óleo do motor",
+   "cor": "vermelho",
+   "cor_fonte": "padrão (manual em preto e branco)",
+   "nivel": "parar",
+   "significado": "Acende quando a pressão do óleo do motor está baixa. Pode ser grave se continuar acesa com o motor ligado.",
+   "orientacao": "Pare o carro o mais rápido possível, com segurança. Desligue o motor e confira o nível de óleo; complete se estiver baixo. Dê partida de novo: se a luz continuar acesa, desligue o motor na hora e leve o carro à concessionária Kia.",
+   "pagina": "4-92 e 4-93 (PDF 196 e 197)",
+   "palavras": [
+    "oleo",
+    "pressao",
+    "motor",
+    "luz do oleo"
+   ],
+   "fonte": "Sorento UM",
+   "icone": "assets/luzes/sor-oleo.png"
+  },
+  {
+   "id": "sor-nivel-oleo",
+   "nome": "Nível de óleo do motor",
+   "cor": "amarelo",
+   "cor_fonte": "padrão (manual em preto e branco)",
+   "nivel": "oficina",
+   "significado": "Acende quando o nível de óleo deve ser verificado (em alguns modelos).",
+   "orientacao": "Pare com cuidado, desligue o motor e confira o nível. Complete aos poucos com o óleo especificado, sem passar da marca superior da vareta. Se a luz continuar acesa, leve à concessionária Kia.",
+   "pagina": "4-92 e 4-93 (PDF 196 e 197)",
+   "palavras": [
+    "nivel de oleo",
+    "oleo",
+    "vareta"
+   ],
+   "fonte": "Sorento UM",
+   "icone": "assets/luzes/sor-nivel-oleo.png"
+  },
+  {
+   "id": "sor-combustivel",
+   "nome": "Baixo nível de combustível",
+   "cor": "amarelo",
+   "cor_fonte": "padrão (manual em preto e branco)",
+   "nivel": "info",
+   "significado": "Acende quando o tanque está quase vazio.",
+   "orientacao": "Abasteça o quanto antes. Dirigir com a luz acesa ou com o combustível abaixo de 0 ou E pode causar falhas no motor e danificar o catalisador.",
+   "pagina": "4-93 (PDF 197)",
+   "palavras": [
+    "combustivel",
+    "tanque",
+    "gasolina",
+    "diesel",
+    "vazio"
+   ],
+   "fonte": "Sorento UM",
+   "icone": "assets/luzes/sor-combustivel.png"
+  },
+  {
+   "id": "sor-pneu",
+   "nome": "Baixa pressão dos pneus (TPMS)",
+   "cor": "amarelo",
+   "cor_fonte": "padrão (manual em preto e branco)",
+   "nivel": "oficina",
+   "significado": "Acende por cerca de 3 segundos ao ligar. Acende quando um ou mais pneus estão bem abaixo da pressão normal. Se ficar acesa depois de piscar por cerca de 60 segundos, há falha no sistema de monitoramento de pressão.",
+   "orientacao": "Confira a calibragem dos pneus (o painel mostra qual está baixo). Se a luz continuar acesa, procure a concessionária Kia. Se sentir instabilidade no carro, tire o pé do acelerador, freie devagar e leve o carro com cuidado para fora da pista.",
+   "pagina": "4-93 e 4-94 (PDF 197 e 198)",
+   "palavras": [
+    "pneu",
+    "pressao do pneu",
+    "calibragem",
+    "tpms",
+    "furo"
+   ],
+   "fonte": "Sorento UM",
+   "icone": "assets/luzes/sor-pneu.png"
+  },
+  {
+   "id": "sor-filtro-diesel",
+   "nome": "Filtro de combustível com água (diesel)",
+   "cor": "amarelo",
+   "cor_fonte": "padrão (manual em preto e branco)",
+   "nivel": "oficina",
+   "significado": "Acende quando há água acumulada no filtro de combustível do diesel. A potência do motor pode cair.",
+   "orientacao": "Retire a água do filtro. Se continuar dirigindo com a luz acesa, peças do motor podem ser danificadas: leve o carro à concessionária Kia o mais rápido possível.",
+   "pagina": "4-94 (PDF 198)",
+   "palavras": [
+    "diesel",
+    "agua",
+    "filtro",
+    "combustivel",
+    "potencia"
+   ],
+   "fonte": "Sorento UM",
+   "icone": "assets/luzes/sor-filtro-diesel.png"
+  },
+  {
+   "id": "sor-awd",
+   "nome": "Tração nas 4 rodas (AWD)",
+   "cor": "amarelo",
+   "cor_fonte": "padrão (manual em preto e branco)",
+   "nivel": "oficina",
+   "significado": "Acende por cerca de 3 segundos ao ligar. Se ficar acesa, há falha no sistema de tração nas 4 rodas.",
+   "orientacao": "Leve o carro à concessionária Kia para inspeção.",
+   "pagina": "4-95 (PDF 199)",
+   "palavras": [
+    "awd",
+    "4 rodas",
+    "tracao",
+    "4x4"
+   ],
+   "fonte": "Sorento UM",
+   "icone": "assets/luzes/sor-awd.png"
+  },
+  {
+   "id": "sor-velocidade",
+   "nome": "Velocidade excessiva",
+   "cor": "azul",
+   "cor_fonte": "padrão (manual em preto e branco)",
+   "nivel": "info",
+   "significado": "Pisca quando o carro passa de 120 km/h, junto com um aviso sonoro de alguns segundos. É um alerta para reduzir a velocidade.",
+   "orientacao": "Reduza a velocidade.",
+   "pagina": "4-95 (PDF 199)",
+   "palavras": [
+    "velocidade",
+    "120",
+    "alerta"
+   ],
+   "fonte": "Sorento UM",
+   "icone": "assets/luzes/sor-velocidade.png"
+  },
+  {
+   "id": "sor-afls",
+   "nome": "Iluminação adaptativa (AFLS)",
+   "cor": "amarelo",
+   "cor_fonte": "padrão (manual em preto e branco)",
+   "nivel": "oficina",
+   "significado": "Pisca quando há falha no sistema de farol adaptativo.",
+   "orientacao": "Pare com cuidado, desligue e dê partida de novo no motor. Se a luz continuar piscando, leve à concessionária Kia.",
+   "pagina": "4-95 (PDF 199)",
+   "palavras": [
+    "farol",
+    "adaptativo",
+    "afls",
+    "luz de curva"
+   ],
+   "fonte": "Sorento UM",
+   "icone": "assets/luzes/sor-afls.png"
+  },
+  {
+   "id": "sor-lavador",
+   "nome": "Fluido do limpador de para-brisa",
+   "cor": "amarelo",
+   "cor_fonte": "padrão (manual em preto e branco)",
+   "nivel": "info",
+   "significado": "Acende quando o fluido do lavador está quase no fim.",
+   "orientacao": "Complete o reservatório do lavador com fluido.",
+   "pagina": "4-95 (PDF 199)",
+   "palavras": [
+    "lavador",
+    "agua do para-brisa",
+    "fluido do limpador"
+   ],
+   "fonte": "Sorento UM",
+   "icone": "assets/luzes/sor-lavador.png"
+  },
+  {
+   "id": "sor-gelo",
+   "nome": "Alerta de gelo na pista",
+   "cor": "azul",
+   "cor_fonte": "padrão (manual em preto e branco)",
+   "nivel": "info",
+   "significado": "Pisca 5 vezes e fica acesa quando a temperatura externa está abaixo de cerca de 4 °C. Alerta para possível gelo na pista.",
+   "orientacao": "Dirija com mais atenção: evite excesso de velocidade, aceleração e frenagem bruscas e curvas fechadas.",
+   "pagina": "4-96 (PDF 200)",
+   "palavras": [
+    "gelo",
+    "frio",
+    "temperatura",
+    "pista"
+   ],
+   "fonte": "Sorento UM",
+   "icone": "assets/luzes/sor-gelo.png"
+  },
+  {
+   "id": "sor-epb",
+   "nome": "Freio de estacionamento elétrico (EPB)",
+   "cor": "amarelo",
+   "cor_fonte": "padrão (manual em preto e branco)",
+   "nivel": "oficina",
+   "significado": "Acende por cerca de 3 segundos ao ligar. Se ficar acesa, há falha no freio de estacionamento elétrico. Pode acender junto com a luz do controle de estabilidade (ESC), sem que o EPB tenha falha.",
+   "orientacao": "Leve o carro à concessionária Kia para inspeção.",
+   "pagina": "4-96 (PDF 200)",
+   "palavras": [
+    "freio de estacionamento",
+    "eletrico",
+    "epb",
+    "freio"
+   ],
+   "fonte": "Sorento UM",
+   "icone": "assets/luzes/sor-epb.png"
+  },
+  {
+   "id": "sor-dpf",
+   "nome": "Filtro de partículas diesel (DPF)",
+   "cor": "amarelo",
+   "cor_fonte": "padrão (manual em preto e branco)",
+   "nivel": "oficina",
+   "significado": "Pisca quando há falha no filtro de partículas do diesel. Pode apagar depois de rodar um tempo acima de 60 km/h, em marcha alta e rotação média.",
+   "orientacao": "Se continuar piscando mesmo assim (o painel mostra uma mensagem), leve o carro à concessionária Kia. Rodar muito tempo com a luz piscando pode danificar o sistema e aumentar o consumo.",
+   "pagina": "4-96 (PDF 200)",
+   "palavras": [
+    "dpf",
+    "diesel",
+    "filtro",
+    "fuligem",
+    "escapamento"
+   ],
+   "fonte": "Sorento UM",
+   "icone": "assets/luzes/sor-dpf.png"
+  },
+  {
+   "id": "sor-esc",
+   "nome": "Controle eletrônico de estabilidade (ESC)",
+   "cor": "verde",
+   "cor_fonte": "padrão (manual em preto e branco)",
+   "nivel": "info",
+   "significado": "Pisca enquanto o ESC está atuando, para ajudar a manter o carro na trajetória. Se ficar acesa fixa, há falha no sistema.",
+   "orientacao": "Se piscar, o sistema está funcionando: não é defeito. Se ficar acesa, leve o carro à concessionária Kia.",
+   "pagina": "4-97 (PDF 201)",
+   "palavras": [
+    "esc",
+    "estabilidade",
+    "derrapagem",
+    "controle de estabilidade"
+   ],
+   "fonte": "Sorento UM",
+   "icone": "assets/luzes/sor-esc.png"
+  },
+  {
+   "id": "sor-esc-off",
+   "nome": "ESC desativado (OFF)",
+   "cor": "amarelo",
+   "cor_fonte": "padrão (manual em preto e branco)",
+   "nivel": "info",
+   "significado": "Acende quando o controle de estabilidade foi desativado pelo botão ESC OFF.",
+   "orientacao": "Não é defeito. Para ativar de novo, aperte o botão ESC OFF.",
+   "pagina": "4-97 (PDF 201)",
+   "palavras": [
+    "esc off",
+    "desativado",
+    "estabilidade"
+   ],
+   "fonte": "Sorento UM",
+   "icone": "assets/luzes/sor-esc-off.png"
+  },
+  {
+   "id": "sor-isg",
+   "nome": "Parada automática do motor (ISG)",
+   "cor": "verde",
+   "cor_fonte": "padrão (manual em preto e branco)",
+   "nivel": "info",
+   "significado": "Acende quando o motor para na marcha lenta pelo sistema de parada automática. Pisca por 5 segundos quando dá partida sozinho.",
+   "orientacao": "Não é defeito. Se algumas luzes de advertência acenderem na partida automática, é por causa da bateria com pouca tensão, e apagam sozinhas.",
+   "pagina": "4-97 (PDF 201)",
+   "palavras": [
+    "parada automatica",
+    "isg",
+    "motor para",
+    "anda e para"
+   ],
+   "fonte": "Sorento UM",
+   "icone": "assets/luzes/sor-isg.png"
+  },
+  {
+   "id": "sor-imobilizador",
+   "nome": "Imobilizador (chave)",
+   "cor": "amarelo",
+   "cor_fonte": "padrão (manual em preto e branco)",
+   "nivel": "oficina",
+   "significado": "Acende ao ligar para indicar que a chave foi reconhecida. Pisca com falha no sistema, com a bateria da chave inteligente fraca ou com a chave fora do carro.",
+   "orientacao": "Se a luz piscar sem motivo, ou se o carro não reconhecer a chave, leve à concessionária Kia. Com chave inteligente de bateria fraca, pode dar partida pressionando o botão com a chave perto.",
+   "pagina": "4-98 (PDF 202)",
+   "palavras": [
+    "chave",
+    "imobilizador",
+    "chave inteligente",
+    "nao pega",
+    "bateria da chave"
+   ],
+   "fonte": "Sorento UM",
+   "icone": "assets/luzes/sor-imobilizador.png"
+  },
+  {
+   "id": "sor-seta",
+   "nome": "Setas (sinalizador de direção)",
+   "cor": "verde",
+   "cor_fonte": "padrão (manual em preto e branco)",
+   "nivel": "oficina",
+   "significado": "Pisca junto com a seta acionada. Se não pisca, acende fixa, pisca rápido demais ou nem acende, há defeito no sinalizador.",
+   "orientacao": "Procure a concessionária Kia para inspeção.",
+   "pagina": "4-99 (PDF 203)",
+   "palavras": [
+    "seta",
+    "pisca",
+    "sinalizador",
+    "pisca rapido"
+   ],
+   "fonte": "Sorento UM",
+   "icone": "assets/luzes/sor-seta.png"
+  },
+  {
+   "id": "sor-farol-baixo",
+   "nome": "Farol baixo e lanternas acesas",
+   "cor": "verde",
+   "cor_fonte": "padrão (manual em preto e branco)",
+   "nivel": "info",
+   "significado": "Acende quando os faróis ou as lanternas estão acesos.",
+   "orientacao": "Não é defeito. Apague as luzes quando não precisar.",
+   "pagina": "4-99 (PDF 203)",
+   "palavras": [
+    "farol",
+    "lanterna",
+    "luzes acesas"
+   ],
+   "fonte": "Sorento UM",
+   "icone": "assets/luzes/sor-farol-baixo.png"
+  },
+  {
+   "id": "sor-farol-alto",
+   "nome": "Farol alto",
+   "cor": "azul",
+   "cor_fonte": "padrão (manual em preto e branco)",
+   "nivel": "info",
+   "significado": "Acende com o farol alto ligado, ou ao puxar a alavanca para dar um lampejo.",
+   "orientacao": "Não é defeito. Apague o farol alto quando não precisar.",
+   "pagina": "4-99 (PDF 203)",
+   "palavras": [
+    "farol alto",
+    "farol",
+    "luz alta"
+   ],
+   "fonte": "Sorento UM",
+   "icone": "assets/luzes/sor-farol-alto.png"
+  },
+  {
+   "id": "sor-neblina",
+   "nome": "Farol de neblina",
+   "cor": "verde",
+   "cor_fonte": "padrão (manual em preto e branco)",
+   "nivel": "info",
+   "significado": "Acende quando os faróis de neblina estão acesos (em modelos que têm).",
+   "orientacao": "Não é defeito.",
+   "pagina": "4-99 (PDF 203)",
+   "palavras": [
+    "neblina",
+    "farol de neblina"
+   ],
+   "fonte": "Sorento UM",
+   "icone": "assets/luzes/sor-neblina.png"
+  },
+  {
+   "id": "sor-lanterna-neblina",
+   "nome": "Lanterna de neblina traseira",
+   "cor": "amarelo",
+   "cor_fonte": "padrão (manual em preto e branco)",
+   "nivel": "info",
+   "significado": "Acende quando as lanternas de neblina traseiras estão acesas (em modelos que têm).",
+   "orientacao": "Não é defeito. Apague quando não precisar.",
+   "pagina": "4-100 (PDF 204)",
+   "palavras": [
+    "neblina traseira",
+    "lanterna de neblina"
+   ],
+   "fonte": "Sorento UM",
+   "icone": "assets/luzes/sor-lanterna-neblina.png"
+  },
+  {
+   "id": "sor-farol-auxiliar",
+   "nome": "Auxiliar do farol alto",
+   "cor": "verde",
+   "cor_fonte": "padrão (manual em preto e branco)",
+   "nivel": "info",
+   "significado": "Acende quando o farol alto está aceso com as luzes no automático. O sistema troca para o farol baixo quando detecta outros carros.",
+   "orientacao": "Não é defeito.",
+   "pagina": "4-100 (PDF 204)",
+   "palavras": [
+    "farol alto automatico",
+    "auxiliar"
+   ],
+   "fonte": "Sorento UM",
+   "icone": "assets/luzes/sor-farol-auxiliar.png"
+  },
+  {
+   "id": "sor-awd-lock",
+   "nome": "Travamento da tração nas 4 rodas (AWD LOCK)",
+   "cor": "verde",
+   "cor_fonte": "padrão (manual em preto e branco)",
+   "nivel": "info",
+   "significado": "Acende ao selecionar o modo AWD LOCK, para mais tração em piso molhado, neve ou fora de estrada.",
+   "orientacao": "Não use o modo em estrada seca ou em rodovia: pode causar ruído, vibração e desgaste das peças.",
+   "pagina": "4-101 (PDF 205)",
+   "palavras": [
+    "awd lock",
+    "4x4",
+    "travar",
+    "tracao"
+   ],
+   "fonte": "Sorento UM",
+   "icone": "assets/luzes/sor-awd-lock.png"
+  },
+  {
+   "id": "sor-cruzeiro",
+   "nome": "Controle de cruzeiro (ligado e velocidade ajustada)",
+   "cor": "verde",
+   "cor_fonte": "padrão (manual em preto e branco)",
+   "nivel": "info",
+   "significado": "Acende quando o controle de velocidade está ligado, e fica acesa com a velocidade ajustada (SET).",
+   "orientacao": "Não é defeito. Para desligar o controle, use o botão próprio.",
+   "pagina": "4-101 (PDF 205)",
+   "palavras": [
+    "cruzeiro",
+    "controle de velocidade",
+    "set"
+   ],
+   "fonte": "Sorento UM",
+   "icone": "assets/luzes/sor-cruzeiro.png"
+  },
+  {
+   "id": "sor-autohold",
+   "nome": "Retenção automática (AUTO HOLD)",
+   "cor": "verde",
+   "cor_fonte": "texto do manual (branco, verde e amarelo)",
+   "nivel": "oficina",
+   "significado": "Acende em branco ao ligar o modo. Em verde, quando o carro para totalmente com o modo ativado. Em amarelo, há falha no sistema.",
+   "orientacao": "Se a luz ficar amarela, leve à concessionária Kia para inspeção.",
+   "pagina": "4-102 (PDF 206)",
+   "palavras": [
+    "auto hold",
+    "retencao automatica",
+    "parar"
+   ],
+   "fonte": "Sorento UM",
+   "icone": "assets/luzes/sor-autohold.png"
+  },
+  {
+   "id": "sor-faixa",
+   "nome": "Advertência de saída de faixa (LDWS)",
+   "cor": "verde",
+   "cor_fonte": "texto do manual (branco, verde e amarelo)",
+   "nivel": "oficina",
+   "significado": "Acende em branco quando o sistema não detecta a linha da faixa. Em verde, quando o sistema está ativado. Em amarelo, há falha no sistema.",
+   "orientacao": "Se a luz ficar amarela, leve à concessionária Kia para inspeção.",
+   "pagina": "4-102 (PDF 206)",
+   "palavras": [
+    "faixa",
+    "saida de pista",
+    "ldws",
+    "linha"
+   ],
+   "fonte": "Sorento UM",
+   "icone": "assets/luzes/sor-faixa.png"
+  },
+  {
+   "id": "rio-temperatura",
+   "nome": "Temperatura do líquido de arrefecimento (superaquecimento)",
+   "cor": "vermelho",
+   "cor_fonte": "padrão (manual em preto e branco)",
+   "nivel": "parar",
+   "significado": "Acende quando a temperatura do líquido de arrefecimento passa de 120 °C. Indica superaquecimento, que pode danificar o motor.",
+   "orientacao": "Pare o carro assim que for seguro e não continue dirigindo, para não danificar o motor. Leve o carro à concessionária Kia.",
+   "pagina": "4-80 (PDF 160)",
+   "palavras": [
+    "temperatura",
+    "superaquecimento",
+    "arrefecimento",
+    "motor quente",
+    "agua do radiador"
+   ],
+   "fonte": "Rio",
+   "icone": "assets/luzes/rio-temperatura.png"
+  },
+  {
+   "id": "ev-ready",
+   "nome": "Indicador READY (pronto para dirigir)",
+   "cor": "verde",
+   "cor_fonte": "padrão (o manual do EV5 não informa a cor)",
+   "nivel": "info",
+   "significado": "Mostra que o carro elétrico está pronto para ser conduzido. Aceso: condução normal. Apagado: a condução normal não é possível ou há algum problema. Piscando: condução de emergência.",
+   "orientacao": "Se o READY apagar ou piscar, há alguma anomalia no sistema. Leve o carro a uma concessionária Kia.",
+   "pagina": "56",
+   "palavras": [
+    "ready",
+    "pronto",
+    "pisca",
+    "nao anda",
+    "nao liga"
+   ],
+   "fonte": "EV5",
+   "icone": "assets/luzes/ev-ready.png"
+  },
+  {
+   "id": "ev-servico",
+   "nome": "Luz de serviço do veículo elétrico (carro com exclamação)",
+   "cor": "amarelo",
+   "cor_fonte": "padrão (o manual do EV5 não informa a cor)",
+   "nivel": "oficina",
+   "significado": "Acende por cerca de 3 segundos ao ligar e apaga. Se ficar acesa ou acender com o carro andando, há alguma anomalia em peças do sistema de controle do veículo elétrico, como sensores.",
+   "orientacao": "Leve o carro a uma concessionária Kia para inspeção.",
+   "pagina": "56",
+   "palavras": [
+    "servico",
+    "exclamacao",
+    "sistema eletrico",
+    "sensor"
+   ],
+   "fonte": "EV5",
+   "icone": "assets/luzes/ev-servico.png"
+  },
+  {
+   "id": "ev-potencia",
+   "nome": "Potência limitada (tartaruga)",
+   "cor": "amarelo",
+   "cor_fonte": "padrão (o manual do EV5 não informa a cor)",
+   "nivel": "oficina",
+   "significado": "A potência do carro foi limitada para proteger as peças de alta potência. Motivos: bateria de alta voltagem muito baixa ou com a voltagem caindo, bateria muito quente ou muito fria, motor quente ou capô aberto. Sozinha, não é uma falha; é falha se acender junto com a luz de serviço.",
+   "orientacao": "Não acelere nem arranque de repente. O carro pode não andar ou descer para trás numa subida. Se a bateria estiver baixa, carregue logo. Se acender junto com a luz de serviço, leve à concessionária Kia.",
+   "pagina": "56 e 57",
+   "palavras": [
+    "tartaruga",
+    "potencia limitada",
+    "sem forca",
+    "lento",
+    "desligamento de energia"
+   ],
+   "fonte": "EV5",
+   "icone": "assets/luzes/ev-potencia.png"
+  },
+  {
+   "id": "ev-carregamento",
+   "nome": "Carregamento (cabo conectado)",
+   "cor": "neutro",
+   "cor_fonte": "o manual do EV5 não informa a cor",
+   "nivel": "info",
+   "significado": "Acende quando o conector de carregamento está ligado para carregar a bateria de alta voltagem.",
+   "orientacao": "Não é defeito. Para dirigir, desconecte o cabo antes de ligar o carro.",
+   "pagina": "57",
+   "palavras": [
+    "carregamento",
+    "cabo",
+    "tomada",
+    "carregando",
+    "plugue"
+   ],
+   "fonte": "EV5",
+   "icone": "assets/luzes/ev-carregamento.png"
+  },
+  {
+   "id": "ev-bateria-baixa",
+   "nome": "Nível baixo da bateria de alta voltagem",
+   "cor": "amarelo",
+   "cor_fonte": "padrão (o manual do EV5 não informa a cor)",
+   "nivel": "oficina",
+   "significado": "O nível da bateria de alta voltagem está baixo. Com cerca de 10% aparece a mensagem \"Bateria fraca\"; com cerca de 5%, \"Carregue imediatamente. Potência limitada\", e a potência do carro é reduzida.",
+   "orientacao": "Carregue a bateria imediatamente, na estação de carregamento mais próxima. Com a bateria em 0%, não acelere forte e vá a um local seguro para pedir resgate.",
+   "pagina": "56 a 58",
+   "palavras": [
+    "bateria",
+    "bateria fraca",
+    "carga baixa",
+    "autonomia",
+    "carregue"
+   ],
+   "fonte": "EV5",
+   "icone": "assets/luzes/ev-bateria-baixa.png"
+  },
+  {
+   "id": "ev-freio",
+   "nome": "Luz do freio (vermelha), junto com a do freio regenerativo",
+   "cor": "vermelho",
+   "cor_fonte": "texto do manual",
+   "nivel": "parar",
+   "significado": "Quando o freio regenerativo não opera e os freios não estão funcionando bem, a luz vermelha do freio e a amarela do freio regenerativo acendem juntas.",
+   "orientacao": "Dirija com segurança e leve o carro a uma concessionária Kia para inspeção. O pedal do freio pode ficar um pouco mais difícil e a distância de frenagem pode aumentar.",
+   "pagina": "57",
+   "palavras": [
+    "freio",
+    "pedal",
+    "frenagem",
+    "vermelha"
+   ],
+   "fonte": "EV5",
+   "icone": "assets/luzes/ev-freio.png"
+  },
+  {
+   "id": "ev-freio-regen",
+   "nome": "Freio regenerativo (luz amarela)",
+   "cor": "amarelo",
+   "cor_fonte": "texto do manual",
+   "nivel": "oficina",
+   "significado": "O sistema de frenagem regenerativa, que recarrega a bateria ao frear, não está funcionando adequadamente. Pode aparecer a mensagem \"Verifique os freios regenerativos\".",
+   "orientacao": "Leve o carro a uma concessionária Kia. Se a luz vermelha do freio acender junto, veja a luz do freio.",
+   "pagina": "57 e 65",
+   "palavras": [
+    "freio regenerativo",
+    "regenerativo",
+    "amarela",
+    "frenagem"
+   ],
+   "fonte": "EV5",
+   "icone": "assets/luzes/ev-freio-regen.png"
+  },
+  {
+   "id": "ev-msg-sistema",
+   "nome": "Mensagem: verifique o sistema elétrico do veículo",
+   "cor": "vermelho",
+   "cor_fonte": "padrão (o manual do EV5 não informa a cor)",
+   "nivel": "parar",
+   "significado": "Há alguma anomalia no sistema de controle elétrico do veículo.",
+   "orientacao": "Evite dirigir. Estacione em local seguro. O manual recomenda rebocar o carro até a concessionária Kia mais próxima.",
+   "pagina": "59",
+   "palavras": [
+    "sistema eletrico",
+    "verifique",
+    "mensagem",
+    "reboque"
+   ],
+   "fonte": "EV5",
+   "icone": "assets/luzes/ev-msg-sistema.png"
+  },
+  {
+   "id": "ev-msg-superaquecida",
+   "nome": "Mensagem: bateria superaquecida, pare com segurança",
+   "cor": "vermelho",
+   "cor_fonte": "padrão (o manual do EV5 não informa a cor)",
+   "nivel": "parar",
+   "significado": "A temperatura da bateria de alta voltagem está muito alta. A mensagem protege a bateria e o sistema elétrico.",
+   "orientacao": "Pare o carro com segurança e desligue o botão EV, para a temperatura da bateria baixar. Se a mensagem continuar depois de um bom tempo desligado, evite dirigir e leve à concessionária Kia.",
+   "pagina": "61",
+   "palavras": [
+    "superaquecida",
+    "bateria quente",
+    "temperatura alta",
+    "pare"
+   ],
+   "fonte": "EV5",
+   "icone": "assets/luzes/ev-msg-superaquecida.png"
+  },
+  {
+   "id": "ev-msg-12v",
+   "nome": "Mensagem: pare com segurança e verifique a fonte de alimentação",
+   "cor": "vermelho",
+   "cor_fonte": "padrão (o manual do EV5 não informa a cor)",
+   "nivel": "parar",
+   "significado": "Há uma falha no sistema de alimentação de 12V.",
+   "orientacao": "Estacione em local seguro. O manual recomenda rebocar o carro até a concessionária Kia mais próxima.",
+   "pagina": "61",
+   "palavras": [
+    "12v",
+    "fonte de alimentacao",
+    "bateria 12v",
+    "reboque",
+    "alimentacao"
+   ],
+   "fonte": "EV5",
+   "icone": "assets/luzes/ev-msg-12v.png"
+  },
+  {
+   "id": "ev-msg-desconecte",
+   "nome": "Mensagem: desconecte o veículo para dar a partida",
+   "cor": "neutro",
+   "cor_fonte": "o manual do EV5 não informa a cor",
+   "nivel": "info",
+   "significado": "O carro foi ligado com o cabo de carregamento conectado, e não sai da posição P.",
+   "orientacao": "Desconecte o cabo de carregamento e ligue o carro de novo.",
+   "pagina": "62",
+   "palavras": [
+    "desconecte",
+    "cabo",
+    "nao sai do p",
+    "partida"
+   ],
+   "fonte": "EV5",
+   "icone": "assets/luzes/ev-msg-desconecte.png"
+  },
+  {
+   "id": "ev-msg-porta-carga",
+   "nome": "Mensagem: porta de carregamento aberta",
+   "cor": "neutro",
+   "cor_fonte": "o manual do EV5 não informa a cor",
+   "nivel": "info",
+   "significado": "O carro está sendo conduzido com a porta de carregamento aberta.",
+   "orientacao": "Feche a porta de carregamento antes de dirigir.",
+   "pagina": "62",
+   "palavras": [
+    "porta de carregamento",
+    "tampa",
+    "aberta"
+   ],
+   "fonte": "EV5",
+   "icone": "assets/luzes/ev-msg-porta-carga.png"
+  },
+  {
+   "id": "ev-msg-carregador",
+   "nome": "Mensagem: carregamento interrompido, verifique o carregador (AC ou DC)",
+   "cor": "amarelo",
+   "cor_fonte": "padrão (o manual do EV5 não informa a cor)",
+   "nivel": "oficina",
+   "significado": "O carregamento parou. Pode haver anomalia no carregador externo, o carregador pode ter parado de carregar ou o cabo pode estar danificado.",
+   "orientacao": "Verifique o carregador e o cabo. Se acontecer também com outro carregador em bom estado ou com o carregador portátil original Kia, leve o carro à concessionária Kia.",
+   "pagina": "63 e 64",
+   "palavras": [
+    "carregamento interrompido",
+    "carregador",
+    "nao carrega",
+    "ac",
+    "dc"
+   ],
+   "fonte": "EV5",
+   "icone": "assets/luzes/ev-msg-carregador.png"
+  },
+  {
+   "id": "ev-msg-vess",
+   "nome": "Mensagem: verifique o sistema de som virtual do motor (VESS)",
+   "cor": "amarelo",
+   "cor_fonte": "padrão (o manual do EV5 não informa a cor)",
+   "nivel": "oficina",
+   "significado": "Há alguma anomalia no som virtual do motor, o som que o carro elétrico emite para avisar os pedestres.",
+   "orientacao": "Leve o carro a uma concessionária Kia.",
+   "pagina": "65",
+   "palavras": [
+    "som",
+    "vess",
+    "som virtual",
+    "barulho"
+   ],
+   "fonte": "EV5",
+   "icone": "assets/luzes/ev-msg-vess.png"
+  },
+  {
+   "id": "ev-msg-flap",
+   "nome": "Mensagem: verifique o sistema Flap de Ar Ativo",
+   "cor": "amarelo",
+   "cor_fonte": "padrão (o manual do EV5 não informa a cor)",
+   "nivel": "oficina",
+   "significado": "Há anomalia na abertura ou no controlador do flap de ar, ou o flap não abre. A mensagem apaga quando o problema é reparado.",
+   "orientacao": "Procure a concessionária Kia para verificar o flap de ar.",
+   "pagina": "66",
+   "palavras": [
+    "flap",
+    "ar ativo",
+    "grade"
+   ],
+   "fonte": "EV5",
+   "icone": "assets/luzes/ev-msg-flap.png"
+  },
+  {
+   "id": "ev-msg-arrefecimento",
+   "nome": "Mensagem: reabastecer o líquido de arrefecimento",
+   "cor": "vermelho",
+   "cor_fonte": "padrão (o manual do EV5 não informa a cor)",
+   "nivel": "parar",
+   "significado": "O nível do líquido de arrefecimento está baixo. Rodar muito tempo assim pode causar problemas sérios no equipamento elétrico do carro e impedir a condução normal.",
+   "orientacao": "Pare de dirigir e verifique a quantidade do líquido de arrefecimento. Complete o nível antes de seguir; em caso de dúvida, procure a concessionária Kia.",
+   "pagina": "66",
+   "palavras": [
+    "arrefecimento",
+    "liquido",
+    "radiador",
+    "agua",
+    "refrigeracao"
+   ],
+   "fonte": "EV5",
+   "icone": "assets/luzes/ev-msg-arrefecimento.png"
+  }
+ ]
+}

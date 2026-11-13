@@ -225,6 +225,24 @@
    "qtd_max": 2,
    "ja_incluso_na_revisao": false,
    "observacao": "informado pelo Leonardo em 06/11 (não está na planilha da Cleidiane)"
+  },
+  {
+   "codigo": "KIT",
+   "nome": "POLIMENTO E HIGIENIZAÇÃO (KIT)",
+   "valor": 900.0,
+   "tipo": "mao_de_obra",
+   "qtd_max": 10,
+   "ja_incluso_na_revisao": false,
+   "observacao": "novo na planilha de 12/11/2026 (linha 27)"
+  },
+  {
+   "codigo": "KIT02",
+   "nome": "POLIMENTO E HIGIENIZAÇÃO (KIT02)",
+   "valor": 1200.0,
+   "tipo": "mao_de_obra",
+   "qtd_max": 10,
+   "ja_incluso_na_revisao": false,
+   "observacao": "novo na planilha de 12/11/2026 (linha 28)"
   }
  ]
 }

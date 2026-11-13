@@ -27,6 +27,7 @@
     <nav class="abas" role="tablist">
       <button class="aba ativa" role="tab" data-aba="revisoes" aria-selected="true">Revisões</button>
       <button class="aba" role="tab" data-aba="garantia" aria-selected="false">Garantia</button>
+      <button class="aba" role="tab" data-aba="luzes" aria-selected="false">Luzes de advertência</button>
     </nav>
     <div class="lado-rodape">
       <img class="logo-service" src="assets/logos/kia-service-branco.png" alt="Kia Service">
@@ -54,15 +55,39 @@
       <div id="resultado"></div>
     </section>
 
+    <!-- ABA LUZES DE ADVERTÊNCIA (PRD 3.13): luzes por categoria de motorização, ícones coloridos -->
+    <section id="painel-luzes" class="painel" hidden>
+      <div class="busca">
+        <label for="campo-luz-modelo" class="busca-rotulo">Modelo do veículo</label>
+        <div class="campo">
+          <svg class="lupa" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+            <circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L21 21"/></svg>
+          <input id="campo-luz-modelo" type="search" list="lista-modelos-luz" autocomplete="off" spellcheck="false"
+                 placeholder="Digite o modelo, ex.: niro, bongo, EV5">
+          <datalist id="lista-modelos-luz"></datalist>
+        </div>
+      </div>
+      <div class="busca luz-filtro">
+        <label for="filtro-luz" class="busca-rotulo">Luz ou sintoma</label>
+        <div class="campo">
+          <input id="filtro-luz" type="search" autocomplete="off" spellcheck="false"
+                 placeholder="Ex.: água, freio, bateria, pneu, porta">
+        </div>
+      </div>
+      <div id="resultado-luzes"></div>
+    </section>
+
     <!-- ABA GARANTIA (Fase G2): regras de data/garantia.js, montadas a partir dos livretos Kia -->
     <section id="painel-garantia" class="painel" hidden>
+      <!-- Avisos importantes da Kia (boletins), sempre visíveis no topo da aba -->
+      <div id="avisos-garantia"></div>
       <div class="busca" id="busca-garantia">
         <label for="campo-garantia" class="busca-rotulo">Modelo e problema</label>
         <div class="campo">
           <svg class="lupa" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
             <circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L21 21"/></svg>
           <input id="campo-garantia" type="search" autocomplete="off" spellcheck="false"
-                 placeholder="Ex.: sportage 2023 amortecedor, niro bateria, cerato vidro"
+                 placeholder="Digite o modelo e o problema, ex.: sportage 2023 amortecedor"
                  aria-autocomplete="list" aria-controls="sugestoes-garantia">
           <kbd>CTRL + K</kbd>
         </div>
@@ -129,6 +154,7 @@
   <script src="data/revisoes.js"></script>
   <script src="data/extras.js"></script>
   <script src="data/garantia.js"></script>
+  <script src="data/luzes.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

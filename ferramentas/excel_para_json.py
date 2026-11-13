@@ -27,7 +27,7 @@ warnings.filterwarnings("ignore")  # avisos do openpyxl sobre desenhos/formataç
 RAIZ = Path(__file__).resolve().parent.parent
 # Cópia da planilha da Cleidiane de 06/11 15h13 + aba Tasman + 2 correções do Sorento 2.2D (o original dela não é alterado)
 PLANILHA_PADRAO = RAIZ / "fonte/cleidiane-2026-11-06-1513/Menu revisão atualizado (STERN) 2026-11-06 - com TASMAN.xlsx"
-CSV_PADRAO = RAIZ / "fonte/agregados-cleidiane-2026-11-06/AGREGADOS-transcrito.csv"
+CSV_PADRAO = RAIZ / "fonte/agregados-leonardo-2026-11-12/AGREGADOS-transcrito.csv"  # planilha de 12/11/2026: +2 itens de polimento
 DATA_TABELA = "2026-09-21"  # preços de setembro/2026 (decisão do Leonardo, 06/11/2026)
 
 # Abas que não são modelos

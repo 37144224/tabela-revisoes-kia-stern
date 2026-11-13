@@ -164,7 +164,8 @@ document.addEventListener("keydown", e => {
   const foraDeCampo = !["INPUT", "TEXTAREA", "SELECT"].includes(document.activeElement.tagName);
   if ((e.ctrlKey && e.key.toLowerCase() === "k") || (e.key === "/" && foraDeCampo)) {
     e.preventDefault();
-    const alvo = document.getElementById("painel-garantia").hidden ? campo : document.getElementById("campo-garantia");
+    const alvo = !document.getElementById("painel-luzes").hidden ? document.getElementById("campo-luz-modelo")
+      : !document.getElementById("painel-garantia").hidden ? document.getElementById("campo-garantia") : campo;
     alvo.focus(); alvo.select();
   }
 });
@@ -749,7 +750,9 @@ function trocaAba(nome) {
   });
   document.getElementById("painel-revisoes").hidden = nome !== "revisoes";
   document.getElementById("painel-garantia").hidden = nome !== "garantia";
-  (nome === "garantia" ? document.getElementById("campo-garantia") : campo).focus();
+  document.getElementById("painel-luzes").hidden = nome !== "luzes";
+  const foco = { garantia: "campo-garantia", luzes: "campo-luz-modelo" }[nome];
+  (foco ? document.getElementById(foco) : campo).focus();
 }
 document.querySelectorAll(".aba").forEach(b => b.addEventListener("click", () => trocaAba(b.dataset.aba)));
 
@@ -905,6 +908,20 @@ listaG.addEventListener("mousedown", e => {
 });
 document.addEventListener("click", e => { if (!e.target.closest("#busca-garantia")) listaG.hidden = true; });
 
+// Avisos importantes (boletins da Kia) no topo da aba Garantia, sempre visíveis
+function mostraAvisosG() {
+  const caixa = document.getElementById("avisos-garantia");
+  caixa.innerHTML = (GAR.avisos || []).map(a => `
+    <aside class="aviso-importante" role="note">
+      <div class="aviso-cab"><span class="aviso-selo">Aviso importante</span><strong>${escapa(a.titulo)}</strong></div>
+      <p class="aviso-vig">${escapa(a.vigencia)}</p>
+      <ul>${a.itens.map(i => `<li>${escapa(i)}</li>`).join("")}</ul>
+      <details><summary>Clique aqui para ver a menção obrigatória na nota fiscal</summary>
+        ${a.nf.map(t => `<blockquote>"${escapa(t)}"</blockquote>`).join("")}</details>
+      <p class="g-fonte">Fonte: ${escapa(a.fonte)}</p>
+    </aside>`).join("");
+}
+
 function mostraInicioG() {
   resultadoG.innerHTML = `<p class="inicio">Digite o modelo e, se quiser, a peça ou o problema.
     Ex.: <strong>"sportage 2023 amortecedor"</strong>, <strong>"niro bateria"</strong>, <strong>"bongo revisão atrasada"</strong>.</p>`;
@@ -1039,9 +1056,10 @@ function respostaItem(m, g, it, r) {
   else if (it.tipo === "condicional") prazo = "Só se vier de defeito coberto pela garantia";
   else if (it.tipo === "nao_coberto") prazo = "Não coberto pela garantia";
   else if (it.tipo === "perda") prazo = "Pode excluir o veículo da garantia";
-  if (it.id === "pecas") sit = null;  // conta da nota fiscal da peça, não da venda do carro
+  if (it.id === "pecas") { sit = null; prazo = "12 meses (aplicada na Kia) ou 90 dias (balcão)"; }  // conta da NF da peça, não da venda do carro
   if (r.comum) fonte = `Texto igual em todos os livretos Kia disponíveis (pág. ${r.pag}); o livreto deste modelo não está disponível: confirmar com a garantia`;
-  if (r.comum && it.id === "pecas") extra = `<p class="g-cond">Nos livretos de 2025/2026 a peça instalada na concessionária Kia tem 12 meses; nos anteriores, 90 dias. Confirmar com a garantia.</p>`;
+  // boletim oficial vale para todos os modelos e substitui o texto do livreto (vale o mais recente)
+  if (it.fonte_fixa) fonte = `Fonte: ${it.fonte_fixa}`;
   const html = cab + `<div class="g-prazo">${escapa(prazo)}</div>
     <blockquote>"${escapa(trecho)}"</blockquote><div class="g-fonte">${escapa(fonte)}</div>
     ${r.nota ? `<p class="g-cond"><em>${escapa(r.nota)}</em></p>` : ""}
@@ -1076,6 +1094,141 @@ function textoGarantiaCliente() {
   ].join("\n");
 }
 
+// ================= ABA LUZES DO PAINEL (PRD 3.13) =================
+// Textos em data/luzes.js (próprios, baseados nos manuais, com página). A luz vem da categoria do
+// modelo (motorização da tabela). Sem categoria, a tela avisa e não inventa luz nenhuma.
+const LUZES = window.DADOS_LUZES || { manuais: {}, luzes: [] };
+const CORES_LUZ = { vermelho: "#bb162b", amarelo: "#b98500", verde: "#2e7d32", azul: "#1565c0" };
+const NIVEL_LUZ = { parar: { txt: "Parar com segurança", cor: "vermelho" }, oficina: { txt: "Procurar a oficina", cor: "amarelo" }, info: { txt: "Informativa", cor: "azul" } };
+const campoLuzModelo = document.getElementById("campo-luz-modelo");
+const filtroLuz = document.getElementById("filtro-luz");
+const resultadoLuzes = document.getElementById("resultado-luzes");
+let modeloLuz = null;
+let luzAberta = null;
+
+// Símbolo: recorte do próprio manual, pintado na cor da luz (opção B, aprovada pelo Leonardo em 12/11/2026).
+// Os primeiros desenhos (feitos pelo nome, sem olhar o manual) foram retirados: não batiam com o painel.
+// Luz sem símbolo conferido aparece só com o nome.
+function iconeLuz(l) {
+  if (!l.icone) return "";
+  return `<span class="luz-icone" aria-hidden="true"><img src="${escapa(l.icone)}" alt=""></span>`;
+}
+
+// Categoria vem da motorização da tabela (revisoes.json): elétrico, híbrido, combustão ou diesel
+function categoriaDoModelo(m) {
+  return LUZES.categorias && LUZES.categorias[m.motorizacao] ? m.motorizacao : null;
+}
+// Luzes do modelo = comuns a todos + do motor (flex/gasolina, diesel e híbrido) + específicas da categoria
+function luzesDoModelo(m) {
+  const cat = categoriaDoModelo(m);
+  if (!cat) return [];
+  const motor = cat === "eletrico" ? [] : LUZES.motor;  // elétrico não tem óleo, combustível nem motor a combustão
+  // primeiro as específicas da categoria (as do elétrico e do híbrido são as mais perguntadas), depois motor e comuns
+  const fora = LUZES.categorias[cat].exclui || [];
+  const ids = [...LUZES.categorias[cat].luzes, ...motor, ...LUZES.comuns].filter(id => !fora.includes(id));
+  return ids.map(id => LUZES.luzes.find(l => l.id === id)).filter(Boolean);
+}
+
+// Busca por nome ou sintoma: todas as palavras digitadas precisam aparecer
+function luzCombina(l, texto) {
+  const palavras = normaliza(texto).split(/\s+/).filter(Boolean);
+  if (!palavras.length) return true;
+  const alvo = normaliza([l.nome, l.significado, l.orientacao, ...(l.palavras || [])].join(" "));
+  return palavras.every(p => alvo.includes(p));
+}
+
+function mostraLuzes() {
+  luzAberta = null;
+  if (!modeloLuz) {
+    resultadoLuzes.innerHTML = `<p class="inicio">Escolha o modelo para ver as luzes de advertência dele.
+      Dica: se o cliente disser "luz da água", digite <strong>"água"</strong> no campo de luz ou sintoma.</p>`;
+    return;
+  }
+  const cat = categoriaDoModelo(modeloLuz);
+  if (!cat) {
+    resultadoLuzes.innerHTML = `<section class="mensagem"><h2>Categoria deste modelo não definida</h2>
+        <p>Confira com a oficina.</p><p class="contato">Avise: ${CONTATO}</p></section>`;
+    return;
+  }
+  const c = LUZES.categorias[cat];
+  const lista = luzesDoModelo(modeloLuz).filter(l => luzCombina(l, filtroLuz.value));
+  // Elétrico: as luzes específicas ainda não foram lidas (manual em imagem)
+  const aviso = cat === "eletrico"
+    ? `<p class="g-nota">As luzes e mensagens próprias do elétrico vêm do manual do EV5 (págs. 56 a 66). As luzes comuns vêm dos manuais do Sorento e do Rio e ainda serão conferidas com a seção geral do EV5.</p>` : "";
+  resultadoLuzes.innerHTML = `
+    <section class="modelo">
+      <div>
+        <h1 class="modelo-nome">${escapa(modeloLuz.nome)}</h1>
+        <div class="modelo-anos">${anosTexto(modeloLuz)} · Categoria: ${escapa(c.titulo)}</div>
+        <div class="g-fonte">Referência: ${c.refs.map(escapa).join(" · ")}</div>
+      </div>
+    </section>
+    <p class="g-nota">Clique na luz para ver o que significa e o que orientar ao cliente.
+      Textos próprios, baseados no manual. Cor: a do manual, ou a convenção do painel quando o manual não traz.</p>
+    ${aviso}
+    ${lista.length ? `<div class="luz-grade">${lista.map(l => `
+      <button type="button" class="luz-card" data-luz="${escapa(l.id)}">
+        ${iconeLuz(l)}
+        <span><span class="luz-nome">${escapa(l.nome)}</span>
+          <span class="luz-nivel nivel-${l.nivel}">${NIVEL_LUZ[l.nivel].txt}</span></span>
+      </button>`).join("")}</div>` : `<p class="g-nada">Nenhuma luz com esse nome ou sintoma nesta categoria. Confira com a oficina.</p>`}
+    <div id="luz-detalhe"></div>`;
+  resultadoLuzes.querySelectorAll("[data-luz]").forEach(b => b.addEventListener("click", () =>
+    mostraDetalheLuz(LUZES.luzes.find(x => x.id === b.dataset.luz))));
+}
+
+function mostraDetalheLuz(l) {
+  luzAberta = l;
+  const nivel = NIVEL_LUZ[l.nivel];
+  document.getElementById("luz-detalhe").innerHTML = `
+    <article class="luz-detalhe">
+      <div class="luz-detalhe-topo">${iconeLuz(l)}
+        <div><h2 class="luz-titulo">${escapa(l.nome)}</h2>
+          <span class="luz-nivel nivel-${l.nivel}">${nivel.txt}</span>
+          <span class="luz-cor">${l.cor === "neutro" ? "Cor: não informada no manual" : `Cor: ${escapa(l.cor)}${l.cor_fonte && !/padrão/.test(l.cor_fonte) ? "" : " (convenção do painel)"}`}</span></div>
+      </div>
+      <div class="grupo"><span>O que significa</span></div>
+      <p class="g-cond">${escapa(l.significado)}</p>
+      <div class="grupo"><span>O que orientar ao cliente</span></div>
+      <p class="g-cond">${escapa(l.orientacao)}</p>
+      <p class="g-fonte">Fonte: ${escapa(l.fonte)}, página ${escapa(l.pagina.replace(/ \(PDF.*\)/, ""))}</p>
+      <button type="button" class="botao" id="luz-copiar">Copiar para o cliente</button>
+    </article>`;
+  document.getElementById("luz-copiar").addEventListener("click", () => abreJanela(textoLuzCliente(l), "LUZ DO PAINEL"));
+  document.getElementById("luz-detalhe").scrollIntoView({ behavior: "smooth", block: "nearest" });
+}
+
+// Texto para o cliente: só significado e orientação (decisão do Leonardo, 11/11/2026)
+function textoLuzCliente(l) {
+  return [
+    "Olá! Segue a explicação sobre a luz do painel do seu Kia:",
+    "",
+    `*Veículo:* ${modeloLuz.nome} (${anosTexto(modeloLuz)})`,
+    `*Luz:* ${l.nome}`,
+    "",
+    `*O que significa:* ${l.significado}`,
+    "",
+    `*O que fazer:* ${l.orientacao}`,
+    "",
+    `(Fonte: manual do proprietário Kia ${l.fonte}, página ${l.pagina.replace(/ \(PDF.*\)/, "")})`,
+    "",
+    "Stern Kia – Pós-venda",
+  ].join("\n");
+}
+
+// Modelo: aceita o nome completo do datalist; sem acento e sem maiúscula
+function escolheModeloLuz() {
+  const txt = normaliza(campoLuzModelo.value);
+  const achado = MODELOS.find(m => normaliza(m.nome) === txt) || (txt ? busca(txt)[0] : null);
+  modeloLuz = achado || null;
+  if (achado) campoLuzModelo.value = achado.nome;
+  mostraLuzes();
+}
+campoLuzModelo.addEventListener("change", escolheModeloLuz);
+campoLuzModelo.addEventListener("keydown", e => { if (e.key === "Enter") { e.preventDefault(); escolheModeloLuz(); } });
+filtroLuz.addEventListener("input", () => { if (modeloLuz) mostraLuzes(); });
+document.getElementById("lista-modelos-luz").innerHTML = MODELOS.map(m => `<option value="${escapa(m.nome)}">`).join("");
+
 // ---------- PIN (Fase 4, PRD 3.1) ----------
 // O repositório é público: o PIN não fica escrito aqui, só uma "impressão digital" (hash FNV-1a) dele.
 // Só evita acesso casual; quem souber mexer no código passa. Lembrado no navegador; sem limite de tentativas.
@@ -1108,5 +1261,6 @@ document.getElementById("data-tabela").textContent = `Tabela atualizada em ${dat
 if (GAR.data_regras) document.getElementById("data-garantia").textContent = `Regras de garantia atualizadas em ${dataBR(GAR.data_regras)}`;
 mostraInicio();
 mostraInicioG();
+mostraAvisosG();
 if (pinLembrado()) campo.focus();
 else { telaPin.hidden = false; campoPin.focus(); }
