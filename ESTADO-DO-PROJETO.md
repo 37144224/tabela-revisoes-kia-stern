@@ -57,4 +57,6 @@ Um link no **navegador do PC de trabalho** do agendamento e dos consultores (o c
 ## 13/11/2026
 - **Agregados:** planilha nova do Leonardo (12/11) em `fonte/agregados-leonardo-2026-11-12/`; +2 itens: Polimento e higienização KIT (R$ 900) e KIT02 (R$ 1.200), como mão de obra. Catálogo com 27 itens. Revisões sem mudança.
 - **Garantia:** aviso em destaque no topo da aba com o **Boletim Kia Service CS 020/25 (22/08/2025)**: peça de reposição vendida a partir de 09/2025 tem 12 meses se aplicada na concessionária e 90 dias se vendida no balcão; menção obrigatória na NF. PDF original em `fonte/kia-boletins/`, transcrição em `ferramentas/garantia-fontes/`. O item "peça de reposição" passou a usar o boletim em todos os modelos.
-- Nada publicado: aguardando a conferência do Leonardo.
+- Campo de busca da Garantia no mesmo padrão das outras abas; menção da NF virou botão "Clique aqui para ver".
+- **Publicado em 13/11/2026** (commit 466d485): luzes de advertência, aviso do boletim e agregados novos. Conferido no link: página, luzes e símbolos no ar.
+- **13/11 — contato:** textos ao cliente (pré-orçamento, orçamento, garantia e luzes) terminam com o WhatsApp do Agendamento de Serviços, (11) 99021-6377, com link wa.me (número do site sternkia.com.br). O e-mail agendamento2@ ficou só no botão interno "Enviar para o agendamento". Publicado.

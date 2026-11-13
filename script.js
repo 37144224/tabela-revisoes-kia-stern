@@ -381,7 +381,11 @@ function cartoesEspeciais(m) {
 }
 
 // ---------- pré-orçamento (texto aprovado pelo Leonardo em 09/11/2026) ----------
-const EMAIL_AGENDAMENTO = "agendamento2@sternkia.com.br";
+const EMAIL_AGENDAMENTO = "agendamento2@sternkia.com.br";  // só no botão interno "Enviar para o agendamento"
+// Contato que vai no texto ao cliente: WhatsApp do "Agendamento de Serviços" (site sternkia.com.br, 13/11/2026).
+// O cliente recebe o texto pelo WhatsApp; o link wa.me abre direto a conversa com o agendamento.
+const WHATSAPP_AGENDAMENTO = { texto: "(11) 99021-6377", link: "https://wa.me/5511990216377" };
+const LINHA_AGENDAMENTO = `Agende sua revisão pelo WhatsApp: ${WHATSAPP_AGENDAMENTO.texto} – ${WHATSAPP_AGENDAMENTO.link}`;
 
 // Nome do item em linguagem de cliente (a planilha usa nomes técnicos/de estoque)
 function nomeCliente(it) {
@@ -471,7 +475,7 @@ function textoCliente(m, r, c) {
     "(**) Este orçamento tem validade de 07 dias a partir da data do envio.",
     "",
     "Stern Kia – Pós-venda",
-    `Agende sua revisão: ${EMAIL_AGENDAMENTO}`,
+    LINHA_AGENDAMENTO,
   ].join("\n");
 }
 
@@ -1091,6 +1095,7 @@ function textoGarantiaCliente() {
     "A garantia depende das revisões em dia na rede Kia. " + SUJEITO,
     "",
     "Stern Kia – Pós-venda",
+    LINHA_AGENDAMENTO,
   ].join("\n");
 }
 
@@ -1213,6 +1218,7 @@ function textoLuzCliente(l) {
     `(Fonte: manual do proprietário Kia ${l.fonte}, página ${l.pagina.replace(/ \(PDF.*\)/, "")})`,
     "",
     "Stern Kia – Pós-venda",
+    LINHA_AGENDAMENTO,
   ].join("\n");
 }
 

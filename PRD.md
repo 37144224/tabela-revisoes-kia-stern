@@ -64,7 +64,7 @@ Texto completo, pronto para WhatsApp ou para ler ao telefone:
 ### 3.6b Pré-orçamento (aprovado em 09/11/2026)
 - Botão **PRÉ-ORÇAMENTO** no cartão aberto, acima de "Montar orçamento": só os itens da revisão, **sem agregados** (uso do agendamento).
 - Abre uma janela com o texto pronto e **COPIAR TEXTO** (negrito no padrão do WhatsApp, com `*`).
-- Texto: saudação; veículo (título NBS + anos); revisão e km; itens inclusos (nomes para o cliente, sem preço unitário); **valor total (*)**; pagamento; "Valores válidos até DD/MM/AAAA (**)" (envio + 7 dias); serviços inclusos (inspeção dos sistemas…); "Alinhamento/Balanceamento = R$: 300,00 (Opcional)" (preço do catálogo; omitido se a revisão já inclui alinhamento, como no Stinger); notas (*) e (**); assinatura "Stern Kia – Pós-venda" e agendamento2@sternkia.com.br.
+- Texto: saudação; veículo (título NBS + anos); revisão e km; itens inclusos (nomes para o cliente, sem preço unitário); **valor total (*)**; pagamento; "Valores válidos até DD/MM/AAAA (**)" (envio + 7 dias); serviços inclusos (inspeção dos sistemas…); "Alinhamento/Balanceamento = R$: 300,00 (Opcional)" (preço do catálogo; omitido se a revisão já inclui alinhamento, como no Stinger); notas (*) e (**); assinatura "Stern Kia – Pós-venda" e "Agende sua revisão pelo WhatsApp: (11) 99021-6377 – https://wa.me/5511990216377" (WhatsApp do Agendamento de Serviços; trocou o e-mail em 13/11/2026, porque o texto vai ao cliente pelo WhatsApp). A mesma linha fecha os textos de garantia e de luzes de advertência.
 
 ### 3.7 Comparar dois modelos
 - O funcionário escolhe dois modelos e vê **lado a lado** o valor de cada revisão (10 mil, 20 mil… km).
