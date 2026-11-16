@@ -14,6 +14,26 @@ const resultado = document.getElementById("resultado");
 const reais = new Intl.NumberFormat("pt-BR", { style: "currency", currency: "BRL" });
 const numero = new Intl.NumberFormat("pt-BR");
 
+// Limites de digitação (decisão do Leonardo, 16/11/2026): nenhum campo aceita texto infinito.
+// km: 6 números; valor/desconto em R$: 9 caracteres (até 99.999,99); busca e descrição: 60 caracteres.
+// Os campos fixos do index.html levam os mesmos números no atributo maxlength: mudou aqui, mude lá.
+const LIMITES = { km: 6, valor: 9, texto: 60 };
+
+// Campos de km (marcados com data-so-digitos): só números, até LIMITES.km. Um ouvinte único no document,
+// na fase de captura, vale também para os campos criados depois e roda antes dos ouvintes de cada campo.
+// Sem maxlength de propósito: ele cortaria o texto colado antes da limpeza ("km: 28500" viraria "28").
+document.addEventListener("input", e => {
+  const el = e.target;
+  if (!el.matches || !el.matches("[data-so-digitos]")) return;
+  const limpo = el.value.replace(/\D/g, "").slice(0, LIMITES.km);
+  if (el.value !== limpo) el.value = limpo;
+}, true);
+
+// Data do campo <input type="date">: só vale com ano de 4 dígitos (AAAA-MM-DD); senão é tratada como vazia.
+function dataValida(v) {
+  return /^\d{4}-\d{2}-\d{2}$/.test(v || "") ? v : "";
+}
+
 // Sem acento e minúsculo: "Sorento" = "sorento" = "SORÉNTO"
 function normaliza(txt) {
   return String(txt || "").normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().trim();
@@ -244,8 +264,8 @@ function mostraModelo(m) {
     <!-- Revisão indicada (PRD 3.4): km atual + data da venda → a revisão que vence primeiro -->
     <section class="indicada-campos">
       <span class="busca-rotulo">Revisão indicada</span>
-      <label>Km atual<input type="text" inputmode="numeric" id="ind-km" placeholder="ex.: 28500" autocomplete="off"></label>
-      <label>Data da venda<input type="date" id="ind-data"></label>
+      <label>Km atual<input type="text" inputmode="numeric" id="ind-km" placeholder="ex.: 28500" autocomplete="off" data-so-digitos></label>
+      <label>Data da venda<input type="date" id="ind-data" max="9999-12-31"></label>
       <div id="ind-resultado" class="ind-resultado"></div>
     </section>
     <div class="lista">${revisoes}</div>
@@ -304,7 +324,7 @@ function revisaoIndicada(m, kmAtual, venda, hoje = new Date()) {
 function mostraIndicada(m) {
   const kmTxt = document.getElementById("ind-km").value.replace(/\D/g, "");
   const kmAtual = kmTxt ? Number(kmTxt) : null;
-  const venda = document.getElementById("ind-data").value;
+  const venda = dataValida(document.getElementById("ind-data").value);
   const saida = document.getElementById("ind-resultado");
   // Fecha o cartão que a indicação anterior abriu (os que o consultor abriu à mão ficam como estão)
   resultado.querySelectorAll(".rev.indicada").forEach(a => {
@@ -648,8 +668,8 @@ function recalcula() {
 function novoAvulso() {
   const div = document.createElement("div");
   div.className = "avulso";
-  div.innerHTML = `<input class="av-nome" type="text" placeholder="Descrição (ex.: palheta do limpador)" aria-label="Descrição do item avulso">
-    <input class="av-valor" type="text" inputmode="decimal" placeholder="Valor R$" aria-label="Valor do item avulso">
+  div.innerHTML = `<input class="av-nome" type="text" placeholder="Descrição (ex.: palheta do limpador)" aria-label="Descrição do item avulso" maxlength="${LIMITES.texto}">
+    <input class="av-valor" type="text" inputmode="decimal" placeholder="Valor R$" aria-label="Valor do item avulso" maxlength="${LIMITES.valor}">
     <select class="av-tipo" aria-label="Tipo do item avulso"><option value="peca">Peça</option><option value="mao_de_obra">Mão de obra</option></select>
     <button type="button" class="av-tirar" aria-label="Remover item avulso">&times;</button>`;
   document.getElementById("orc-avulsos").appendChild(div);
@@ -704,7 +724,7 @@ function abreComparar(a) {
         <label for="comparar-campo" class="busca-rotulo">Comparar ${escapa(a.nome)} com:</label>
         <button type="button" class="fechar" aria-label="Fechar comparação" id="fechar-comparar">&times;</button>
       </div>
-      <input id="comparar-campo" class="comparar-campo" list="comparar-lista" autocomplete="off"
+      <input id="comparar-campo" class="comparar-campo" list="comparar-lista" autocomplete="off" maxlength="${LIMITES.texto}"
              placeholder="Digite o outro modelo e escolha na lista">
       <datalist id="comparar-lista">${MODELOS.filter(m => m !== a).map(m => `<option value="${escapa(rotuloModelo(m))}">`).join("")}</datalist>
       <div id="comparar-tabela"></div>
@@ -963,15 +983,15 @@ function mostraGarantia(m, itemId) {
         <!-- peça/problema primeiro: é a pergunta principal do balcão -->
         <div class="g-bloco">
           <div class="grupo"><span>Peça ou problema</span></div>
-          <input type="text" id="g-filtro" class="g-filtro" placeholder="Filtrar, ex.: vidro, bateria, pastilha" autocomplete="off">
+          <input type="text" id="g-filtro" class="g-filtro" placeholder="Filtrar, ex.: vidro, bateria, pastilha" autocomplete="off" maxlength="${LIMITES.texto}">
           <div class="g-itens">${itens.map(it => `<button type="button" class="g-item" data-item="${it.id}">${escapa(it.nome)}</button>`).join("")}</div>
           <div id="g-nada" class="g-nada" hidden>${escapa(NAO_ENCONTRADO)}</div>
         </div>
         <div class="g-bloco">
           <div class="grupo"><span>Situação do veículo</span><span>opcional</span></div>
           <div class="g-campos">
-            <label>Data da venda<input type="date" id="g-venda"></label>
-            <label>Km atual<input type="text" inputmode="numeric" id="g-km" placeholder="ex.: 35000"></label>
+            <label>Data da venda<input type="date" id="g-venda" max="9999-12-31"></label>
+            <label>Km atual<input type="text" inputmode="numeric" id="g-km" placeholder="ex.: 35000" data-so-digitos></label>
           </div>
         </div>
         <div class="g-bloco">
@@ -993,7 +1013,7 @@ function mostraGarantia(m, itemId) {
 
   resultadoG.querySelectorAll(".g-item").forEach(b => b.addEventListener("click", () => { gm.item = b.dataset.item; atualizaG(); }));
   resultadoG.querySelectorAll("[data-emdia]").forEach(b => b.addEventListener("click", () => { gm.emDia = b.dataset.emdia; atualizaG(); }));
-  document.getElementById("g-venda").addEventListener("input", e => { gm.venda = e.target.value; atualizaG(); });
+  document.getElementById("g-venda").addEventListener("input", e => { gm.venda = dataValida(e.target.value); atualizaG(); });
   document.getElementById("g-km").addEventListener("input", e => {
     const v = Number(String(e.target.value).replace(/\D/g, ""));
     gm.km = e.target.value.trim() && Number.isFinite(v) ? v : null; atualizaG();

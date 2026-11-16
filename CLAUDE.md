@@ -56,6 +56,7 @@ envios/                              ← cópias enviadas por e-mail, folhas de 
 - **Validade do orçamento:** data da consulta + 7 dias.
 - **Forma de pagamento:** Pix ou cartão de crédito. Parcelas = total ÷ R$ 500 (para baixo), mínimo 1 ("somente à vista"), máximo 3, **sem juros**; Pix sem desconto. Calculado pela regra, não pela linha PARCELAMENTO da planilha (decisão do Leonardo, 09/11/2026). No orçamento, recalcular sobre o total final.
 - **Revisão indicada:** o que vencer primeiro, km ou tempo, pela regra de cada modelo.
+- **Limites de digitação** (decisão do Leonardo, 16/11/2026): km = só números, até 6; ano da data = 4 dígitos; valor do item avulso e desconto = 9 caracteres; buscas, filtros e descrição do item avulso = 60 caracteres. Campo novo de digitação já nasce com limite: constante `LIMITES` e `dataValida` no `script.js`; km leva `data-so-digitos` (sem `maxlength`, que cortaria o texto colado antes da limpeza); data leva `max="9999-12-31"`.
 
 ## Regras da garantia (não mudar sem aprovação)
 - **Só o que está escrito no livreto oficial.** Nunca completar com conhecimento geral ou suposição. Sem regra → "Não encontrado no manual: consultar a garantia (Cleidiane)".

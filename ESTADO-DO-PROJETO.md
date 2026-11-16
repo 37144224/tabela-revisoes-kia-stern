@@ -60,3 +60,4 @@ Página web de consulta para o agendamento e os consultores da Stern Kia, com tr
 - **11/11:** revisão indicada; PIN; publicação no GitHub Pages; PRD 1.2 (sem pasta compartilhada: a Cleidiane manda as planilhas ao Leonardo).
 - **12/11:** aba Luzes de advertência por categoria (PRD 1.3/1.4); símbolos do manual (opção B aprovada); EV5 lido página a página; luz MIL = "luz da injeção eletrônica".
 - **13/11:** agregados de polimento (KIT, KIT02); boletim CS 020/25 como aviso na Garantia; contato por WhatsApp nos textos ao cliente; e-mail de apresentação enviado à equipe (gerenteposvenda@, assistencia4@, assistencia1@, garantia@, marketing@, agendamento2@, agendamento1@, acessorios@); organização final do projeto.
+- **16/11:** limites de digitação em todos os campos (km 6 números, ano 4 dígitos, valores 9 caracteres, buscas e descrição 60); testado localmente, ainda não publicado.

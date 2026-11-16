@@ -124,6 +124,7 @@ Texto completo, pronto para WhatsApp ou para ler ao telefone:
 | Aba antiga | Selo "Referência antiga: confirmar valor com a oficina" |
 | Regra de tempo do modelo ausente | Destaca a revisão só pelo km e avisa "regra de tempo não cadastrada" |
 | Desconto acima do limite | Aviso, sem bloqueio |
+| Digitação além do limite do campo | O campo não aceita mais caracteres (decisão do Leonardo, 16/11/2026): **km** só números, até 6; **ano da data** 4 dígitos; **valor do item avulso e desconto** até 9 caracteres; **buscas, filtros e descrição do item avulso** até 60 caracteres. PIN: 4 dígitos. Km e ano ficam em `LIMITES`/`dataValida` no `script.js`; os campos fixos do `index.html` levam o mesmo número no `maxlength` |
 | PIN errado | "PIN incorreto", sem limite de tentativas |
 | Sem internet depois de carregada | A página continua funcionando com os dados já carregados |
 | Garantia: item sem regra | "Não encontrado no manual: consultar a garantia (Cleidiane)" |

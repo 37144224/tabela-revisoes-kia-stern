@@ -86,7 +86,7 @@
 
 ## Fase 5 — Testes
 - **Arquivos:** `cenarios-de-teste.md` + correções.
-- **Cenários:** caminho feliz, modelo inexistente, campo vazio, aba antiga, sem foto, sem regra de tempo, desconto acima do limite, item avulso, sem internet depois de carregar, PIN errado, Chrome e Edge.
+- **Cenários:** caminho feliz, modelo inexistente, campo vazio, aba antiga, sem foto, sem regra de tempo, desconto acima do limite, item avulso, sem internet depois de carregar, PIN errado, limites de digitação (km com 7 números, ano com 5 dígitos, valor com 12 caracteres, busca com 80 caracteres), Chrome e Edge.
 - **Como verificar:** todos os cenários passam no navegador.
 
 ## Fase 6 — Rotina de atualização

@@ -45,7 +45,7 @@
         <div class="campo">
           <svg class="lupa" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
             <circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L21 21"/></svg>
-          <input id="campo-busca" type="search" autocomplete="off" spellcheck="false"
+          <input id="campo-busca" type="search" autocomplete="off" spellcheck="false" maxlength="60"
                  placeholder="Digite o modelo, ex.: sportage 2023, cerato flex, bongo"
                  aria-autocomplete="list" aria-controls="sugestoes">
           <kbd>CTRL + K</kbd>
@@ -62,7 +62,7 @@
         <div class="campo">
           <svg class="lupa" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
             <circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L21 21"/></svg>
-          <input id="campo-luz-modelo" type="search" list="lista-modelos-luz" autocomplete="off" spellcheck="false"
+          <input id="campo-luz-modelo" type="search" list="lista-modelos-luz" autocomplete="off" spellcheck="false" maxlength="60"
                  placeholder="Digite o modelo, ex.: niro, bongo, EV5">
           <datalist id="lista-modelos-luz"></datalist>
         </div>
@@ -70,7 +70,7 @@
       <div class="busca luz-filtro">
         <label for="filtro-luz" class="busca-rotulo">Luz ou sintoma</label>
         <div class="campo">
-          <input id="filtro-luz" type="search" autocomplete="off" spellcheck="false"
+          <input id="filtro-luz" type="search" autocomplete="off" spellcheck="false" maxlength="60"
                  placeholder="Ex.: água, freio, bateria, pneu, porta">
         </div>
       </div>
@@ -86,7 +86,7 @@
         <div class="campo">
           <svg class="lupa" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
             <circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L21 21"/></svg>
-          <input id="campo-garantia" type="search" autocomplete="off" spellcheck="false"
+          <input id="campo-garantia" type="search" autocomplete="off" spellcheck="false" maxlength="60"
                  placeholder="Digite o modelo e o problema, ex.: sportage 2023 amortecedor"
                  aria-autocomplete="list" aria-controls="sugestoes-garantia">
           <kbd>CTRL + K</kbd>
@@ -117,10 +117,10 @@
           <div class="grupo"><span>Desconto</span></div>
           <div class="orc-desc">
             <label for="desc-pecas">Peças</label>
-            <input id="desc-pecas" type="text" inputmode="decimal" placeholder="0">
+            <input id="desc-pecas" type="text" inputmode="decimal" placeholder="0" maxlength="9">
             <select id="desc-pecas-un" aria-label="Unidade do desconto em peças"><option value="R$">R$</option><option value="%">%</option></select>
             <label for="desc-mo">Mão de obra</label>
-            <input id="desc-mo" type="text" inputmode="decimal" placeholder="0">
+            <input id="desc-mo" type="text" inputmode="decimal" placeholder="0" maxlength="9">
             <select id="desc-mo-un" aria-label="Unidade do desconto em mão de obra"><option value="R$">R$</option><option value="%">%</option></select>
           </div>
           <div class="grupo orc-grupo-resumo"><span>Resumo</span></div>
