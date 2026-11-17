@@ -28,6 +28,7 @@
       <button class="aba ativa" role="tab" data-aba="revisoes" aria-selected="true">Revisões</button>
       <button class="aba" role="tab" data-aba="garantia" aria-selected="false">Garantia</button>
       <button class="aba" role="tab" data-aba="luzes" aria-selected="false">Luzes de advertência</button>
+      <button class="aba" role="tab" data-aba="regras" aria-selected="false">Regras de revisão</button>
     </nav>
     <div class="lado-rodape">
       <img class="logo-service" src="assets/logos/kia-service-branco.png" alt="Kia Service">
@@ -75,6 +76,21 @@
         </div>
       </div>
       <div id="resultado-luzes"></div>
+    </section>
+
+    <!-- ABA REGRAS DE REVISÃO: texto do intervalo e da tolerância, de data/garantia.js (regras_revisao) -->
+    <section id="painel-regras" class="painel" hidden>
+      <div class="busca">
+        <label for="campo-regra-modelo" class="busca-rotulo">Modelo do veículo</label>
+        <div class="campo">
+          <svg class="lupa" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+            <circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L21 21"/></svg>
+          <input id="campo-regra-modelo" type="search" list="lista-modelos-regra" autocomplete="off" spellcheck="false" maxlength="60"
+                 placeholder="Digite o modelo, ex.: niro, bongo, EV5">
+          <datalist id="lista-modelos-regra"></datalist>
+        </div>
+      </div>
+      <div id="resultado-regras"></div>
     </section>
 
     <!-- ABA GARANTIA (Fase G2): regras de data/garantia.js, montadas a partir dos livretos Kia -->

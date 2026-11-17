@@ -1,4 +1,4 @@
-# Divergências — gerado em 13/11/2026
+# Divergências — gerado em 17/11/2026
 
 Compara o **total recalculado pelo detalhe** com o **VALOR TABELA KIA** (ou TOTAL) da planilha.
 

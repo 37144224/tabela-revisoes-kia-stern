@@ -4,10 +4,11 @@
 > Para uma conversa nova: leia este arquivo primeiro, depois o [CLAUDE.md](CLAUDE.md) (regras) e, se precisar do porquê de alguma decisão, o [PRD.md](PRD.md).
 
 ## 1. O que é
-Página web de consulta para o agendamento e os consultores da Stern Kia, com três abas:
+Página web de consulta para o agendamento e os consultores da Stern Kia, com quatro abas:
 - **Revisões:** valor de cada revisão (Tabela Stern), itens, forma de pagamento, revisão indicada (km + data), comparar modelos, pré-orçamento e "Montar orçamento" (agregados, filtro do A/C, item avulso, desconto, texto ao cliente e e-mail ao agendamento).
 - **Garantia:** regras dos livretos Kia por modelo e item, vigência pela data da venda e km, aviso das revisões em dia, texto ao cliente e o aviso em destaque do boletim CS 020/25 (peças de reposição).
 - **Luzes de advertência:** 64 luzes por categoria de motorização (elétrico, híbrido, flex/gasolina, diesel), cada uma com o símbolo do próprio manual, significado, orientação e texto ao cliente.
+- **Regras de revisão** (17/11/2026, PRD 3.14): texto de intervalo e tolerância por tipo de veículo (elétrico, híbrido/combustão, Bongo K2500 até 2025 e a partir de 2026); com o modelo digitado mostra só o dele. **Feita no PC, falta a conferência do Leonardo e publicar.**
 
 **Link:** https://37144224.github.io/tabela-revisoes-kia-stern/ · **PIN:** 4 dígitos, fica com o Leonardo (no código só existe o hash; não escrever o número em arquivo do repositório, que é público).
 **Repositório:** `37144224/tabela-revisoes-kia-stern` (público, branch `main`, GitHub Pages). Publicar = commit + `git push` (o Claude faz quando o Leonardo pede); o site atualiza em 1–2 min; nos PCs, Ctrl+F5.

@@ -1,6 +1,6 @@
 # CLAUDE.md — Tabela de Revisões e Tira-dúvidas de Garantia Kia (Stern)
 
-Página web com três abas, usada pelo agendamento e pelos consultores da Stern: **Revisões** (consulta e orçamento), **Garantia** (regras oficiais da Kia tiradas dos livretos e boletins) e **Luzes de advertência** (símbolo, significado e orientação).
+Página web com quatro abas, usada pelo agendamento e pelos consultores da Stern: **Revisões** (consulta e orçamento), **Garantia** (regras oficiais da Kia tiradas dos livretos e boletins), **Luzes de advertência** (símbolo, significado e orientação) e **Regras de revisão** (texto de intervalo e tolerância por tipo de veículo, em `garantia.json` → `regras_revisao`).
 **Publicada e em uso desde 13/11/2026:** https://37144224.github.io/tabela-revisoes-kia-stern/ (repositório público `37144224/tabela-revisoes-kia-stern`, GitHub Pages; publicar = commit + push, só quando o Leonardo pedir).
 **Comece por:** [ESTADO-DO-PROJETO.md](ESTADO-DO-PROJETO.md) (situação, pendências e rotina de atualização). Requisitos: [PRD.md](PRD.md). Fases: [plan.md](plan.md).
 

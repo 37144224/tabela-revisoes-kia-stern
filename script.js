@@ -185,6 +185,7 @@ document.addEventListener("keydown", e => {
   if ((e.ctrlKey && e.key.toLowerCase() === "k") || (e.key === "/" && foraDeCampo)) {
     e.preventDefault();
     const alvo = !document.getElementById("painel-luzes").hidden ? document.getElementById("campo-luz-modelo")
+      : !document.getElementById("painel-regras").hidden ? document.getElementById("campo-regra-modelo")
       : !document.getElementById("painel-garantia").hidden ? document.getElementById("campo-garantia") : campo;
     alvo.focus(); alvo.select();
   }
@@ -786,7 +787,8 @@ function trocaAba(nome) {
   document.getElementById("painel-revisoes").hidden = nome !== "revisoes";
   document.getElementById("painel-garantia").hidden = nome !== "garantia";
   document.getElementById("painel-luzes").hidden = nome !== "luzes";
-  const foco = { garantia: "campo-garantia", luzes: "campo-luz-modelo" }[nome];
+  document.getElementById("painel-regras").hidden = nome !== "regras";
+  const foco = { garantia: "campo-garantia", luzes: "campo-luz-modelo", regras: "campo-regra-modelo" }[nome];
   (foco ? document.getElementById(foco) : campo).focus();
 }
 document.querySelectorAll(".aba").forEach(b => b.addEventListener("click", () => trocaAba(b.dataset.aba)));
@@ -1049,7 +1051,7 @@ function atualizaG() {
   const rv = g.revisoes || {};
   const intervalo = rv.km ? `Revisões a cada ${numero.format(rv.km)} km${rv.meses ? ` ou ${rv.meses} meses, o que ocorrer primeiro` : ""}` +
     (rv.tol_km ? ` (tolerância ±${numero.format(rv.tol_km)} km ou ±${rv.tol_meses} mês)` : "") +
-    (rv.livreto ? `. ${fonteTexto(rv.livreto, rv.pag)}.` : ". Prazo em meses e tolerância não cadastrados (sem livreto).") : "";
+    (rv.livreto ? `. ${fonteTexto(rv.livreto, rv.pag)}.` : rv.tol_km ? ". Fonte: texto das regras de revisão (livreto não informado)." : ". Prazo em meses e tolerância não cadastrados (sem livreto).") : "";
   const aviso = gm.emDia === "nao" || gm.emDia === "naosei"
     ? `<div class="aviso-desconto"><strong>Garantia pode ser negada: verificar histórico de revisões.</strong><br>
         <em>"${escapa(rv.trecho || GAR.itens.find(i => i.id === "perda").trecho)}"</em>
@@ -1265,6 +1267,56 @@ campoLuzModelo.addEventListener("change", escolheModeloLuz);
 campoLuzModelo.addEventListener("keydown", e => { if (e.key === "Enter") { e.preventDefault(); escolheModeloLuz(); } });
 filtroLuz.addEventListener("input", () => { if (modeloLuz) mostraLuzes(); });
 document.getElementById("lista-modelos-luz").innerHTML = MODELOS.map(m => `<option value="${escapa(m.nome)}">`).join("");
+
+// ================= ABA REGRAS DE REVISÃO =================
+// Só consulta: o texto de cada regra vem de data/garantia.js (regras_revisao), copiado como foi enviado.
+// Sem modelo: mostra todos os textos. Com modelo: só o que vale para ele; sem texto → não inventa nada.
+const REGRAS = (GAR.regras_revisao || {}).regras || [];
+const campoRegra = document.getElementById("campo-regra-modelo");
+const resultadoRegras = document.getElementById("resultado-regras");
+
+// Qual regra vale para o modelo. Bongo K2700 não tem texto; K2500 usa o ano-modelo (lista "modelos" da regra).
+function regraDoModelo(m) {
+  const porId = id => REGRAS.find(r => r.id === id);
+  if (/BONGO/i.test(m.nome)) {
+    if (/2700/.test(m.nome)) return null;
+    return REGRAS.find(r => (r.modelos || []).includes(m.id)) || porId("bongo_ate_2025");
+  }
+  if (m.motorizacao === "eletrico") return porId("eletrico");
+  if (["hibrido", "combustao", "diesel"].includes(m.motorizacao)) return porId("combustao");  // diesel não-Bongo = combustão
+  return null;
+}
+
+function cartaoRegra(r, nota) {
+  return `<article class="luz-detalhe">
+    <h2 class="luz-titulo">${escapa(r.titulo)}</h2>
+    <p class="g-cond">${escapa(r.texto)}</p>
+    <p class="g-fonte">Resumo: a cada ${numero.format(r.km)} km ou ${r.meses} meses (o que ocorrer primeiro) · tolerância de ${numero.format(r.tol_km)} km ou ${r.tol_dias} dias, para mais ou para menos${nota ? `<br>${escapa(nota)}` : ""}</p>
+  </article>`;
+}
+
+// completaCampo só no "change"/Enter: reescrever o campo a cada letra impedia apagar ou voltar a digitação
+function mostraRegras(completaCampo = false) {
+  const txt = normaliza(campoRegra.value);
+  const m = txt ? (MODELOS.find(x => normaliza(x.nome) === txt) || busca(txt)[0]) : null;
+  const rodape = `<p class="g-nota">${SUJEITO} Fonte: ${escapa((GAR.regras_revisao || {}).fonte || "")}.</p>`;
+  if (!txt || !m) {
+    resultadoRegras.innerHTML = (txt ? `<p class="g-nada">Modelo não encontrado. Confira o nome ou veja todas as regras abaixo.</p>` : "") +
+      REGRAS.map(r => cartaoRegra(r)).join("") + rodape;
+    return;
+  }
+  if (completaCampo === true) campoRegra.value = m.nome;
+  const r = regraDoModelo(m);
+  const cab = `<section class="modelo"><div><h1 class="modelo-nome">${escapa(m.nome)}</h1><div class="modelo-anos">${anosTexto(m)}</div></div></section>`;
+  resultadoRegras.innerHTML = cab + (r
+    ? cartaoRegra(r, m.motorizacao === "diesel" && r.nota_diesel ? r.nota_diesel : "")
+    : `<section class="mensagem"><h2>Regra não encontrada no texto</h2><p>${NAO_ENCONTRADO}</p></section>`) + rodape;
+}
+campoRegra.addEventListener("input", () => mostraRegras());
+campoRegra.addEventListener("change", () => mostraRegras(true));
+campoRegra.addEventListener("keydown", e => { if (e.key === "Enter") { e.preventDefault(); mostraRegras(true); } });
+document.getElementById("lista-modelos-regra").innerHTML = MODELOS.map(m => `<option value="${escapa(m.nome)}">`).join("");
+mostraRegras();
 
 // ---------- PIN (Fase 4, PRD 3.1) ----------
 // O repositório é público: o PIN não fica escrito aqui, só uma "impressão digital" (hash FNV-1a) dele.

@@ -471,9 +471,11 @@
    ],
    "revisoes": {
     "km": 20000,
-    "meses": null,
+    "meses": 12,
     "livreto": null,
-    "obs": "intervalo de km da tabela de revisões; prazo em meses e tolerância não constam (sem livreto)"
+    "obs": "intervalo, prazo e tolerância do texto das regras de revisão (17/11/2026); livreto e página não informados",
+    "tol_km": 1500,
+    "tol_meses": 1
    },
    "livreto": null,
    "bateria_alta": {
@@ -497,9 +499,11 @@
    ],
    "revisoes": {
     "km": 20000,
-    "meses": null,
+    "meses": 12,
     "livreto": null,
-    "obs": "intervalo de km da tabela de revisões; prazo em meses e tolerância não constam (sem livreto)"
+    "obs": "intervalo, prazo e tolerância do texto das regras de revisão (17/11/2026); livreto e página não informados",
+    "tol_km": 1500,
+    "tol_meses": 1
    },
    "livreto": null,
    "bateria_alta": {
@@ -1481,5 +1485,50 @@
     "Peças originais adquiridas e instaladas na Rede \"Kia\" possuem 12 meses de garantia, inclusa a garantia legal de 90 dias, a contar da data de emissão da NF do serviço de instalação, desde que apresentem defeito de fabricação ou montagem."
    ]
   }
- ]
+ ],
+ "regras_revisao": {
+  "fonte": "Texto das regras de revisão enviado pelo Leonardo em 17/11/2026 (livreto e página não informados)",
+  "regras": [
+   {
+    "id": "eletrico",
+    "titulo": "Veículos elétricos",
+    "km": 20000,
+    "meses": 12,
+    "tol_km": 1500,
+    "tol_dias": 30,
+    "texto": "Para veículos elétricos, a primeira revisão deve ser executada com 20.000 km ou 12 (doze) meses da data da compra, prevalecendo o que primeiro ocorrer, e, a partir de então, igualmente a cada 20.000 km ou 12 meses, a contar da data da última revisão, também prevalecendo o que primeiro ocorrer. A faixa de tolerância para realização das manutenções periódicas é de 1.500 Km para mais ou para menos (no caso efetuada por quilometragem percorrida) ou de 30 dias para mais ou para menos (no caso efetuado por tempo decorrido)."
+   },
+   {
+    "id": "combustao",
+    "titulo": "Veículos híbridos e a combustão (gasolina, flex ou diesel)",
+    "km": 10000,
+    "meses": 12,
+    "tol_km": 1500,
+    "tol_dias": 30,
+    "texto": "Para veículos híbridos e a combustão, movidos a gasolina ou flex, a primeira revisão deve ser executada com 10.000 km ou 12 (doze) meses da data da compra, prevalecendo o que primeiro ocorrer, e, a partir de então, igualmente a cada 10.000 km ou 12 meses, a contar da data da última revisão, também prevalecendo o que primeiro ocorrer. A faixa de tolerância para realização das manutenções periódicas é de 1.500 Km para mais ou para menos (no caso efetuada por quilometragem percorrida) ou de 30 dias para mais ou para menos (no caso efetuado por tempo decorrido).",
+    "nota_diesel": "Diesel (exceto Bongo) segue a mesma regra da combustão (decisão do Leonardo, 17/11/2026)."
+   },
+   {
+    "id": "bongo_ate_2025",
+    "titulo": "Kia Bongo K2500 até o ano-modelo 2025",
+    "km": 10000,
+    "meses": 12,
+    "tol_km": 500,
+    "tol_dias": 30,
+    "texto": "Para o Kia Bongo K2500, até o ano-modelo 2025, a primeira revisão deve ser executada com 10.000 km ou 12 (doze) meses da data da compra, prevalecendo o que primeiro ocorrer, e, a partir de então, igualmente a cada 10.000 km ou 12 meses, a contar da data da última revisão, também prevalecendo o que primeiro ocorrer. A faixa de tolerância para realização das manutenções periódicas é de 500 Km para mais ou para menos (no caso efetuada por quilometragem percorrida) ou de 30 dias para mais ou para menos (no caso efetuado por tempo decorrido)."
+   },
+   {
+    "id": "bongo_2026",
+    "titulo": "Kia Bongo K2500 a partir do ano-modelo 2026",
+    "km": 15000,
+    "meses": 12,
+    "tol_km": 500,
+    "tol_dias": 30,
+    "modelos": [
+     "bongo-k2500-4x4-c-ac-pu-2"
+    ],
+    "texto": "Para o Kia Bongo K2500, a partir do ano-modelo 2026, a primeira revisão deve ser executada com 15.000 km ou 12 (doze) meses da data da compra, prevalecendo o que primeiro ocorrer, e, a partir de então, igualmente a cada 15.000 km ou 12 meses, a contar da data da última revisão, também prevalecendo o que primeiro ocorrer. A faixa de tolerância para realização das manutenções periódicas é de 500 Km para mais ou para menos (no caso efetuada por quilometragem percorrida) ou de 30 dias para mais ou para menos (no caso efetuado por tempo decorrido)."
+   }
+  ]
+ }
 }
