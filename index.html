@@ -29,6 +29,7 @@
       <button class="aba" role="tab" data-aba="garantia" aria-selected="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-3z"/><path d="M9 12l2 2 4-4"/></svg><span>Garantia</span></button>
       <button class="aba" role="tab" data-aba="luzes" aria-selected="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4l9 16H3L12 4z"/><path d="M12 10v4M12 17h.01"/></svg><span>Luzes de advertência</span></button>
       <button class="aba" role="tab" data-aba="regras" aria-selected="false"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M9 15l2 2 4-4"/></svg><span>Regras de revisão</span></button>
+      <button class="aba" role="tab" data-aba="tpms" aria-selected="false"><img src="assets/luzes/sor-pneu.png" alt="" aria-hidden="true"><span>Sistema TPMS</span></button>
     </nav>
     <div class="lado-rodape">
       <img class="logo-service" src="assets/logos/kia-service-branco.png" alt="Kia Service">
@@ -91,6 +92,11 @@
         </div>
       </div>
       <div id="resultado-regras"></div>
+    </section>
+
+    <!-- ABA SISTEMA TPMS: texto de data/garantia.js (tpms), vale para todos os modelos equipados; sem busca de modelo -->
+    <section id="painel-tpms" class="painel" hidden>
+      <div id="resultado-tpms"></div>
     </section>
 
     <!-- ABA GARANTIA (Fase G2): regras de data/garantia.js, montadas a partir dos livretos Kia -->

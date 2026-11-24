@@ -1530,5 +1530,104 @@
     "texto": "Para o Kia Bongo K2500, a partir do ano-modelo 2026, a primeira revisão deve ser executada com 15.000 km ou 12 (doze) meses da data da compra, prevalecendo o que primeiro ocorrer, e, a partir de então, igualmente a cada 15.000 km ou 12 meses, a contar da data da última revisão, também prevalecendo o que primeiro ocorrer. A faixa de tolerância para realização das manutenções periódicas é de 500 Km para mais ou para menos (no caso efetuada por quilometragem percorrida) ou de 30 dias para mais ou para menos (no caso efetuado por tempo decorrido)."
    }
   ]
+ },
+ "tpms": {
+  "titulo": "Sistema TPMS: luz de pressão dos pneus",
+  "aviso": "Vale para os carros equipados com o sistema TPMS (o manual diz \"se equipado\"). Sujeito à análise técnica da Kia.",
+  "abertura": "Olá! Segue, bem explicadinho, o que fazer quando acende a luz de pressão dos pneus do seu Kia.",
+  "blocos": [
+   {
+    "titulo": "O que é essa luz?",
+    "tipo": "texto",
+    "itens": [
+     "Muitos Kia têm um sistema chamado TPMS, que vigia o ar dos pneus. Quando um ou mais pneus estão com pouco ar, acende no painel a luz de pressão baixa dos pneus. Em alguns modelos aparece também uma mensagem na tela e acende o desenho do pneu que está baixo."
+    ]
+   },
+   {
+    "titulo": "Acendeu a luz. O que fazer, passo a passo",
+    "tipo": "passos",
+    "itens": [
+     "Diminua a velocidade, evite curvas fechadas e mantenha mais distância do carro da frente. Com pneu baixo o carro fica menos firme e demora mais para frear.",
+     "Vá com calma até um posto de calibragem o mais rápido possível. Dirigir com pneu com pouco ar esquenta o pneu e pode estragá-lo.",
+     "Procure a etiqueta de pressão dos pneus, que fica na porta do motorista (abra a porta e olhe na lateral). Ela mostra quantas libras (psi) ou bar cada pneu precisa.",
+     "Peça para calibrar os quatro pneus e o estepe com um medidor (calibrador) de boa qualidade. Não dá para saber se o pneu está baixo só olhando.",
+     "Calibre com o pneu frio: carro parado há pelo menos 3 horas, ou que rodou menos de 1,6 km. Pneu quente mostra pressão mais alta do que a real. Nunca tire ar de pneu quente.",
+     "Depois de calibrar, a luz apaga sozinha. A Kia avisa que às vezes ela não apaga na hora, porque o calibrador do posto tem uma pequena margem de erro. Se a luz não apagar, passe em uma concessionária Kia."
+    ]
+   },
+   {
+    "titulo": "Quando NÃO é defeito",
+    "tipo": "texto",
+    "itens": [
+     "No frio, ou quando você viaja de um lugar quente para um frio (ou o contrário), a pressão do pneu muda e a luz pode acender. Confira e ajuste a pressão."
+    ]
+   },
+   {
+    "titulo": "Quando procurar a concessionária Kia",
+    "tipo": "lista",
+    "itens": [
+     "A luz pisca por cerca de 1 minuto e depois fica acesa direto: o problema é no sistema do sensor, e não só no ar do pneu.",
+     "A luz não acende por 3 segundos quando você liga o carro.",
+     "A luz que mostra a posição do pneu continua acesa.",
+     "Você teve pneu furado ou trocou por estepe: leve à concessionária. Depois de rodar cerca de 10 minutos acima de 25 km/h, a luz de defeito do sensor pode ficar acesa, porque o estepe, em alguns modelos, não tem sensor."
+    ]
+   },
+   {
+    "titulo": "Dica importante",
+    "tipo": "texto",
+    "itens": [
+     "O sistema avisa quando o pneu está muito baixo, mas não avisa de prego ou dano repentino, e não substitui a calibragem. Confira a calibragem dos pneus toda semana (recomendação do manual). Se usar selante para furo, use o aprovado pela Kia: o líquido comum pode estragar o sensor."
+    ]
+   }
+  ],
+  "fonte_base": "Texto conferido no manual do proprietário da Sportage MHEV: págs. 7-8 a 7-12 (Sistema de Monitoramento da Pressão dos Pneus), 8-24 e 8-25 (cuidados com os pneus). As frases principais (pneu frio, luz piscando, concessionária) aparecem iguais nos manuais abaixo; o trecho do estepe não está nos dois manuais do Stonic.",
+  "fontes": [
+   {
+    "manual": "Sportage MHEV",
+    "paginas": "7-8 a 7-12 (PDF 348 a 352); 8-24 e 8-25 (PDF 386 e 387)"
+   },
+   {
+    "manual": "Carnival (KA4)",
+    "paginas": "PDF 568 a 573"
+   },
+   {
+    "manual": "Grand Carnival",
+    "paginas": "PDF 392 a 398"
+   },
+   {
+    "manual": "Cerato",
+    "paginas": "PDF 399 a 404"
+   },
+   {
+    "manual": "Niro HEV",
+    "paginas": "PDF 339 a 343"
+   },
+   {
+    "manual": "Rio",
+    "paginas": "PDF 332 a 336"
+   },
+   {
+    "manual": "Sorento",
+    "paginas": "PDF 462 a 468"
+   },
+   {
+    "manual": "Sportage",
+    "paginas": "PDF 493 a 499"
+   },
+   {
+    "manual": "Stinger",
+    "paginas": "PDF 446 a 452"
+   },
+   {
+    "manual": "Stonic",
+    "paginas": "PDF 454 a 457"
+   },
+   {
+    "manual": "Stonic 2025",
+    "paginas": "PDF 416 a 419"
+   }
+  ],
+  "sem_secao": "Sem a seção do TPMS nos manuais: Soul, Bongo e Bongo 4x4 (neste, só \"para Taiwan\"). Ainda não verificados (manual em imagem ou sem manual): EV5, EV9, Tasman e Carnival híbrida.",
+  "obs": "O manual não traz procedimento de reset do sensor: a luz apaga sozinha quando a pressão volta ao correto. A pressão de cada modelo está na etiqueta da porta do motorista (não colocar números na tela)."
  }
 }

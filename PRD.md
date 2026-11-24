@@ -1,5 +1,5 @@
 # PRD — Tabela de Revisões e Tira-dúvidas de Garantia Kia (Stern)
-**Versão:** 1.6 (24/11/2026: visual v2, turquesa e cartões em relevo, seção 3.15) · 1.5 (17/11/2026: aba Regras de revisão, seção 3.14) · 1.4 (12/11/2026: aba renomeada para Luzes de advertência; luzes por categoria de motorização, seção 3.13) · 1.3 (11/11/2026: aba Luzes do painel, seção 3.13; terceira aba em 3.10) · 1.2 (11/11/2026: atualização pelo Leonardo, sem pasta compartilhada) · 1.1 · v1.0 aprovada em 06/11/2026; **v1.1 (garantia + nomes do NBS) aprovada em 09/11/2026** · **Dono:** Leonardo
+**Versão:** 1.7 (24/11/2026: aba Sistema TPMS, seção 3.16) · 1.6 (24/11/2026: visual v2, turquesa e cartões em relevo, seção 3.15) · 1.5 (17/11/2026: aba Regras de revisão, seção 3.14) · 1.4 (12/11/2026: aba renomeada para Luzes de advertência; luzes por categoria de motorização, seção 3.13) · 1.3 (11/11/2026: aba Luzes do painel, seção 3.13; terceira aba em 3.10) · 1.2 (11/11/2026: atualização pelo Leonardo, sem pasta compartilhada) · 1.1 · v1.0 aprovada em 06/11/2026; **v1.1 (garantia + nomes do NBS) aprovada em 09/11/2026** · **Dono:** Leonardo
 
 ## 1. Visão
 Um link aberto o dia todo no navegador do PC de trabalho do **agendamento** e dos **consultores** (o celular é uso raro). Durante a ligação, o funcionário digita o modelo e vê na hora o **valor da revisão pela Tabela Stern**, com a lista de itens e a foto do modelo. Ele monta o orçamento com extras e desconto e copia um texto pronto para o cliente.
@@ -80,7 +80,7 @@ Texto completo, pronto para WhatsApp ou para ler ao telefone:
 - "Tabela atualizada em DD/MM/AAAA" e "Regras de garantia atualizadas em DD/MM/AAAA".
 
 ### 3.10 Abas no topo
-- Quatro abas: **Revisões**, **Garantia**, **Luzes de advertência** e **Regras de revisão** (esta em 17/11/2026, seção 3.14; as três primeiras: decisão do Leonardo, 11/11/2026), cada uma com seu campo de busca. Só uma aparece por vez.
+- Cinco abas: **Revisões**, **Garantia**, **Luzes de advertência**, **Regras de revisão** e **Sistema TPMS** (esta em 17/11/2026, seção 3.14; as três primeiras: decisão do Leonardo, 11/11/2026), cada uma com seu campo de busca. Só uma aparece por vez.
 
 ### 3.11 Garantia — base de regras (decisão do Leonardo, 06/11/2026: opção A)
 - **Fonte oficial:** os **livretos em PDF** (manual do proprietário com a parte de garantia), juntados pela Cleidiane em `fonte/manuais/`. Quando dois livretos divergirem, vale o **mais recente**.
@@ -118,6 +118,12 @@ Texto completo, pronto para WhatsApp ou para ler ao telefone:
 - Troca só a aparência; nenhuma regra, valor ou texto muda. Substitui o "preto e branco, cantos retos" da v1 (09/11/2026).
 - Menu lateral preto noturno com ícone em cada aba (SVG próprio, sem biblioteca) e aba ativa em turquesa; busca grande com anel turquesa ao focar; cartão do modelo com luz vinda de cima e foto sobre fundo branco; cartões de revisão brancos em relevo com leve inclinação (somem com "reduzir movimento" do sistema); cartão da **revisão indicada** em destaque turquesa-escuro com texto branco; botões turquesa; mesmo estilo nas abas Garantia, Luzes e Regras de revisão.
 - Azul-petróleo continua só nos dashboards internos da diretoria.
+
+### 3.16 Sistema TPMS (pedido do Leonardo em 24/11/2026)
+- Aba **Sistema TPMS**, no fim do menu: explicação da luz de pressão baixa dos pneus, passo a passo para leigos, igual para todos os modelos equipados (sem escolher modelo), com botão "Copiar para o cliente".
+- **Fonte:** manual do proprietário Kia. Texto conferido no manual da Sportage MHEV (págs. 7-8 a 7-12 e 8-24/8-25); as frases principais aparecem iguais nos manuais de Carnival, Grand Carnival, Cerato, Niro HEV, Rio, Sorento, Sportage, Stinger, Stonic e Stonic 2025 (páginas listadas na tela). O trecho do estepe não consta nos manuais do Stonic.
+- **Regras:** nenhum número de pressão na tela (muda por modelo; a etiqueta fica na porta do motorista); o manual não traz procedimento de reset, só diz que a luz apaga quando a pressão volta ao correto; a tela diz "se equipado" e "Sujeito à análise técnica da Kia". Soul, Bongo e Bongo 4x4 (só "para Taiwan") não têm a seção; EV5, EV9, Tasman e Carnival híbrida ainda não foram verificados.
+- **Texto ao cliente:** só vai ao ar com a aprovação do Leonardo.
 
 ## 4. Atualização da tabela
 **Decisão do Leonardo (11/11/2026):** o projeto fica só no PC do Leonardo; não há pasta compartilhada.

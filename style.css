@@ -46,6 +46,8 @@ button { font-family: inherit; }
   transition: background .15s, color .15s, box-shadow .15s;
 }
 .aba svg { width: 22px; height: 22px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+/* TPMS usa o símbolo recortado do manual (amarelo), o mesmo da aba Luzes */
+.aba img { width: 34px; height: 30px; margin: 0 -6px; flex: none; object-fit: contain; filter: brightness(1.5) saturate(1.2); }
 .aba:hover { color: #fff; background: rgba(255, 255, 255, .07); }
 .aba:focus-visible { outline: 2px solid #7fd8ec; outline-offset: 2px; }
 .aba.ativa {
@@ -189,6 +191,12 @@ button { font-family: inherit; }
 .luz-detalhe .grupo { margin-top: 16px; }
 .luz-detalhe .botao { width: auto; padding: 0 28px; margin-top: 20px; }
 
+/* ---------- aba Sistema TPMS ---------- */
+.tpms-corpo { max-width: 860px; }
+.tpms-lista { margin: 6px 0 14px; padding-left: 22px; font-size: 15px; line-height: 1.55; }
+.tpms-lista li { margin-bottom: 8px; }
+.tpms-fontes { font-size: 14px; }
+
 /* ---------- aviso importante (boletim Kia) no topo da aba Garantia ---------- */
 .aviso-importante { border-radius: var(--raio); background: #fff; box-shadow: var(--relevo-alto), inset 8px 0 0 var(--noite); padding: 16px 20px 16px 28px; margin-bottom: 26px; max-width: 980px; }
 .aviso-cab { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; font-size: 17px; }
@@ -331,7 +339,7 @@ button { font-family: inherit; }
   .logo-stern { width: 80px; margin: 0 16px 0 0; }
   .abas { flex-direction: row; padding: 0; }
   .aba { padding: 10px 12px; font-size: 14px; }
-  .aba svg { display: none; }
+  .aba svg, .aba img { display: none; }
   .lado-rodape { display: none; }
   .conteudo { padding: 20px 16px; }
   .rev-topo { grid-template-columns: 1fr auto; }

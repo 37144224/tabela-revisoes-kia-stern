@@ -788,6 +788,7 @@ function trocaAba(nome) {
   document.getElementById("painel-garantia").hidden = nome !== "garantia";
   document.getElementById("painel-luzes").hidden = nome !== "luzes";
   document.getElementById("painel-regras").hidden = nome !== "regras";
+  document.getElementById("painel-tpms").hidden = nome !== "tpms";
   const foco = { garantia: "campo-garantia", luzes: "campo-luz-modelo", regras: "campo-regra-modelo" }[nome];
   (foco ? document.getElementById(foco) : campo).focus();
 }
@@ -1317,6 +1318,46 @@ campoRegra.addEventListener("change", () => mostraRegras(true));
 campoRegra.addEventListener("keydown", e => { if (e.key === "Enter") { e.preventDefault(); mostraRegras(true); } });
 document.getElementById("lista-modelos-regra").innerHTML = MODELOS.map(m => `<option value="${escapa(m.nome)}">`).join("");
 mostraRegras();
+
+// ================= ABA SISTEMA TPMS =================
+// Texto de data/garantia.js (tpms), igual para todos os modelos equipados. A tela e a mensagem ao cliente
+// saem dos mesmos blocos, para nunca divergirem. Sem número de pressão: ele muda por modelo (etiqueta da porta).
+const TPMS = GAR.tpms;
+function textoTpmsCliente() {
+  const partes = [TPMS.abertura, ""];
+  TPMS.blocos.forEach(b => {
+    partes.push(`*${b.titulo}*`);
+    b.itens.forEach((it, i) => partes.push(b.tipo === "passos" ? `${i + 1}. ${it}` : b.tipo === "lista" ? `• ${it}` : it));
+    partes.push("");
+  });
+  partes.push("(Fonte: manual do proprietário Kia, seção Sistema de Monitoramento da Pressão dos Pneus – TPMS.) Sujeito à análise técnica da Kia.", "", "Stern Kia – Pós-venda", LINHA_AGENDAMENTO);
+  return partes.join("\n");
+}
+function mostraTpms() {
+  const alvo = document.getElementById("resultado-tpms");
+  if (!TPMS) { alvo.innerHTML = `<section class="mensagem"><h2>Texto do TPMS não cadastrado</h2><p>${NAO_ENCONTRADO}</p></section>`; return; }
+  const bloco = b => `<div class="grupo"><span>${escapa(b.titulo)}</span></div>` + (b.tipo === "passos"
+    ? `<ol class="tpms-lista">${b.itens.map(i => `<li>${escapa(i)}</li>`).join("")}</ol>`
+    : b.tipo === "lista" ? `<ul class="tpms-lista">${b.itens.map(i => `<li>${escapa(i)}</li>`).join("")}</ul>`
+    : b.itens.map(i => `<p class="g-cond">${escapa(i)}</p>`).join(""));
+  alvo.innerHTML = `
+    <section class="modelo"><div><h1 class="modelo-nome">${escapa(TPMS.titulo)}</h1>
+      <div class="modelo-anos">${escapa(TPMS.aviso)}</div></div></section>
+    <article class="luz-detalhe tpms-corpo">
+      ${TPMS.blocos.map(bloco).join("")}
+      <button type="button" class="botao" id="tpms-copiar">Copiar para o cliente</button>
+    </article>
+    <article class="luz-detalhe tpms-corpo">
+      <div class="grupo"><span>Onde está no manual</span></div>
+      <p class="g-fonte">${escapa(TPMS.fonte_base)}</p>
+      <ul class="tpms-lista tpms-fontes">${TPMS.fontes.map(f => `<li><strong>${escapa(f.manual)}:</strong> ${escapa(f.paginas)}</li>`).join("")}</ul>
+      <p class="g-fonte">${escapa(TPMS.sem_secao)}</p>
+      <p class="g-fonte">${escapa(TPMS.obs)}</p>
+      <p class="g-nota">${SUJEITO}</p>
+    </article>`;
+  document.getElementById("tpms-copiar").addEventListener("click", () => abreJanela(textoTpmsCliente(), "SISTEMA TPMS"));
+}
+mostraTpms();
 
 // ---------- PIN (Fase 4, PRD 3.1) ----------
 // O repositório é público: o PIN não fica escrito aqui, só uma "impressão digital" (hash FNV-1a) dele.
