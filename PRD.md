@@ -1,5 +1,5 @@
 # PRD — Tabela de Revisões e Tira-dúvidas de Garantia Kia (Stern)
-**Versão:** 1.5 (17/11/2026: aba Regras de revisão, seção 3.14) · 1.4 (12/11/2026: aba renomeada para Luzes de advertência; luzes por categoria de motorização, seção 3.13) · 1.3 (11/11/2026: aba Luzes do painel, seção 3.13; terceira aba em 3.10) · 1.2 (11/11/2026: atualização pelo Leonardo, sem pasta compartilhada) · 1.1 · v1.0 aprovada em 06/11/2026; **v1.1 (garantia + nomes do NBS) aprovada em 09/11/2026** · **Dono:** Leonardo
+**Versão:** 1.6 (24/11/2026: visual v2, turquesa e cartões em relevo, seção 3.15) · 1.5 (17/11/2026: aba Regras de revisão, seção 3.14) · 1.4 (12/11/2026: aba renomeada para Luzes de advertência; luzes por categoria de motorização, seção 3.13) · 1.3 (11/11/2026: aba Luzes do painel, seção 3.13; terceira aba em 3.10) · 1.2 (11/11/2026: atualização pelo Leonardo, sem pasta compartilhada) · 1.1 · v1.0 aprovada em 06/11/2026; **v1.1 (garantia + nomes do NBS) aprovada em 09/11/2026** · **Dono:** Leonardo
 
 ## 1. Visão
 Um link aberto o dia todo no navegador do PC de trabalho do **agendamento** e dos **consultores** (o celular é uso raro). Durante a ligação, o funcionário digita o modelo e vê na hora o **valor da revisão pela Tabela Stern**, com a lista de itens e a foto do modelo. Ele monta o orçamento com extras e desconto e copia um texto pronto para o cliente.
@@ -113,6 +113,11 @@ Texto completo, pronto para WhatsApp ou para ler ao telefone:
 - **Textos** (copiados como o Leonardo enviou, em `garantia.json` → `regras_revisao`): elétricos (**só EV5 e EV9**) 20.000 km ou 12 meses, ±1.500 km ou ±30 dias; híbridos e combustão 10.000 km ou 12 meses, ±1.500 km ou ±30 dias; Bongo K2500 até o ano-modelo 2025, 10.000 km ou 12 meses, ±500 km ou ±30 dias; Bongo K2500 a partir do ano-modelo 2026, 15.000 km ou 12 meses, ±500 km ou ±30 dias.
 - **Diesel exceto Bongo** (Tasman, Sorento 2.2, Mohave) segue a regra da combustão (decisão do Leonardo, 17/11/2026). **Bongo K2700** não tem texto: "Não encontrado no manual: consultar a garantia (Cleidiane)".
 - Livreto e página do texto não foram informados; a tela cita "texto enviado pelo Leonardo em 17/11/2026". EV5 e EV9 passam a usar prazo e tolerância dessa regra na revisão indicada.
+
+### 3.15 Visual v2 (pedido do Leonardo em 24/11/2026)
+- Troca só a aparência; nenhuma regra, valor ou texto muda. Substitui o "preto e branco, cantos retos" da v1 (09/11/2026).
+- Menu lateral preto noturno com ícone em cada aba (SVG próprio, sem biblioteca) e aba ativa em turquesa; busca grande com anel turquesa ao focar; cartão do modelo com luz vinda de cima e foto sobre fundo branco; cartões de revisão brancos em relevo com leve inclinação (somem com "reduzir movimento" do sistema); cartão da **revisão indicada** em destaque turquesa-escuro com texto branco; botões turquesa; mesmo estilo nas abas Garantia, Luzes e Regras de revisão.
+- Azul-petróleo continua só nos dashboards internos da diretoria.
 
 ## 4. Atualização da tabela
 **Decisão do Leonardo (11/11/2026):** o projeto fica só no PC do Leonardo; não há pasta compartilhada.

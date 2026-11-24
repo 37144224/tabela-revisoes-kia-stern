@@ -76,8 +76,8 @@ envios/                              ← cópias enviadas por e-mail, folhas de 
 
 **Livreto novo de garantia:** salvar em `fonte/manuais/`, o Claude lê e atualiza `data/garantia.json` (listando o que mudou), o Leonardo confere, publicar.
 
-## Visual (decisão do Leonardo, 09/11/2026)
-- Sistema **"Stern Kia"** (artefato de design, Kia Web Style Guide): Preto Noturno `#05141f` + branco, cantos retos, hierarquia pela opacidade do texto. Azul-petróleo NÃO (só dashboards da diretoria).
+## Visual (09/11/2026; versão 2 decidida pelo Leonardo em 24/11/2026)
+- Sistema **"Stern Kia" v2**: Preto Noturno `#05141f` no menu + **turquesa** de destaque (`--turq` `#0b7a96`, `--turq-vivo` `#12a0bd` só para foco e brilho), cartões brancos em relevo (sombra + filete de luz) sobre fundo azul-acinzentado `#e9eff3`, cantos arredondados (14 a 20 px), leve inclinação nos cartões de revisão. Variáveis em `:root` do `style.css`. Azul-petróleo continua só nos dashboards da diretoria. Texto branco só sobre turquesa escuro (contraste).
 - Layout **B**: menu lateral preto (logo Kia Stern vertical + abas + Kia Service no rodapé); revisões em lista, uma por linha; clique abre os itens (peças | mão de obra). Logos em `assets/logos/`, sem redesenhar.
 
 ## Verificação
